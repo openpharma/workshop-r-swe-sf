@@ -1,1 +1,1 @@
-Sitemap: https://kkmann.github.io/workshop-r-swe/sitemap.xml
+Sitemap: https://openpharma.github.io/workshop-r-swe/sitemap.xml
