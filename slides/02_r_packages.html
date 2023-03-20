@@ -413,9 +413,9 @@ Daniel
 <li>Packages provide a mechanism for loading optional code, data and documentation as needed.</li>
 <li>A library is a directory into which packages are installed.</li>
 <li><code>install.packages()</code> and <code>R CMD INSTALL</code> is used to install packages into the library.</li>
-<li><code>library()</code> is used to load packages from the library.
+<li><code>library()</code> is used to load and attach packages from the library.
 <ul>
-<li>This attaches the packages at the same time.</li>
+<li>attach means that the package is put in your <code>search</code> list (objects in the package can be used directly).</li>
 </ul></li>
 <li>Remember that package <span class="math inline">\(\neq\)</span> library!</li>
 </ul>
@@ -499,7 +499,8 @@ Daniel
 <li><em>Depends</em>:
 <ul>
 <li>Which R version users need to have at least.</li>
-<li>Packages that are loaded upon loading your package.</li>
+<li>Ideally don’t put any package here.</li>
+<li>Packages will be loaded and attached upon <code>library</code> your package.</li>
 </ul></li>
 <li><em>Imports</em>: Packages which you import functions, methods, classes from.</li>
 <li><em>Suggests</em>: Packages for documentation processing (<code>roxygen2</code>), running examples, tests (<code>testthat</code>), vignettes.</li>
@@ -514,7 +515,7 @@ Daniel
 </ul></li>
 <li>Assigns R objects, i.e.&nbsp;mostly functions, but could also be constant variables, data sets, etc.</li>
 <li>Should not have any side effects, i.e.&nbsp;avoid <code>require()</code>, <code>options()</code> etc.</li>
-<li>If certain code needs to be sourced first, use on top of file:</li>
+<li>If certain code needs to be sourced first, use on top of file (which will update the <code>Collate</code> field of <code>DESCRIPTION</code> automatically).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#' @include dependency.R</span></span>
@@ -763,6 +764,7 @@ Daniel
 <ul>
 <li>Runs <code>devtools::load_all()</code></li>
 <li>Roughly simulates what happens when package would be installed and loaded</li>
+<li><strong>Unexported</strong> objects and helpers under <code>tests</code> will also be available</li>
 <li>Key: much faster!</li>
 </ul></li>
 </ul>
@@ -788,6 +790,7 @@ Daniel
 <section id="references" class="title-slide slide level1 center">
 <h1>References</h1>
 <ul>
+<li><a href="https://r-pkgs.org/">R Packages (2e)</a></li>
 <li><a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a></li>
 <li><a href="https://adv-r.hadley.nz/rcpp.html">Rewriting R code in C++</a></li>
 <li><a href="https://www.youtube.com/watch?v=fiy32LjgGUE">Super technical details about R Markdown</a></li>
