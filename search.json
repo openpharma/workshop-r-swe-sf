@@ -235,14 +235,14 @@
     "href": "slides/03_workflow.html#example---step-3-packaging-4",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1  6.7748446\n2       1  1.3934552\n3       1  3.5942161\n4       1  9.7327887\n5       1 -3.9045792\n6       1  2.0478711\n7       1 -0.6858068\n8       1  6.3773068\n9       1  6.1893097\n10      1  2.8074641\n11      1  8.8860994\n12      1  8.1062886\n13      1  4.1740744\n14      1  9.9631910\n15      1  2.1868114\n16      1  5.6648774\n17      1  4.7707431\n18      1  4.7038347\n19      1  9.1496144\n20      1  4.2445484\n21      1  3.2620982\n22      1  9.1015483\n23      1  7.3479048\n24      1  5.7379820\n25      1  0.8160926\n26      1 -1.0767357\n27      1  0.2434635\n28      1  6.2636770\n29      1  4.6477341\n30      1  5.4016088\n31      1  6.3176314\n32      1  2.9855559\n33      1  5.4531887\n34      1  4.7140405\n35      1  5.1420653\n36      1  5.4792452\n37      1  9.7534992\n38      1  4.1095183\n39      1 10.4878059\n40      1  6.3623426\n41      1  5.6319056\n42      1  2.0705617\n43      1  7.0225462\n44      1  6.8683806\n45      1  3.3416561\n46      1  4.8959112\n47      1 -0.5719884\n48      1  2.4412419\n49      1  4.4095685\n50      1 10.6796919\n51      2  2.5387462\n52      2  0.9339682\n53      2 11.9642274\n54      2 10.1569680\n55      2  7.2806260\n56      2  3.7297502\n57      2 10.2227058\n58      2 13.4869407\n59      2  3.2341614\n60      2  9.6929103\n61      2  9.2080632\n62      2 11.0914572\n63      2  6.7546580\n64      2 11.2793122\n65      2  4.7227141\n66      2 13.2013804\n67      2  7.4338945\n68      2  7.0907654\n69      2  0.2237482\n70      2 11.0974097\n71      2  5.9247767\n72      2  3.7234299\n73      2  0.5300111\n74      2  6.6733798\n75      2  1.0178158\n76      2  9.4802700\n77      2  3.7706978\n78      2  4.1529494\n79      2  2.7386077\n80      2  8.9553120\n81      2 15.4364673\n82      2  2.0767321\n83      2  8.0025379\n84      2  8.9140123\n85      2  8.6686076\n86      2  6.0515608\n87      2  4.4688886\n88      2  8.6734869\n89      2  1.5233186\n90      2  6.6990648\n91      2  4.1091194\n92      2  7.4089783\n93      2  2.5270275\n94      2  1.2804636\n95      2  1.4801789\n96      2 13.3815481\n97      2  8.1437711\n98      2  4.5740816\n99      2  6.5935657\n100     2  3.2270266\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
+    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1  3.5470411\n2       1  5.8955069\n3       1  2.4794547\n4       1  6.8324721\n5       1 -0.6797570\n6       1  8.2454347\n7       1  3.6691238\n8       1  4.6719883\n9       1  7.9115757\n10      1  6.4336509\n11      1  8.7210478\n12      1  8.1679448\n13      1  0.7053360\n14      1  9.4350065\n15      1  5.3400461\n16      1  8.8764356\n17      1  3.6752153\n18      1  8.3399134\n19      1  5.8523484\n20      1  5.8196170\n21      1  3.4951250\n22      1  6.7551991\n23      1  5.0709850\n24      1  3.6317231\n25      1  0.7272725\n26      1  0.4829429\n27      1  6.1147708\n28      1  2.3124973\n29      1  1.8013353\n30      1  8.2483977\n31      1  5.5921139\n32      1  6.8803412\n33      1  7.3529438\n34      1  4.5451733\n35      1  3.2657329\n36      1 -0.4709715\n37      1  5.1746675\n38      1  1.3960575\n39      1  6.1006005\n40      1  7.3858874\n41      1  7.8906605\n42      1  2.8238735\n43      1  9.4089002\n44      1  6.6158588\n45      1  7.9885345\n46      1  6.8104771\n47      1 10.1242417\n48      1  2.5371270\n49      1  2.1657789\n50      1  7.9517157\n51      2  2.7487434\n52      2 -0.4370979\n53      2 13.8674058\n54      2  5.5133124\n55      2  6.3119769\n56      2  8.9660342\n57      2  8.0810526\n58      2 10.4969187\n59      2 13.2259506\n60      2  7.7540636\n61      2  8.9546755\n62      2  9.2117488\n63      2 11.2342487\n64      2  5.8447480\n65      2  6.6095585\n66      2  7.4159291\n67      2 11.4856246\n68      2  6.5009832\n69      2  3.5218815\n70      2  5.6925986\n71      2 -1.1646994\n72      2 10.4630471\n73      2  4.0601522\n74      2  3.9826805\n75      2  5.5681710\n76      2  0.7448951\n77      2  5.2244256\n78      2  5.8234534\n79      2  8.6695981\n80      2  8.7146454\n81      2  8.9145606\n82      2  9.2096580\n83      2  9.3724747\n84      2 13.2265067\n85      2  6.8190313\n86      2  6.4396875\n87      2  9.6104201\n88      2  3.1281561\n89      2 16.9418568\n90      2  5.9924185\n91      2 11.5912049\n92      2  8.9724457\n93      2 13.5155541\n94      2  6.3537816\n95      2  4.6392477\n96      2 -0.6552493\n97      2  8.6729856\n98      2  9.4649523\n99      2  5.1699314\n100     2 11.3733686\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
   },
   {
     "objectID": "slides/03_workflow.html#example---step-3-packaging-5",
     "href": "slides/03_workflow.html#example---step-3-packaging-5",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1  6.77 \n 2     1  1.39 \n 3     1  3.59 \n 4     1  9.73 \n 5     1 -3.90 \n 6     1  2.05 \n 7     1 -0.686\n 8     1  6.38 \n 9     1  6.19 \n10     1  2.81 \n# ℹ 90 more rows"
+    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1  3.55 \n 2     1  5.90 \n 3     1  2.48 \n 4     1  6.83 \n 5     1 -0.680\n 6     1  8.25 \n 7     1  3.67 \n 8     1  4.67 \n 9     1  7.91 \n10     1  6.43 \n# ℹ 90 more rows"
   },
   {
     "objectID": "slides/03_workflow.html#preparation",
@@ -257,181 +257,6 @@
     "title": "3 An R Package Engineering Workflow",
     "section": "Tasks",
     "text": "Tasks\n\nTask 1Task 2Task 3Task 4Task 5Task 6Task 7\n\n\nAdd assertions to improve the usability and user experience\n\n\n\n\n\n\nTip on assertions\n\n\nUse the package checkmate to validate input arguments.\n\n\n\nExample:\n\nplayWithAssertions <- function(n1) {\n  checkmate::assertInt(n1, lower = 1)\n}\nplayWithAssertions(-1)\n\nError in playWithAssertions(-1) : Assertion on ‘n1’ failed: Element 1 is not >= 1.\n\n\nAdd three additional results:\n\nn total,\ncreation time, and\nallocation ratio\n\n\n\n\n\n\n\nTip on creation time\n\n\nSys.time(), format(Sys.time(), '%B %d, %Y'), Sys.Date()\n\n\n\n\n\nAdd an additional result: t.test result\n\n\nAdd an optional alternative argument and pass it through t.test:\n\n\nalternative = c(\"two.sided\", \"less\", \"greater\")\n\n\n\nImplement the generic functions print and plot.\n\n\n\n\n\n\nTip on print\n\n\nUse the plot example function from above and extend it.\n\n\n\n\n\n\n\n\n\nTip on plot\n\n\nUse R base plot or ggplot2 to create a grouped boxplot of the fake data.\n\n\n\n\n\nOptional extra tasks:\n\nImplement the generic functions summary and cat\nImplement the function kable known from the package knitr as generic. Tip: use\n\nkable <- function(x) UseMethod(\"kable\")\n\nto define kable as generic\n\n\n\nOptional extra task1:\nDocument your functions with Roxygen2\n\n\nIf you are already familiar with Roxygen2"
-  },
-  {
-    "objectID": "slides/08_shiny.html#why-are-best-practices-important-for-shiny",
-    "href": "slides/08_shiny.html#why-are-best-practices-important-for-shiny",
-    "title": "8 Shiny Development",
-    "section": "Why are best practices important for Shiny?",
-    "text": "Why are best practices important for Shiny?\n\nShiny is in itself more complex than usual R code\nSmall apps can quickly evolve into giant apps\nIt seems first possible to test everything by hand, clicking around\nFor one-off, throw-away, one-screen Shiny apps that is ok\nHere we talk about best practices for more-than-once used Shiny apps"
-  },
-  {
-    "objectID": "slides/08_shiny.html#design-collaborate-with-your-customer",
-    "href": "slides/08_shiny.html#design-collaborate-with-your-customer",
-    "title": "8 Shiny Development",
-    "section": "Design: Collaborate with your customer",
-    "text": "Design: Collaborate with your customer\n\nInvolve your customer from the first ideation\nIdentify the roles and responsibilities\nMake reasonable assumptions about user skills and knowledge\nShow early wireframes, prototypes, beta versions and get feedback"
-  },
-  {
-    "objectID": "slides/08_shiny.html#ui-design-wireframing",
-    "href": "slides/08_shiny.html#ui-design-wireframing",
-    "title": "8 Shiny Development",
-    "section": "UI Design: Wireframing",
-    "text": "UI Design: Wireframing\n\nWireframing is powerful for aligning in customer discussions\nFocus on the vision and functionality\nKeep the UI as simple as possible\nKnow your target as developer during coding and review process\nWireframing software:\n\ndraw.io\nBalsamiq\nMockplus"
-  },
-  {
-    "objectID": "slides/08_shiny.html#ui-design-example-wireframe",
-    "href": "slides/08_shiny.html#ui-design-example-wireframe",
-    "title": "8 Shiny Development",
-    "section": "UI Design: Example wireframe",
-    "text": "UI Design: Example wireframe"
-  },
-  {
-    "objectID": "slides/08_shiny.html#architecture-minimize-code-in-shiny",
-    "href": "slides/08_shiny.html#architecture-minimize-code-in-shiny",
-    "title": "8 Shiny Development",
-    "section": "Architecture: Minimize code in Shiny",
-    "text": "Architecture: Minimize code in Shiny\n\nMinimize the code inside the Shiny UI/server\nBecause it will always be easier to test things that live outside of Shiny\nLet’s look at an example from the Mastering Shiny book"
-  },
-  {
-    "objectID": "slides/08_shiny.html#minimize-shiny-example-before",
-    "href": "slides/08_shiny.html#minimize-shiny-example-before",
-    "title": "8 Shiny Development",
-    "section": "Minimize Shiny Example: Before",
-    "text": "Minimize Shiny Example: Before\n\n\n\nserver <- function(input, output, session) {\n  data <- reactive({\n    req(input$file)\n    name <- input$file$name\n    path <- input$file$datapath\n    ext <- tools::file_ext(name)\n    switch(ext,\n      csv = vroom::vroom(path, \",\"),\n      tsv = vroom::vroom(path, \"\\t\"),\n      validate(\"Invalid file\")\n    )\n  })\n  \n  output$head <- renderTable({\n    head(data(), input$n)\n  })\n}\n\n\nThe ext and switch() part validates the file extension and then loads the file.\nIndependent of Shiny reactive!"
-  },
-  {
-    "objectID": "slides/08_shiny.html#minimize-shiny-example-after",
-    "href": "slides/08_shiny.html#minimize-shiny-example-after",
-    "title": "8 Shiny Development",
-    "section": "Minimize Shiny Example: After",
-    "text": "Minimize Shiny Example: After\n\n\n\nload_file <- function(name, path) {\n  ext <- tools::file_ext(name)\n  switch(ext,\n    csv = vroom::vroom(path, \",\"),\n    tsv = vroom::vroom(path, \"\\t\"),\n    validate(\"Invalid file\")\n  )\n}\n\nserver <- function(input, output, session) {\n  data <- reactive({\n    req(input$file)\n    load_file(\n      input$file$name, \n      input$file$datapath\n    )\n  })\n  \n  output$head <- renderTable({\n    head(data(), input$n)\n  })\n}\n\n\n\nnormal function, validate() will give a simple error outside of Shiny\nserver is much easier to read now and only half the size\ncan test load_file() interactively in console\ncan unit tests load_file() separately (business as usual)"
-  },
-  {
-    "objectID": "slides/08_shiny.html#minimize-shiny-separate-packages",
-    "href": "slides/08_shiny.html#minimize-shiny-separate-packages",
-    "title": "8 Shiny Development",
-    "section": "Minimize Shiny: Separate packages",
-    "text": "Minimize Shiny: Separate packages\n\nOn the macro level, this also applies to packages\nLarger Shiny apps will need to live as an R package\nThe business logic best lives in another R package\nThat package can then also be used without the Shiny interface\nYou can use {staged.dependencies} to allow “joint” pull requests\nExample from the NEST package ecosystem:\n\n{teal.modules.clinical} as the Shiny package\n{tern} as a business logic package"
-  },
-  {
-    "objectID": "slides/08_shiny.html#modules-building-blocks-of-the-shiny-app",
-    "href": "slides/08_shiny.html#modules-building-blocks-of-the-shiny-app",
-    "title": "8 Shiny Development",
-    "section": "Modules: Building blocks of the Shiny app",
-    "text": "Modules: Building blocks of the Shiny app\n\nShiny modules generalize functions\nAllows to coordinate UI and server code\nBreaks the app code into reusable and testable units\nLet’s look at an example from the Mastering Shiny book"
-  },
-  {
-    "objectID": "slides/08_shiny.html#modules-example-before",
-    "href": "slides/08_shiny.html#modules-example-before",
-    "title": "8 Shiny Development",
-    "section": "Modules Example: Before",
-    "text": "Modules Example: Before\n\n\n\n\n\n\n\n\n\nDifficult to understand what is going on\nNeed longer names / parentheses to differentiate tables / plots / variables in different places\nHard to test"
-  },
-  {
-    "objectID": "slides/08_shiny.html#modules-example-after",
-    "href": "slides/08_shiny.html#modules-example-after",
-    "title": "8 Shiny Development",
-    "section": "Modules Example: After",
-    "text": "Modules Example: After\n\n\n\n\n\n\n\n\n\nCan easily see the 4 different parts of the app\nNaming becomes simpler for vars / tables / plots\nCan reuse the modules separately in other apps\nCan test the modules separately"
-  },
-  {
-    "objectID": "slides/08_shiny.html#modules-considerations-similar-to-functions",
-    "href": "slides/08_shiny.html#modules-considerations-similar-to-functions",
-    "title": "8 Shiny Development",
-    "section": "Modules: Considerations similar to Functions",
-    "text": "Modules: Considerations similar to Functions\n\nWhat should be configurable?\n\nThink about reuse needs for module\n\nHow to organize arguments?\n\nUse consistent naming conventions\nKeep the right order of the arguments\n\nAvoid dependencies between arguments\n\nUse instead parameter object pattern\n\nHow to write good and maintainable code?\n\nFollow all the clean code rules from the previous chapter!"
-  },
-  {
-    "objectID": "slides/08_shiny.html#reactivity-1",
-    "href": "slides/08_shiny.html#reactivity-1",
-    "title": "8 Shiny Development",
-    "section": "Reactivity",
-    "text": "Reactivity\nWhen building production shiny apps you won’t get around learning reactivity.\nSome guidance:\n\nKeep user interface simple → often keeps reactivity simple → often less confusing to user\nResolve reactive inputs early on & validate generously\nDesign towards “stringy” reactivity graphs\nDon’t interrupt reactivity\nPreferably use\n\nreactive over reactiveValues\nobserveEvent over observe"
-  },
-  {
-    "objectID": "slides/08_shiny.html#reactivity-resolve-early-validate",
-    "href": "slides/08_shiny.html#reactivity-resolve-early-validate",
-    "title": "8 Shiny Development",
-    "section": "Reactivity: Resolve early & validate",
-    "text": "Reactivity: Resolve early & validate\n\nserver <- function(input, output, session) {\n  output$plot <- renderPlot({\n    # Resolve reactive values.\n    xvar <- input$xvar\n    yvar <- input$yvar\n    req(xvar, yvar)\n    \n    # Validate – is it likely that the plot will be meaningful?\n    validate(\n      need(xvar %in% names(df), glue(\"xvar \\\"{xvar}\\\" does not exist\")),\n      need(yvar %in% names(df), glue(\"yvar \\\"{yvar}\\\" does not exist\")),\n      need(nrow(df) > 3, \"too few data points for meaningful plot\")\n    )\n    \n    my_special_plot(df[[xvar]], df[[yvar]])\n  })\n}"
-  },
-  {
-    "objectID": "slides/08_shiny.html#reactivity-debugging-techniques",
-    "href": "slides/08_shiny.html#reactivity-debugging-techniques",
-    "title": "8 Shiny Development",
-    "section": "Reactivity: Debugging techniques",
-    "text": "Reactivity: Debugging techniques\n\nPut browser() into the functions\nJump into browser mode upon error with options(shiny.error = browser)\nJust put print() inside the reactives\nSave variables to global environment via .GlobalEnv$var <- var and then check\nSimplify things until it works and then go back"
-  },
-  {
-    "objectID": "slides/08_shiny.html#reactivity-graph-visualization",
-    "href": "slides/08_shiny.html#reactivity-graph-visualization",
-    "title": "8 Shiny Development",
-    "section": "Reactivity: Graph visualization",
-    "text": "Reactivity: Graph visualization\nTo understand the order of execution we can visualize the reactive graph, which describes how sources and endpoints are connected via conductors.\n\n\n\ne.g. input\n\ne.g. reactive\n\ne.g. output"
-  },
-  {
-    "objectID": "slides/08_shiny.html#reactivity-stringy-reactivity-graph",
-    "href": "slides/08_shiny.html#reactivity-stringy-reactivity-graph",
-    "title": "8 Shiny Development",
-    "section": "Reactivity: “Stringy” reactivity graph",
-    "text": "Reactivity: “Stringy” reactivity graph\n\n\nBad  Many edges, difficult to anticipate reactivity behaviour\n\nGood  This “stringy” reactivity graph is easier to understand and debug"
-  },
-  {
-    "objectID": "slides/08_shiny.html#testing-from-icecream-to-pyramid",
-    "href": "slides/08_shiny.html#testing-from-icecream-to-pyramid",
-    "title": "8 Shiny Development",
-    "section": "Testing: From Icecream to Pyramid",
-    "text": "Testing: From Icecream to Pyramid\n\n\nBad\n\n\ncannot always test manually\ncan easily introduce bugs\n\n\nGood\n\n\nmanual testing is reduced\nonly for “playing around”"
-  },
-  {
-    "objectID": "slides/08_shiny.html#testing-snapshot-tests-for-ui",
-    "href": "slides/08_shiny.html#testing-snapshot-tests-for-ui",
-    "title": "8 Shiny Development",
-    "section": "Testing: Snapshot tests for UI",
-    "text": "Testing: Snapshot tests for UI\n\n\n\ntest_that(\"myInput UI works\", {\n  input <- \"foo\"\n  set.seed(123)\n  datasets <- mock_datasets()\n  expect_snapshot(myInput(\n    \"my_test\",\n    datasets = datasets,\n    input = input\n  ))\n})\n\n\n\nShiny UI functions return shiny.tag objects which print as HTML code\nCan use snapshot tests to avoid accidental changes\nValue is limited\nCan create issues sometimes (non-reproducible hashes)"
-  },
-  {
-    "objectID": "slides/08_shiny.html#testing-shiny-server-tests",
-    "href": "slides/08_shiny.html#testing-shiny-server-tests",
-    "title": "8 Shiny Development",
-    "section": "Testing: Shiny server tests",
-    "text": "Testing: Shiny server tests\n\n\n\ntest_that(\"server works\", {\n  testServer(server, {\n    session$setInputs(...)\n\n    print(reactive1())\n    print(output$output1)\n    # etc\n\n    # To interactively play:\n    # browser()\n  \n    expect_equal(...)\n    # etc.\n  })\n})\n\n\n\nCode is run inside the server function\nCan access reactives, outputs, etc.\nSession object simulates user actions and time\nNote: need to insert browser()\nAlso works for module server functions\nLimitation: No UI, no JavaScript"
-  },
-  {
-    "objectID": "slides/08_shiny.html#testing-shiny-app-tests",
-    "href": "slides/08_shiny.html#testing-shiny-app-tests",
-    "title": "8 Shiny Development",
-    "section": "Testing: Shiny app tests",
-    "text": "Testing: Shiny app tests\n\n\n\nlibrary(shinytest2)\ntest_that(\"my app works\", {\n  app <- AppDriver$new(\n    app_dir = \"myAppDir\",\n    load_timeout = 1e5,\n    variant = platform_variant()\n  ) # app$get_logs()\n  app$wait_for_idle(timeout = 1e5)\n  app$get_screenshot()\n  app$set_inputs(name = \"Hadley\")\n  app$get_value(\"greeting\")\n  app$click(\"reset\")\n  app$get_value(\"greeting\")\n})\n\n\n\nUsually the app is defined in myAppDir/app.R\nNew app instance app from AppDriver$new()\nFull Shiny app in a headless chromote browser\nCan look into it via app$get_screenshot()\nWe can set inputs, get values of inputs/outputs, click buttons etc."
-  },
-  {
-    "objectID": "slides/08_shiny.html#security",
-    "href": "slides/08_shiny.html#security",
-    "title": "8 Shiny Development",
-    "section": "Security",
-    "text": "Security\n\nNever include passwords in your source code! Instead:\n\nUse environment variables\nOr use the {config} package\nAny files containing passwords must be added to .gitignore\n\nFor user authentication, start with existing solutions that are IT approved\n\nSee some best practices here and here.\n\nCode run in server() is isolated and cannot be seen by other users\n\nBut global environment, e.g. options, are shared across sessions\n\nCheck all user input via assertions or validations to avoid JavaScript hacking"
-  },
-  {
-    "objectID": "slides/08_shiny.html#packaging",
-    "href": "slides/08_shiny.html#packaging",
-    "title": "8 Shiny Development",
-    "section": "Packaging",
-    "text": "Packaging\nThe app should live in an R package. Why? Because we need:\n\nMetadata and dependencies: from DESCRIPTION + NAMESPACE files\nCode split into functions and modules: in files in the the R directory\nDocumentation via vignettes, README, and function and modules documentation\nAutomated tests: using testthat and the native R CMD check\nAble to share the package as tarball or via repositories for installation"
-  },
-  {
-    "objectID": "slides/08_shiny.html#deployment-options",
-    "href": "slides/08_shiny.html#deployment-options",
-    "title": "8 Shiny Development",
-    "section": "Deployment Options",
-    "text": "Deployment Options\n\nhttps://www.shinyapps.io/\n\nAllows for quick sharing of Shiny apps on the cloud\nFree version is good for quick tests or experiments\nSerious use needs subscription\n\nInternal Posit Connect is internal alternative\n\nMore features than above cloud service\nOne detail example: can use environment variables\nSee https://posit.co/products/open-source/shinyserver/ for the differences"
-  },
-  {
-    "objectID": "slides/08_shiny.html#deployment-process",
-    "href": "slides/08_shiny.html#deployment-process",
-    "title": "8 Shiny Development",
-    "section": "Deployment Process",
-    "text": "Deployment Process\nYou’ll need few extra steps:\n\nInstruct the server how to run the app in the package. Simplest is app.R in package root folder containing:\n\npkgload::load_all(\".\")\nmyApp() # = function in your package calling shinyApp()\n\nIgnore the app.R for package build\nInclude shiny and pkgload to the Imports in the DESCRIPTION file\nRun rsconnect::deployApp() to share the updated app version!"
   },
   {
     "objectID": "slides/02_r_packages.html#what-you-know-already",
@@ -616,6 +441,181 @@
     "text": "Let’s try this out now 😊\n\nSet up a new R package with a fancy name\nFill out the DESCRIPTION file\nInclude a new function\nAdd roxygen documentation\nExport the function to the namespace\nProduce the package documentation\nRun checks\nBuild the package"
   },
   {
+    "objectID": "slides/07_shiny.html#why-are-best-practices-important-for-shiny",
+    "href": "slides/07_shiny.html#why-are-best-practices-important-for-shiny",
+    "title": "7 Shiny Development",
+    "section": "Why are best practices important for Shiny?",
+    "text": "Why are best practices important for Shiny?\n\nShiny is in itself more complex than usual R code\nSmall apps can quickly evolve into giant apps\nIt seems first possible to test everything by hand, clicking around\nFor one-off, throw-away, one-screen Shiny apps that is ok\nHere we talk about best practices for more-than-once used Shiny apps"
+  },
+  {
+    "objectID": "slides/07_shiny.html#design-collaborate-with-your-customer",
+    "href": "slides/07_shiny.html#design-collaborate-with-your-customer",
+    "title": "7 Shiny Development",
+    "section": "Design: Collaborate with your customer",
+    "text": "Design: Collaborate with your customer\n\nInvolve your customer from the first ideation\nIdentify the roles and responsibilities\nMake reasonable assumptions about user skills and knowledge\nShow early wireframes, prototypes, beta versions and get feedback"
+  },
+  {
+    "objectID": "slides/07_shiny.html#ui-design-wireframing",
+    "href": "slides/07_shiny.html#ui-design-wireframing",
+    "title": "7 Shiny Development",
+    "section": "UI Design: Wireframing",
+    "text": "UI Design: Wireframing\n\nWireframing is powerful for aligning in customer discussions\nFocus on the vision and functionality\nKeep the UI as simple as possible\nKnow your target as developer during coding and review process\nWireframing software:\n\ndraw.io\nBalsamiq\nMockplus"
+  },
+  {
+    "objectID": "slides/07_shiny.html#ui-design-example-wireframe",
+    "href": "slides/07_shiny.html#ui-design-example-wireframe",
+    "title": "7 Shiny Development",
+    "section": "UI Design: Example wireframe",
+    "text": "UI Design: Example wireframe"
+  },
+  {
+    "objectID": "slides/07_shiny.html#architecture-minimize-code-in-shiny",
+    "href": "slides/07_shiny.html#architecture-minimize-code-in-shiny",
+    "title": "7 Shiny Development",
+    "section": "Architecture: Minimize code in Shiny",
+    "text": "Architecture: Minimize code in Shiny\n\nMinimize the code inside the Shiny UI/server\nBecause it will always be easier to test things that live outside of Shiny\nLet’s look at an example from the Mastering Shiny book"
+  },
+  {
+    "objectID": "slides/07_shiny.html#minimize-shiny-example-before",
+    "href": "slides/07_shiny.html#minimize-shiny-example-before",
+    "title": "7 Shiny Development",
+    "section": "Minimize Shiny Example: Before",
+    "text": "Minimize Shiny Example: Before\n\n\n\nserver <- function(input, output, session) {\n  data <- reactive({\n    req(input$file)\n    name <- input$file$name\n    path <- input$file$datapath\n    ext <- tools::file_ext(name)\n    switch(ext,\n      csv = vroom::vroom(path, \",\"),\n      tsv = vroom::vroom(path, \"\\t\"),\n      validate(\"Invalid file\")\n    )\n  })\n  \n  output$head <- renderTable({\n    head(data(), input$n)\n  })\n}\n\n\nThe ext and switch() part validates the file extension and then loads the file.\nIndependent of Shiny reactive!"
+  },
+  {
+    "objectID": "slides/07_shiny.html#minimize-shiny-example-after",
+    "href": "slides/07_shiny.html#minimize-shiny-example-after",
+    "title": "7 Shiny Development",
+    "section": "Minimize Shiny Example: After",
+    "text": "Minimize Shiny Example: After\n\n\n\nload_file <- function(name, path) {\n  ext <- tools::file_ext(name)\n  switch(ext,\n    csv = vroom::vroom(path, \",\"),\n    tsv = vroom::vroom(path, \"\\t\"),\n    validate(\"Invalid file\")\n  )\n}\n\nserver <- function(input, output, session) {\n  data <- reactive({\n    req(input$file)\n    load_file(\n      input$file$name, \n      input$file$datapath\n    )\n  })\n  \n  output$head <- renderTable({\n    head(data(), input$n)\n  })\n}\n\n\n\nnormal function, validate() will give a simple error outside of Shiny\nserver is much easier to read now and only half the size\ncan test load_file() interactively in console\ncan unit tests load_file() separately (business as usual)"
+  },
+  {
+    "objectID": "slides/07_shiny.html#minimize-shiny-separate-packages",
+    "href": "slides/07_shiny.html#minimize-shiny-separate-packages",
+    "title": "7 Shiny Development",
+    "section": "Minimize Shiny: Separate packages",
+    "text": "Minimize Shiny: Separate packages\n\nOn the macro level, this also applies to packages\nLarger Shiny apps will need to live as an R package\nThe business logic best lives in another R package\nThat package can then also be used without the Shiny interface\nYou can use {staged.dependencies} to allow “joint” pull requests\nExample from the NEST package ecosystem:\n\n{teal.modules.clinical} as the Shiny package\n{tern} as a business logic package"
+  },
+  {
+    "objectID": "slides/07_shiny.html#modules-building-blocks-of-the-shiny-app",
+    "href": "slides/07_shiny.html#modules-building-blocks-of-the-shiny-app",
+    "title": "7 Shiny Development",
+    "section": "Modules: Building blocks of the Shiny app",
+    "text": "Modules: Building blocks of the Shiny app\n\nShiny modules generalize functions\nAllows to coordinate UI and server code\nBreaks the app code into reusable and testable units\nLet’s look at an example from the Mastering Shiny book"
+  },
+  {
+    "objectID": "slides/07_shiny.html#modules-example-before",
+    "href": "slides/07_shiny.html#modules-example-before",
+    "title": "7 Shiny Development",
+    "section": "Modules Example: Before",
+    "text": "Modules Example: Before\n\n\n\n\n\n\n\n\n\nDifficult to understand what is going on\nNeed longer names / parentheses to differentiate tables / plots / variables in different places\nHard to test"
+  },
+  {
+    "objectID": "slides/07_shiny.html#modules-example-after",
+    "href": "slides/07_shiny.html#modules-example-after",
+    "title": "7 Shiny Development",
+    "section": "Modules Example: After",
+    "text": "Modules Example: After\n\n\n\n\n\n\n\n\n\nCan easily see the 4 different parts of the app\nNaming becomes simpler for vars / tables / plots\nCan reuse the modules separately in other apps\nCan test the modules separately"
+  },
+  {
+    "objectID": "slides/07_shiny.html#modules-considerations-similar-to-functions",
+    "href": "slides/07_shiny.html#modules-considerations-similar-to-functions",
+    "title": "7 Shiny Development",
+    "section": "Modules: Considerations similar to Functions",
+    "text": "Modules: Considerations similar to Functions\n\nWhat should be configurable?\n\nThink about reuse needs for module\n\nHow to organize arguments?\n\nUse consistent naming conventions\nKeep the right order of the arguments\n\nAvoid dependencies between arguments\n\nUse instead parameter object pattern\n\nHow to write good and maintainable code?\n\nFollow all the clean code rules from the previous chapter!"
+  },
+  {
+    "objectID": "slides/07_shiny.html#reactivity-1",
+    "href": "slides/07_shiny.html#reactivity-1",
+    "title": "7 Shiny Development",
+    "section": "Reactivity",
+    "text": "Reactivity\nWhen building production shiny apps you won’t get around learning reactivity.\nSome guidance:\n\nKeep user interface simple → often keeps reactivity simple → often less confusing to user\nResolve reactive inputs early on & validate generously\nDesign towards “stringy” reactivity graphs\nDon’t interrupt reactivity\nPreferably use\n\nreactive over reactiveValues\nobserveEvent over observe"
+  },
+  {
+    "objectID": "slides/07_shiny.html#reactivity-resolve-early-validate",
+    "href": "slides/07_shiny.html#reactivity-resolve-early-validate",
+    "title": "7 Shiny Development",
+    "section": "Reactivity: Resolve early & validate",
+    "text": "Reactivity: Resolve early & validate\n\nserver <- function(input, output, session) {\n  output$plot <- renderPlot({\n    # Resolve reactive values.\n    xvar <- input$xvar\n    yvar <- input$yvar\n    req(xvar, yvar)\n    \n    # Validate – is it likely that the plot will be meaningful?\n    validate(\n      need(xvar %in% names(df), glue(\"xvar \\\"{xvar}\\\" does not exist\")),\n      need(yvar %in% names(df), glue(\"yvar \\\"{yvar}\\\" does not exist\")),\n      need(nrow(df) > 3, \"too few data points for meaningful plot\")\n    )\n    \n    my_special_plot(df[[xvar]], df[[yvar]])\n  })\n}"
+  },
+  {
+    "objectID": "slides/07_shiny.html#reactivity-debugging-techniques",
+    "href": "slides/07_shiny.html#reactivity-debugging-techniques",
+    "title": "7 Shiny Development",
+    "section": "Reactivity: Debugging techniques",
+    "text": "Reactivity: Debugging techniques\n\nPut browser() into the functions\nJump into browser mode upon error with options(shiny.error = browser)\nJust put print() inside the reactives\nSave variables to global environment via .GlobalEnv$var <- var and then check\nSimplify things until it works and then go back"
+  },
+  {
+    "objectID": "slides/07_shiny.html#reactivity-graph-visualization",
+    "href": "slides/07_shiny.html#reactivity-graph-visualization",
+    "title": "7 Shiny Development",
+    "section": "Reactivity: Graph visualization",
+    "text": "Reactivity: Graph visualization\nTo understand the order of execution we can visualize the reactive graph, which describes how sources and endpoints are connected via conductors.\n\n\n\ne.g. input\n\ne.g. reactive\n\ne.g. output"
+  },
+  {
+    "objectID": "slides/07_shiny.html#reactivity-stringy-reactivity-graph",
+    "href": "slides/07_shiny.html#reactivity-stringy-reactivity-graph",
+    "title": "7 Shiny Development",
+    "section": "Reactivity: “Stringy” reactivity graph",
+    "text": "Reactivity: “Stringy” reactivity graph\n\n\nBad  Many edges, difficult to anticipate reactivity behaviour\n\nGood  This “stringy” reactivity graph is easier to understand and debug"
+  },
+  {
+    "objectID": "slides/07_shiny.html#testing-from-icecream-to-pyramid",
+    "href": "slides/07_shiny.html#testing-from-icecream-to-pyramid",
+    "title": "7 Shiny Development",
+    "section": "Testing: From Icecream to Pyramid",
+    "text": "Testing: From Icecream to Pyramid\n\n\nBad\n\n\ncannot always test manually\ncan easily introduce bugs\n\n\nGood\n\n\nmanual testing is reduced\nonly for “playing around”"
+  },
+  {
+    "objectID": "slides/07_shiny.html#testing-snapshot-tests-for-ui",
+    "href": "slides/07_shiny.html#testing-snapshot-tests-for-ui",
+    "title": "7 Shiny Development",
+    "section": "Testing: Snapshot tests for UI",
+    "text": "Testing: Snapshot tests for UI\n\n\n\ntest_that(\"myInput UI works\", {\n  input <- \"foo\"\n  set.seed(123)\n  datasets <- mock_datasets()\n  expect_snapshot(myInput(\n    \"my_test\",\n    datasets = datasets,\n    input = input\n  ))\n})\n\n\n\nShiny UI functions return shiny.tag objects which print as HTML code\nCan use snapshot tests to avoid accidental changes\nValue is limited\nCan create issues sometimes (non-reproducible hashes)"
+  },
+  {
+    "objectID": "slides/07_shiny.html#testing-shiny-server-tests",
+    "href": "slides/07_shiny.html#testing-shiny-server-tests",
+    "title": "7 Shiny Development",
+    "section": "Testing: Shiny server tests",
+    "text": "Testing: Shiny server tests\n\n\n\ntest_that(\"server works\", {\n  testServer(server, {\n    session$setInputs(...)\n\n    print(reactive1())\n    print(output$output1)\n    # etc\n\n    # To interactively play:\n    # browser()\n  \n    expect_equal(...)\n    # etc.\n  })\n})\n\n\n\nCode is run inside the server function\nCan access reactives, outputs, etc.\nSession object simulates user actions and time\nNote: need to insert browser()\nAlso works for module server functions\nLimitation: No UI, no JavaScript"
+  },
+  {
+    "objectID": "slides/07_shiny.html#testing-shiny-app-tests",
+    "href": "slides/07_shiny.html#testing-shiny-app-tests",
+    "title": "7 Shiny Development",
+    "section": "Testing: Shiny app tests",
+    "text": "Testing: Shiny app tests\n\n\n\nlibrary(shinytest2)\ntest_that(\"my app works\", {\n  app <- AppDriver$new(\n    app_dir = \"myAppDir\",\n    load_timeout = 1e5,\n    variant = platform_variant()\n  ) # app$get_logs()\n  app$wait_for_idle(timeout = 1e5)\n  app$get_screenshot()\n  app$set_inputs(name = \"Hadley\")\n  app$get_value(\"greeting\")\n  app$click(\"reset\")\n  app$get_value(\"greeting\")\n})\n\n\n\nUsually the app is defined in myAppDir/app.R\nNew app instance app from AppDriver$new()\nFull Shiny app in a headless chromote browser\nCan look into it via app$get_screenshot()\nWe can set inputs, get values of inputs/outputs, click buttons etc."
+  },
+  {
+    "objectID": "slides/07_shiny.html#security",
+    "href": "slides/07_shiny.html#security",
+    "title": "7 Shiny Development",
+    "section": "Security",
+    "text": "Security\n\nNever include passwords in your source code! Instead:\n\nUse environment variables\nOr use the {config} package\nAny files containing passwords must be added to .gitignore\n\nFor user authentication, start with existing solutions that are IT approved\n\nSee some best practices here and here.\n\nCode run in server() is isolated and cannot be seen by other users\n\nBut global environment, e.g. options, are shared across sessions\n\nCheck all user input via assertions or validations to avoid JavaScript hacking"
+  },
+  {
+    "objectID": "slides/07_shiny.html#packaging",
+    "href": "slides/07_shiny.html#packaging",
+    "title": "7 Shiny Development",
+    "section": "Packaging",
+    "text": "Packaging\nThe app should live in an R package. Why? Because we need:\n\nMetadata and dependencies: from DESCRIPTION + NAMESPACE files\nCode split into functions and modules: in files in the the R directory\nDocumentation via vignettes, README, and function and modules documentation\nAutomated tests: using testthat and the native R CMD check\nAble to share the package as tarball or via repositories for installation"
+  },
+  {
+    "objectID": "slides/07_shiny.html#deployment-options",
+    "href": "slides/07_shiny.html#deployment-options",
+    "title": "7 Shiny Development",
+    "section": "Deployment Options",
+    "text": "Deployment Options\n\nhttps://www.shinyapps.io/\n\nAllows for quick sharing of Shiny apps on the cloud\nFree version is good for quick tests or experiments\nSerious use needs subscription\n\nInternal Posit Connect is internal alternative\n\nMore features than above cloud service\nOne detail example: can use environment variables\nSee https://posit.co/products/open-source/shinyserver/ for the differences"
+  },
+  {
+    "objectID": "slides/07_shiny.html#deployment-process",
+    "href": "slides/07_shiny.html#deployment-process",
+    "title": "7 Shiny Development",
+    "section": "Deployment Process",
+    "text": "Deployment Process\nYou’ll need few extra steps:\n\nInstruct the server how to run the app in the package. Simplest is app.R in package root folder containing:\n\npkgload::load_all(\".\")\nmyApp() # = function in your package calling shinyApp()\n\nIgnore the app.R for package build\nInclude shiny and pkgload to the Imports in the DESCRIPTION file\nRun rsconnect::deployApp() to share the updated app version!"
+  },
+  {
     "objectID": "slides/01_intro.html#disclaimer",
     "href": "slides/01_intro.html#disclaimer",
     "title": "1 Introduction",
@@ -726,62 +726,6 @@
     "title": "1 Introduction",
     "section": "GxP + R  = ",
     "text": "GxP + R  = \n\nCore infrastructure packages only through industry\nQuality, burden sharing: open-source pharmaverse and others\nOpen methodological packages can de-risk innovative methods\nR packages make (statistical/methodological) code\n\ntestable (with documented evidence thereof, CRF 11)\nreusable\nshareable\neasier to document"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#to-do",
-    "href": "slides/07_conclusion.html#to-do",
-    "title": "7 Conclusion",
-    "section": "To do",
-    "text": "To do"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#r-package-structure",
-    "href": "slides/07_conclusion.html#r-package-structure",
-    "title": "7 Conclusion",
-    "section": "R package structure",
-    "text": "R package structure\n\nR package = folder structure with (many) conventions\nWith modern tools usethis, roxygen2 it is easy to start a new package\nPackaging a set of functions is an ideal way to share with collaborators and the public\nStart small and simple and over time you can learn additional options"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#engineering-workflow",
-    "href": "slides/07_conclusion.html#engineering-workflow",
-    "title": "7 Conclusion",
-    "section": "Engineering Workflow",
-    "text": "Engineering Workflow\n\nUse a workable workflow:\nIdea \\(\\rightarrow\\) Design docs \\(\\rightarrow\\) Programming \\(\\rightarrow\\) Quality check \\(\\rightarrow\\) Publication\n\nDon’t waste time on maintenance\nBe faster with release on CRAN\nFulfill regulatory requirements\n\nRefactor your one-off scripts that you want to use in a package\nUse assertions for all arguments \\(\\rightarrow\\) Usability/UX\nImplement common generics like print and plot"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#ensuring-quality",
-    "href": "slides/07_conclusion.html#ensuring-quality",
-    "title": "7 Conclusion",
-    "section": "Ensuring Quality",
-    "text": "Ensuring Quality\n\nApply common clean code rules, e.g.,\n\nUse testthat to test, test, and test\nUse covr to improve the test coverage\nUse styler to optimize the code styling\nDon’t repeat yourself!\n\nYour rewards are:\n\nMaintainability,\nExtensibility, and\nPerformance!"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#collaboration",
-    "href": "slides/07_conclusion.html#collaboration",
-    "title": "7 Conclusion",
-    "section": "Collaboration",
-    "text": "Collaboration\n\nVersion control is key\n\nMultiple people working on code without strong VC \\(\\leadsto\\) disaster!\nThere are different options, but git is the defacto standard for R packages\nGit needs a friend - use platforms like GitHub/GitLab/Bitbucket\n\nAutomated CI/CD allows for much quicker iteration\n\nAutomate tests to avoid bugs slipping back in\n\nTechnology does not solve everything - foster a positive culture\n\nKeep internal and external contributors engaged\nInvest in documentation to make it easier to contribute"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#publication",
-    "href": "slides/07_conclusion.html#publication",
-    "title": "7 Conclusion",
-    "section": "Publication",
-    "text": "Publication\n\npkgdown can help you easily create a nice website for your package\nVersions and licenses along with NEWS updates are important\nGitHub helps with tagging of release versions\nR-Hub helps with checking before CRAN submission"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#thank-you",
-    "href": "slides/07_conclusion.html#thank-you",
-    "title": "7 Conclusion",
-    "section": "Thank you!",
-    "text": "Thank you!\n\n\n\n\n\nIt was great to teach you today on how to build R packages\nLet’s keep in touch e.g. via gitter chat channel or wechat channel for this course that you can connect to\nWe welcome feedback on topics/format/content - reach out!"
-  },
-  {
-    "objectID": "slides/07_conclusion.html#possible-next-steps",
-    "href": "slides/07_conclusion.html#possible-next-steps",
-    "title": "7 Conclusion",
-    "section": "Possible next steps",
-    "text": "Possible next steps\n\nBring the information back to your colleagues in your organization\nStart building your first own package and share internally first\nLater publish it open source on GitHub and submit it to CRAN\nLearn about more tips and tricks how to extend R\n\n\n\nGood Software Engineering Practice for R Packages - Home | Slides | License"
   },
   {
     "objectID": "slides/06_publication.html#setup-of-pkgdown",
@@ -1113,6 +1057,62 @@
     "text": "Tasks\n\nTask 1Task 2Task 3Task 4\n\n\nTake your local simulatr package project (see previous excercise) and refactor it, i.e., apply the linked clean code rules:\n\nOptimize naming manually (CCR#1)\nUse the styler package to optimize the formatting (CCR#2)\nCheck and correct where appropriate:\n\nSimplicity (CCR#3)\nSRP (CCR#4)\nDRY (CCR#5)\n\n\n\n\n\nImplement appropriate error handling (CCR#7) in the simulatr package\nAdd comments to explain the purpose of code blocks (CCR#6)\n\nIf it concerns exported functions use Roxygen2 notation\n\nCheck correct spelling with the devtools function spell_check()\n\n\n\nApply CCR#8 to the simulatr package project:\n\nAdd unit tests\nOptimize your test coverage with help of the covr functions package_coverage and report\n\n\n\nCheck if your package is ready for use in production with the devtools function check()"
   },
   {
+    "objectID": "slides/08_conclusion.html#enter-menti.com-7920-6996",
+    "href": "slides/08_conclusion.html#enter-menti.com-7920-6996",
+    "title": "8 Conclusion",
+    "section": "Enter menti.com: 7920 6996",
+    "text": "Enter menti.com: 7920 6996"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#r-package-structure",
+    "href": "slides/08_conclusion.html#r-package-structure",
+    "title": "8 Conclusion",
+    "section": "R package structure",
+    "text": "R package structure\n\nR package = folder structure with (many) conventions\nWith modern tools usethis, roxygen2 it is easy to start a new package\nPackaging a set of functions is an ideal way to share with collaborators and the public\nStart small and simple and over time you can learn additional options"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#engineering-workflow",
+    "href": "slides/08_conclusion.html#engineering-workflow",
+    "title": "8 Conclusion",
+    "section": "Engineering Workflow",
+    "text": "Engineering Workflow\n\nUse a workable workflow:\nIdea \\(\\rightarrow\\) Design docs \\(\\rightarrow\\) Programming \\(\\rightarrow\\) Quality check \\(\\rightarrow\\) Publication\n\nDon’t waste time on maintenance\nBe faster with release on CRAN\nFulfill regulatory requirements\n\nRefactor your one-off scripts that you want to use in a package\nUse assertions for all arguments \\(\\rightarrow\\) Usability/UX\nImplement common generics like print and plot"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#ensuring-quality",
+    "href": "slides/08_conclusion.html#ensuring-quality",
+    "title": "8 Conclusion",
+    "section": "Ensuring Quality",
+    "text": "Ensuring Quality\n\nApply common clean code rules, e.g.,\n\nUse testthat to test, test, and test\nUse covr to improve the test coverage\nUse styler to optimize the code styling\nDon’t repeat yourself!\n\nYour rewards are:\n\nMaintainability,\nExtensibility, and\nPerformance!"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#collaboration",
+    "href": "slides/08_conclusion.html#collaboration",
+    "title": "8 Conclusion",
+    "section": "Collaboration",
+    "text": "Collaboration\n\nVersion control is key\n\nMultiple people working on code without strong VC \\(\\leadsto\\) disaster!\nThere are different options, but git is the defacto standard for R packages\nGit needs a friend - use platforms like GitHub/GitLab/Bitbucket\n\nAutomated CI/CD allows for much quicker iteration\n\nAutomate tests to avoid bugs slipping back in\n\nTechnology does not solve everything - foster a positive culture\n\nKeep internal and external contributors engaged\nInvest in documentation to make it easier to contribute"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#publication",
+    "href": "slides/08_conclusion.html#publication",
+    "title": "8 Conclusion",
+    "section": "Publication",
+    "text": "Publication\n\npkgdown can help you easily create a nice website for your package\nVersions and licenses along with NEWS updates are important\nGitHub helps with tagging of release versions\nR-Hub helps with checking before CRAN submission"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#thank-you",
+    "href": "slides/08_conclusion.html#thank-you",
+    "title": "8 Conclusion",
+    "section": "Thank you!",
+    "text": "Thank you!\n\n\n\n\n\nIt was great to teach you today on how to build R packages\nLet’s keep in touch e.g. via gitter chat channel or wechat channel for this course that you can connect to\nWe welcome feedback on topics/format/content - reach out!"
+  },
+  {
+    "objectID": "slides/08_conclusion.html#possible-next-steps",
+    "href": "slides/08_conclusion.html#possible-next-steps",
+    "title": "8 Conclusion",
+    "section": "Possible next steps",
+    "text": "Possible next steps\n\nBring the information back to your colleagues in your organization\nStart building your first own package and share internally first\nLater publish it open source on GitHub and submit it to CRAN\nLearn about more tips and tricks how to extend R\n\n\n\nGood Software Engineering Practice for R Packages - Home | Slides | License"
+  },
+  {
     "objectID": "LICENSE.html",
     "href": "LICENSE.html",
     "title": "GSWEP4R Workshop",
@@ -1166,6 +1166,6 @@
     "href": "listing.html",
     "title": "Slides",
     "section": "",
-    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Liming, Shuang, Joe\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n8 Shiny Development\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\nNo matching items"
+    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Liming, Shuang, Joe\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Shiny Development\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n8 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
   }
 ]

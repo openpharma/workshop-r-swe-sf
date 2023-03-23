@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/05_collaboration.html</loc>
-    <lastmod>2023-03-23T05:01:32.851Z</lastmod>
+    <lastmod>2023-03-23T06:58:54.739Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/03_workflow.html</loc>
-    <lastmod>2023-03-23T05:01:35.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openpharma.github.io/workshop-r-swe/slides/08_shiny.html</loc>
-    <lastmod>2023-03-23T05:01:37.271Z</lastmod>
+    <lastmod>2023-03-23T06:58:57.627Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/02_r_packages.html</loc>
-    <lastmod>2023-03-23T05:01:38.691Z</lastmod>
+    <lastmod>2023-03-23T06:58:59.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openpharma.github.io/workshop-r-swe/slides/07_shiny.html</loc>
+    <lastmod>2023-03-23T06:59:00.463Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/01_intro.html</loc>
-    <lastmod>2023-03-23T05:01:40.235Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openpharma.github.io/workshop-r-swe/slides/07_conclusion.html</loc>
-    <lastmod>2023-03-23T05:01:40.543Z</lastmod>
+    <lastmod>2023-03-23T06:59:01.995Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/06_publication.html</loc>
-    <lastmod>2023-03-23T05:01:41.579Z</lastmod>
+    <lastmod>2023-03-23T06:59:03.035Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/slides/04_quality.html</loc>
-    <lastmod>2023-03-23T05:01:43.671Z</lastmod>
+    <lastmod>2023-03-23T06:59:05.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openpharma.github.io/workshop-r-swe/slides/08_conclusion.html</loc>
+    <lastmod>2023-03-23T06:59:05.407Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/LICENSE.html</loc>
-    <lastmod>2023-03-23T05:01:44.167Z</lastmod>
+    <lastmod>2023-03-23T06:59:05.915Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/index.html</loc>
-    <lastmod>2023-03-23T05:01:45.451Z</lastmod>
+    <lastmod>2023-03-23T06:59:07.175Z</lastmod>
   </url>
   <url>
     <loc>https://openpharma.github.io/workshop-r-swe/listing.html</loc>
-    <lastmod>2023-03-23T05:01:46.179Z</lastmod>
+    <lastmod>2023-03-23T06:59:07.855Z</lastmod>
   </url>
 </urlset>

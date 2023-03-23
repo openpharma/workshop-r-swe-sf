@@ -6,14 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Daniel">
   <meta name="dcterms.date" content="2023-03-24">
-  <title>GSWEP4R Workshop - 3 An R Package Engineering Workflow</title>
+  <title>GSWEP4R Workshop - 7 Shiny Development</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -391,7 +389,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3 An R Package Engineering Workflow</h1>
+  <h1 class="title">7 Shiny Development</h1>
   <p class="subtitle">BBS Course: Good Software Engineering Practice for R Packages</p>
 
 <div class="quarto-title-authors">
@@ -404,655 +402,489 @@ Daniel
 
   <p class="date">March 24, 2023</p>
 </section>
-<section id="fa-face-grin-stars-motivation" class="title-slide slide level1 center">
-<h1><span class="yellow"><i class="fa-solid fa-face-grin-stars" aria-label="face-grin-stars"></i></span> Motivation</h1>
-<!-- 
-- One-off scripts, prototype functions
-- R generic functions
-- Design docs
-- Packaging
-- Professional workflow
--->
-<p><strong>From an idea to a production-grade R package</strong></p>
-<p>Example scenario: in your daily work, you notice that you need certain one-off scripts again and again.</p>
-<div class="fragment">
-<p><span class="blue"><i class="fa-solid fa-lightbulb fa-2x" aria-label="lightbulb"></i></span> The idea of creating an R package was born because you understood that “copy and paste” R scripts is inefficient and on top of that, you want to share your helpful R functions with colleagues and the world…</p>
+<section id="why-are-best-practices-important-for-shiny" class="slide level2">
+<h2>Why are best practices important for Shiny?</h2>
+<ul>
+<li>Shiny is in itself more complex than usual R code</li>
+<li>Small apps can quickly evolve into giant apps</li>
+<li>It seems first possible to test everything by hand, clicking around</li>
+<li>For one-off, throw-away, one-screen Shiny apps that is ok</li>
+<li>Here we talk about best practices for more-than-once used Shiny apps</li>
+</ul>
+</section>
+<section>
+<section id="design" class="title-slide slide level1 center">
+<h1>Design</h1>
+
+</section>
+<section id="design-collaborate-with-your-customer" class="slide level2">
+<h2>Design: Collaborate with your customer</h2>
+<ul>
+<li>Involve your customer from the first ideation</li>
+<li>Identify the roles and responsibilities</li>
+<li>Make reasonable assumptions about user skills and knowledge</li>
+<li>Show early wireframes, prototypes, beta versions and get feedback</li>
+</ul>
+</section>
+<section id="ui-design-wireframing" class="slide level2">
+<h2>UI Design: Wireframing</h2>
+<ul>
+<li>Wireframing is powerful for aligning in customer discussions</li>
+<li>Focus on the vision and functionality</li>
+<li>Keep the UI as simple as possible</li>
+<li>Know your target as developer during coding and review process</li>
+<li>Wireframing software:
+<ul>
+<li><a href="https://draw.io">draw.io</a></li>
+<li><a href="https://balsamiq.com/">Balsamiq</a></li>
+<li><a href="https://www.mockplus.cn/">Mockplus</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="ui-design-example-wireframe" class="slide level2">
+<h2>UI Design: Example wireframe</h2>
+
+<img data-src="resources/wireframe.png" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="architecture" class="title-slide slide level1 center">
+<h1>Architecture</h1>
+
+</section>
+<section id="architecture-minimize-code-in-shiny" class="slide level2">
+<h2>Architecture: Minimize code in Shiny</h2>
+<ul>
+<li>Minimize the code inside the Shiny UI/server</li>
+<li>Because it will always be easier to test things that live outside of Shiny</li>
+<li>Let’s look at an example from the <a href="https://mastering-shiny.org/scaling-functions.html#function-upload">Mastering Shiny</a> book</li>
+</ul>
+</section>
+<section id="minimize-shiny-example-before" class="slide level2">
+<h2>Minimize Shiny Example: Before</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-
-</div><div class="column" style="width:50%;">
-<p><span class="blue"><i class="fa-solid fa-earth-europe fa-4x" aria-label="earth-europe"></i></span></p>
+<div class="cell" style="font-size:0.7em!important;">
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="6-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="fu">req</span>(input<span class="sc">$</span>file)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    name <span class="ot">&lt;-</span> input<span class="sc">$</span>file<span class="sc">$</span>name</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    path <span class="ot">&lt;-</span> input<span class="sc">$</span>file<span class="sc">$</span>datapath</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    ext <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_ext</span>(name)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">switch</span>(ext,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>      <span class="at">csv =</span> vroom<span class="sc">::</span><span class="fu">vroom</span>(path, <span class="st">","</span>),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>      <span class="at">tsv =</span> vroom<span class="sc">::</span><span class="fu">vroom</span>(path, <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>      <span class="fu">validate</span>(<span class="st">"Invalid file"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    )</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  })</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  </span>
+<span id="cb1-14"><a href="#cb1-14"></a>  output<span class="sc">$</span>head <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="fu">head</span>(<span class="fu">data</span>(), input<span class="sc">$</span>n)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  })</span>
+<span id="cb1-17"><a href="#cb1-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div><div class="column" style="width:50%;">
+<p>The <code>ext</code> and <code>switch()</code> part validates the file extension and then loads the file.</p>
+<p>Independent of Shiny reactive!</p>
 </div>
 </div>
 </section>
-
-<section>
-<section id="professional-workflow" class="title-slide slide level1 center">
-<h1>Professional Workflow</h1>
-
-<img data-src="thumbnails/workflow1.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="copyright">Photo CC0 by ELEVATE on pexels.com</span></p></section>
-<section id="typical-work-steps" class="slide level2">
-<h2>Typical work steps</h2>
-<div>
+<section id="minimize-shiny-example-after" class="slide level2">
+<h2>Minimize Shiny Example: After</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:50%;">
+<div class="cell" style="font-size:0.7em!important;">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1-8,13-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>load_file <span class="ot">&lt;-</span> <span class="cf">function</span>(name, path) {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  ext <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_ext</span>(name)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="cf">switch</span>(ext,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="at">csv =</span> vroom<span class="sc">::</span><span class="fu">vroom</span>(path, <span class="st">","</span>),</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">tsv =</span> vroom<span class="sc">::</span><span class="fu">vroom</span>(path, <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="fu">validate</span>(<span class="st">"Invalid file"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  )</span>
+<span id="cb2-8"><a href="#cb2-8"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb2-11"><a href="#cb2-11"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="fu">req</span>(input<span class="sc">$</span>file)</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="fu">load_file</span>(</span>
+<span id="cb2-14"><a href="#cb2-14"></a>      input<span class="sc">$</span>file<span class="sc">$</span>name, </span>
+<span id="cb2-15"><a href="#cb2-15"></a>      input<span class="sc">$</span>file<span class="sc">$</span>datapath</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    )</span>
+<span id="cb2-17"><a href="#cb2-17"></a>  })</span>
+<span id="cb2-18"><a href="#cb2-18"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19"></a>  output<span class="sc">$</span>head <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="fu">head</span>(<span class="fu">data</span>(), input<span class="sc">$</span>n)</span>
+<span id="cb2-21"><a href="#cb2-21"></a>  })</span>
+<span id="cb2-22"><a href="#cb2-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
 <ol type="1">
-<li class="fragment">Idea</li>
-<li class="fragment">Concept creation</li>
-<li class="fragment">Validation planning</li>
-<li class="fragment">Specification:
-<ol type="a">
-<li class="fragment">User Requirements Spec (URS),</li>
-<li class="fragment">Functional Spec (FS), and</li>
-<li class="fragment">Software Design Spec (SDS)</li>
-</ol></li>
-</ol>
-</div><div class="column" style="width:45%;">
-<ol start="5" type="1">
-<li class="fragment">R package programming</li>
-<li class="fragment">Documented verification</li>
-<li class="fragment">Completion of formal validation</li>
-<li class="fragment">R package release</li>
-<li class="fragment">Use in production</li>
-<li class="fragment">Maintenance</li>
+<li><p>normal function, <code>validate()</code> will give a simple error outside of Shiny</p></li>
+<li><p>server is much easier to read now and only half the size</p></li>
+<li><p>can test <code>load_file()</code> interactively in console</p></li>
+<li><p>can unit tests <code>load_file()</code> separately (business as usual)</p></li>
 </ol>
 </div>
 </div>
-</div>
-<div class="fragment">
+</section>
+<section id="minimize-shiny-separate-packages" class="slide level2">
+<h2>Minimize Shiny: Separate packages</h2>
+<ul>
+<li>On the macro level, this also applies to packages</li>
+<li>Larger Shiny apps will need to live as an R package</li>
+<li>The business logic best lives in another R package</li>
+<li>That package can then also be used without the Shiny interface</li>
+<li>You can use <a href="https://openpharma.github.io/staged.dependencies/main/"><code>{staged.dependencies}</code></a> to allow “joint” pull requests</li>
+<li>Example from the <code>NEST</code> package ecosystem:
+<ul>
+<li><code>{teal.modules.clinical}</code> as the Shiny package</li>
+<li><code>{tern}</code> as a business logic package</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="modules" class="title-slide slide level1 center">
+<h1>Modules</h1>
+
+</section>
+<section id="modules-building-blocks-of-the-shiny-app" class="slide level2">
+<h2>Modules: Building blocks of the Shiny app</h2>
+<ul>
+<li>Shiny modules generalize functions</li>
+<li>Allows to coordinate UI and server code</li>
+<li>Breaks the app code into reusable and testable units</li>
+<li>Let’s look at an example from the <a href="https://mastering-shiny.org/scaling-modules.html#module-motivation">Mastering Shiny</a> book</li>
+</ul>
+</section>
+<section id="modules-example-before" class="slide level2">
+<h2>Modules Example: Before</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-
-</div><div class="column" style="width:40%;">
-<p><span class="yellow"><i class="fa-solid fa-face-surprise fa-1x" aria-label="face-surprise"></i></span> <span class="yellow"><i class="fa-solid fa-face-flushed fa-2x" aria-label="face-flushed"></i></span> <span class="yellow"><i class="fa-solid fa-face-sad-cry fa-3x" aria-label="face-sad-cry"></i></span></p>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="workflow-in-practice" class="title-slide slide level1 center">
-<h1>Workflow in Practice</h1>
-
-<img data-src="thumbnails/workflow2.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="copyright">Photo CC0 by Chevanon Photography on pexels.com</span></p></section>
-<section id="frequently-used-workflow-in-practice" class="slide level2">
-<h2>Frequently Used Workflow in Practice</h2>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ol type="1">
-<li class="fragment">Idea</li>
-<li class="fragment">R package programming</li>
-<li class="fragment">Use in production</li>
-<li class="fragment">Bug fixing</li>
-<li class="fragment">Use in production</li>
-</ol>
-</div><div class="column" style="width:50%;">
-<ol start="6" type="1">
-<li class="fragment">Bug fixing + Documentation</li>
-<li class="fragment">Use in production</li>
-<li class="fragment">Bug fixing + Further development</li>
-<li class="fragment">Use in production</li>
-<li class="fragment">Bug fixing + …</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><span class="yellow"><i class="fa-solid fa-face-angry fa-1x" aria-label="face-angry"></i></span> Bad practice!</p>
-</div>
-<div class="fragment">
-<p><span class="yellow"><i class="fa-solid fa-face-rolling-eyes fa-1x" aria-label="face-rolling-eyes"></i></span> Why?</p>
-</div>
-</section></section>
-<section>
-<section id="why-practice-good-engineering" class="title-slide slide level1 center">
-<h1>Why practice good engineering?</h1>
-<!-- https://www.researchgate.net/figure/Cost-Distribution-among-Software-Process-Activities-12_fig1_340280214 -->
-<div class="cell">
-
-<p>Cost distribution among software process activities</p>
-</div>
-<img data-src="03_workflow_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption"><a href="https://dx.doi.org/10.14569/IJACSA.2020.0110375">doi:10.14569/IJACSA.2020.0110375</a></p></section>
-<section id="why-practice-good-engineering-1" class="slide level2">
-<h2>Why practice good engineering?</h2>
-<div class="cell">
-
-<p>Origin of errors in system development</p>
-</div>
-<img data-src="03_workflow_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption"><a href="https://dl.acm.org/doi/10.5555/539425">Boehm, B. (1981). Software Engineering Economics. Prentice Hall.</a></p></section>
-<section id="why-practice-good-engineering-2" class="slide level2">
-<h2>Why practice good engineering?</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<ul>
-<li>Don’t waste time on maintenance</li>
-<li>Be faster with release on CRAN</li>
-<li>Don’t waste time with inefficient and buggy further development</li>
-</ul>
-</div><div class="column" style="width:55%;">
-<ul>
-<li>Fulfill regulatory requirements<sup>1</sup></li>
-<li>Save refactoring time when the <em>PoC</em> becomes the release version</li>
-<li>You don’t have to be shy any longer about inviting other developers to contribute to the package on <a href="https://github.com/">GitHub</a></li>
-</ul>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>See also <a href="04_quality.html">Ensuring Quality</a> by <a href="https://github.com/shajoezhu">Joe</a></p></li></ol></aside></section>
-<section id="why-practice-good-engineering-3" class="slide level2">
-<h2>Why practice good engineering?</h2>
-<p>Invest time in</p>
-<ul>
-<li>requirements analysis,</li>
-<li>software design, and</li>
-<li>architecture…</li>
-</ul>
-<div class="fragment">
-<p>… but in many cases the workflow must be workable for a single developer or a small team.</p>
-</div>
-</section></section>
-<section id="workable-workflow" class="title-slide slide level1 center">
-<h1>Workable Workflow</h1>
-
-<img data-src="thumbnails/workflow3.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="copyright">Photo CC0 by Kateryna Babaieva on pexels.com</span></p></section>
-
-<section>
-<section id="suggestion-for-a-workable-workflow" class="title-slide slide level1 center">
-<h1>Suggestion for a Workable Workflow</h1>
-<ol type="1">
-<li>Idea</li>
-<li>Design docs</li>
-<li>R package programming</li>
-<li>Quality check (see <a href="04_quality.html">Ensuring Quality</a> by <a href="https://github.com/shajoezhu">Joe</a>)</li>
-<li>Publication (see <a href="06_publication.html">Publication</a> by <a href="https://github.com/clarkliming">Liming</a>)</li>
-<li>Use in production</li>
-</ol>
-</section>
-<section id="example---step-1-idea" class="slide level2">
-<h2>Example - Step 1: Idea</h2>
-<p>Let’s assume that you used some lines of code to create simulated data in multiple projects:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">50</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">50</span>)),</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">12</span>),</span>
-<span id="cb1-5"><a href="#cb1-5"></a>        <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">14</span>, <span class="at">sd =</span> <span class="dv">11</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    )</span>
-<span id="cb1-7"><a href="#cb1-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Idea: put the code into a package</p>
-</section>
-<section id="example---step-2-design-docs" class="slide level2">
-<h2>Example - Step 2: Design docs</h2>
-<ol type="1">
-<li>Describe the purpose and scope of the package</li>
-<li>Analyse and describe the requirements in clear and simple terms (“prose”)</li>
-</ol>
-<table>
-<thead>
-<tr class="header">
-<th>Obligation level</th>
-<th style="text-align: left;">Key word<sup>1</sup></th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Duty</td>
-<td style="text-align: left;">shall</td>
-<td>“must have”</td>
-</tr>
-<tr class="even">
-<td>Desire</td>
-<td style="text-align: left;">should</td>
-<td>“nice to have”</td>
-</tr>
-<tr class="odd">
-<td>Intention</td>
-<td style="text-align: left;">will</td>
-<td>“optional”</td>
-</tr>
-</tbody>
-</table>
-<aside><ol class="aside-footnotes"><li id="fn2"><p><a href="https://amzn.to/3DdwiBe">Rupp, C., &amp; SOPHISTen, die. (2009). Requirements-Engineering und -Management: Professionelle, iterative Anforderungsanalyse für die Praxis (5. Ed.). Carl Hanser Verlag GmbH &amp; Co.&nbsp;KG.</a></p></li></ol></aside></section>
-<section id="example---step-2-design-docs-1" class="slide level2">
-<h2>Example - Step 2: Design docs</h2>
-<p><strong>Purpose and Scope</strong></p>
-<p>The R package <em>simulatr</em> shall enable the creation of reproducible fake data.</p>
-<p><strong>Package Requirements</strong></p>
-<p><em>simulatr</em> <strong>shall</strong> provide a function to generate normal distributed random data for two independent groups. The function <strong>shall</strong> allow flexible definition of sample size per group, mean per group, standard deviation per group. The reproducibility of the simulated data <strong>shall</strong> be ensured via an optional seed It <strong>should</strong> be possible to print the function result. A graphical presentation of the simulated data <strong>will</strong> also be possible.</p>
-</section>
-<section id="example---step-2-design-docs-2" class="slide level2">
-<h2>Example - Step 2: Design docs</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p>Useful formats / tools for design docs:</p>
-<ul>
-<li><a href="https://rmarkdown.rstudio.com">R Markdown</a><sup>1</sup> (*.Rmd)</li>
-<li><a href="https://quarto.org">Quarto</a><sup>1</sup> (*.qmd)</li>
-<li><a href="https://www.overleaf.com">Overleaf</a><sup>2</sup></li>
-<li><a href="http://draw.io">draw.io</a><sup>3</sup></li>
-</ul>
-</div><div class="column" style="width:55%;">
-<div class="text-align-center">
-<p>UML Diagram</p>
-</div>
-<div class="quarto-figure quarto-figure-right">
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="resources/simulatr.png" style="width:95.0%"></p>
+<p><img data-src="resources/without-modules.png"></p>
 </figure>
 </div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Difficult to understand what is going on</li>
+<li>Need longer names / parentheses to differentiate tables / plots / variables in different places</li>
+<li>Hard to test</li>
+</ul>
 </div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Based on <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>, the easy-to-use markup language</p></li><li id="fn4"><p>The easy to use, online, collaborative LaTeX editor</p></li><li id="fn5"><p>A picture is worth a thousand words</p></li></ol></aside></section>
-<section id="example---step-3-packaging" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p><strong>R package programming</strong></p>
-<ol type="1">
-<li>Create basic package project (see <a href="02_r_packages.html">R Packages</a> by <a href="https://github.com/clarkliming">Liming</a>)</li>
-<li>C&amp;P existing R scripts (one-off scripts, prototype functions) and refactor<sup>1</sup> it if necessary</li>
-<li>Create R generic functions</li>
-<li>Document all functions</li>
-</ol>
-<aside><ol class="aside-footnotes"><li id="fn6"><p>See also <a href="04_quality.html">Ensuring Quality</a> by <a href="https://github.com/shajoezhu">Joe</a></p></li></ol></aside></section>
-<section id="example---step-3-packaging-1" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p>One-off script as starting point:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>sim.data <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, m1, m2, s1, s2) {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n1), <span class="fu">rep</span>(<span class="dv">2</span>, n2)),</span>
-<span id="cb2-4"><a href="#cb2-4"></a>        <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb2-5"><a href="#cb2-5"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n1, <span class="at">mean =</span> m1, <span class="at">sd =</span> s1),</span>
-<span id="cb2-6"><a href="#cb2-6"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n2, <span class="at">mean =</span> m2, <span class="at">sd =</span> s2)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>        )</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    )</span>
-<span id="cb2-9"><a href="#cb2-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="example---step-3-packaging-2" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p>Refactored script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb3-3"><a href="#cb3-3"></a>        <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n1), <span class="fu">rep</span>(<span class="dv">2</span>, n2)),</span>
-<span id="cb3-4"><a href="#cb3-4"></a>        <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb3-5"><a href="#cb3-5"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n1, <span class="at">mean =</span> mean1, <span class="at">sd =</span> sd1),</span>
-<span id="cb3-6"><a href="#cb3-6"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n2, <span class="at">mean =</span> mean2, <span class="at">sd =</span> sd2)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>        )</span>
-<span id="cb3-8"><a href="#cb3-8"></a>    )</span>
-<span id="cb3-9"><a href="#cb3-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="modules-example-after" class="slide level2">
+<h2>Modules Example: After</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="resources/with-modules.png"></p>
+</figure>
 </div>
-<p>Almost all functions, arguments, and objects should be self-explanatory due to their names.</p>
-</section>
-<section id="example---step-3-packaging-3" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p>Define that the result is a list<sup>1</sup> which is defined as class<sup>2</sup>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    result <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> n1, <span class="at">n2 =</span> n2, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>         <span class="at">mean1 =</span> mean1, <span class="at">mean2 =</span> mean2, <span class="at">sd1 =</span> sd1, <span class="at">sd2 =</span> sd2)</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    result<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb4-5"><a href="#cb4-5"></a>        <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n1), <span class="fu">rep</span>(<span class="dv">2</span>, n2)),</span>
-<span id="cb4-6"><a href="#cb4-6"></a>        <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb4-7"><a href="#cb4-7"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n1, <span class="at">mean =</span> mean1, <span class="at">sd =</span> sd1),</span>
-<span id="cb4-8"><a href="#cb4-8"></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n2, <span class="at">mean =</span> mean2, <span class="at">sd =</span> sd2)</span>
-<span id="cb4-9"><a href="#cb4-9"></a>        )</span>
-<span id="cb4-10"><a href="#cb4-10"></a>    )</span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="co"># set the class attribute</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>    result <span class="ot">&lt;-</span> <span class="fu">structure</span>(result, <span class="at">class =</span> <span class="st">"SimulationResult"</span>)</span>
-<span id="cb4-13"><a href="#cb4-13"></a>    <span class="fu">return</span>(result)</span>
-<span id="cb4-14"><a href="#cb4-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Can easily see the 4 different parts of the app</li>
+<li>Naming becomes simpler for vars / tables / plots</li>
+<li>Can reuse the modules separately in other apps</li>
+<li>Can test the modules separately</li>
+</ul>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn7"><p>It’s common practice to add the function arguments to the result <span class="math inline">\(\rightarrow\)</span> should be a list or class</p></li><li id="fn8"><p>To implement generics, the result must be a class</p></li></ol></aside></section>
-<section id="example---step-3-packaging-4" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p>The output is impractical, e.g., we need to scroll down:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getSimulatedTwoArmMeans</span>(<span class="at">n1 =</span> <span class="dv">50</span>, <span class="at">n2 =</span> <span class="dv">50</span>, <span class="at">mean1 =</span> <span class="dv">5</span>, <span class="at">mean2 =</span> <span class="dv">7</span>, <span class="at">sd1 =</span> <span class="dv">3</span>, <span class="at">sd2 =</span> <span class="dv">4</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$n1
-[1] 50
-
-$n2
-[1] 50
-
-$mean1
-[1] 5
-
-$mean2
-[1] 7
-
-$sd1
-[1] 3
-
-$sd2
-[1] 4
-
-$data
-    group     values
-1       1  3.5470411
-2       1  5.8955069
-3       1  2.4794547
-4       1  6.8324721
-5       1 -0.6797570
-6       1  8.2454347
-7       1  3.6691238
-8       1  4.6719883
-9       1  7.9115757
-10      1  6.4336509
-11      1  8.7210478
-12      1  8.1679448
-13      1  0.7053360
-14      1  9.4350065
-15      1  5.3400461
-16      1  8.8764356
-17      1  3.6752153
-18      1  8.3399134
-19      1  5.8523484
-20      1  5.8196170
-21      1  3.4951250
-22      1  6.7551991
-23      1  5.0709850
-24      1  3.6317231
-25      1  0.7272725
-26      1  0.4829429
-27      1  6.1147708
-28      1  2.3124973
-29      1  1.8013353
-30      1  8.2483977
-31      1  5.5921139
-32      1  6.8803412
-33      1  7.3529438
-34      1  4.5451733
-35      1  3.2657329
-36      1 -0.4709715
-37      1  5.1746675
-38      1  1.3960575
-39      1  6.1006005
-40      1  7.3858874
-41      1  7.8906605
-42      1  2.8238735
-43      1  9.4089002
-44      1  6.6158588
-45      1  7.9885345
-46      1  6.8104771
-47      1 10.1242417
-48      1  2.5371270
-49      1  2.1657789
-50      1  7.9517157
-51      2  2.7487434
-52      2 -0.4370979
-53      2 13.8674058
-54      2  5.5133124
-55      2  6.3119769
-56      2  8.9660342
-57      2  8.0810526
-58      2 10.4969187
-59      2 13.2259506
-60      2  7.7540636
-61      2  8.9546755
-62      2  9.2117488
-63      2 11.2342487
-64      2  5.8447480
-65      2  6.6095585
-66      2  7.4159291
-67      2 11.4856246
-68      2  6.5009832
-69      2  3.5218815
-70      2  5.6925986
-71      2 -1.1646994
-72      2 10.4630471
-73      2  4.0601522
-74      2  3.9826805
-75      2  5.5681710
-76      2  0.7448951
-77      2  5.2244256
-78      2  5.8234534
-79      2  8.6695981
-80      2  8.7146454
-81      2  8.9145606
-82      2  9.2096580
-83      2  9.3724747
-84      2 13.2265067
-85      2  6.8190313
-86      2  6.4396875
-87      2  9.6104201
-88      2  3.1281561
-89      2 16.9418568
-90      2  5.9924185
-91      2 11.5912049
-92      2  8.9724457
-93      2 13.5155541
-94      2  6.3537816
-95      2  4.6392477
-96      2 -0.6552493
-97      2  8.6729856
-98      2  9.4649523
-99      2  5.1699314
-100     2 11.3733686
-
-attr(,"class")
-[1] "SimulationResult"</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>Solution: implement generic function <code>print</code></p>
 </div>
 </section>
-<section id="example---step-3-packaging-5" class="slide level2">
-<h2>Example - Step 3: Packaging</h2>
-<p>Generic function <code>print</code>:</p>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Roxygen</a></li><li><a href="#tabset-1-3">Output</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>print.SimulationResult <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    args <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> x<span class="sc">$</span>n1, <span class="at">n2 =</span> x<span class="sc">$</span>n2, </span>
-<span id="cb7-3"><a href="#cb7-3"></a>        <span class="at">mean1 =</span> x<span class="sc">$</span>mean1, <span class="at">mean2 =</span> x<span class="sc">$</span>mean2, <span class="at">sd1 =</span> x<span class="sc">$</span>sd1, <span class="at">sd2 =</span> x<span class="sc">$</span>sd2)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    </span>
-<span id="cb7-5"><a href="#cb7-5"></a>    <span class="fu">print</span>(<span class="fu">list</span>(</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        <span class="at">args =</span> <span class="fu">format</span>(args), </span>
-<span id="cb7-7"><a href="#cb7-7"></a>        <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">tibble</span>(x<span class="sc">$</span>data)</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    ), ...)</span>
-<span id="cb7-9"><a href="#cb7-9"></a>}</span>
-<span id="cb7-10"><a href="#cb7-10"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#' @title</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#' Print Simulation Result</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#'</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#' @description</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#' Generic function to print a `SimulationResult` object.</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#'</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#' @param x a \code{SimulationResult} object to print.</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#' @param ... further arguments passed to or from other methods.</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#' </span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#' @examples</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#' x &lt;- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, </span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#' print(x)</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#'</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="co">#' @export</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-3">
-<div class="cell" style="font-size:0.8em!important;">
-<div class="cell-output cell-output-stdout">
-<pre><code>$args
-   n1    n2 mean1 mean2   sd1   sd2 
- "50"  "50"   "5"   "7"   "3"   "4" 
+<section id="modules-considerations-similar-to-functions" class="slide level2">
+<h2>Modules: Considerations similar to Functions</h2>
+<ul>
+<li>What should be configurable?
+<ul>
+<li>Think about reuse needs for module</li>
+</ul></li>
+<li>How to organize arguments?
+<ul>
+<li>Use consistent naming conventions</li>
+<li>Keep the right order of the arguments</li>
+</ul></li>
+<li>Avoid dependencies between arguments
+<ul>
+<li>Use instead parameter object pattern</li>
+</ul></li>
+<li>How to write good and maintainable code?
+<ul>
+<li>Follow all the clean code rules from the previous chapter!</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="reactivity" class="title-slide slide level1 center">
+<h1>Reactivity</h1>
 
-$data
-# A tibble: 100 × 2
-   group values
-   &lt;dbl&gt;  &lt;dbl&gt;
- 1     1  3.55 
- 2     1  5.90 
- 3     1  2.48 
- 4     1  6.83 
- 5     1 -0.680
- 6     1  8.25 
- 7     1  3.67 
- 8     1  4.67 
- 9     1  7.91 
-10     1  6.43 
-# ℹ 90 more rows</code></pre>
+</section>
+<section id="reactivity-1" class="slide level2">
+<h2>Reactivity</h2>
+<p>When building production shiny apps you won’t get around learning reactivity.</p>
+<p>Some guidance:</p>
+<ul>
+<li>Keep user interface simple → often keeps reactivity simple → often less confusing to user</li>
+<li>Resolve reactive inputs early on &amp; validate generously</li>
+<li>Design towards “stringy” reactivity graphs</li>
+<li>Don’t interrupt reactivity</li>
+<li>Preferably use
+<ul>
+<li><code>reactive</code> over <code>reactiveValues</code></li>
+<li><code>observeEvent</code> over <code>observe</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="reactivity-resolve-early-validate" class="slide level2">
+<h2>Reactivity: Resolve early &amp; validate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="3-6,8-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="co"># Resolve reactive values.</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    xvar <span class="ot">&lt;-</span> input<span class="sc">$</span>xvar</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    yvar <span class="ot">&lt;-</span> input<span class="sc">$</span>yvar</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="fu">req</span>(xvar, yvar)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    </span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="co"># Validate – is it likely that the plot will be meaningful?</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="fu">validate</span>(</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      <span class="fu">need</span>(xvar <span class="sc">%in%</span> <span class="fu">names</span>(df), <span class="fu">glue</span>(<span class="st">"xvar </span><span class="sc">\"</span><span class="st">{xvar}</span><span class="sc">\"</span><span class="st"> does not exist"</span>)),</span>
+<span id="cb3-11"><a href="#cb3-11"></a>      <span class="fu">need</span>(yvar <span class="sc">%in%</span> <span class="fu">names</span>(df), <span class="fu">glue</span>(<span class="st">"yvar </span><span class="sc">\"</span><span class="st">{yvar}</span><span class="sc">\"</span><span class="st"> does not exist"</span>)),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>      <span class="fu">need</span>(<span class="fu">nrow</span>(df) <span class="sc">&gt;</span> <span class="dv">3</span>, <span class="st">"too few data points for meaningful plot"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    )</span>
+<span id="cb3-14"><a href="#cb3-14"></a>    </span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="fu">my_special_plot</span>(df[[xvar]], df[[yvar]])</span>
+<span id="cb3-16"><a href="#cb3-16"></a>  })</span>
+<span id="cb3-17"><a href="#cb3-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reactivity-debugging-techniques" class="slide level2">
+<h2>Reactivity: Debugging techniques</h2>
+<ul>
+<li>Put <code>browser()</code> into the functions</li>
+<li>Jump into browser mode upon error with <code>options(shiny.error = browser)</code></li>
+<li>Just put <code>print()</code> inside the reactives</li>
+<li>Save variables to global environment via <code>.GlobalEnv$var &lt;- var</code> and then check</li>
+<li>Simplify things until it works and then go back</li>
+</ul>
+</section>
+<section id="reactivity-graph-visualization" class="slide level2">
+<h2>Reactivity: Graph visualization</h2>
+<p>To understand the order of execution we can visualize the reactive graph, which describes how sources and endpoints are connected via conductors.</p>
+
+<img data-src="resources/legend.png" class="r-stretch quarto-figure-center"><div class="columns">
+<div class="column" style="width:33%;">
+<p>e.g.&nbsp;<code>input</code></p>
+</div><div class="column" style="width:34%;">
+<p>e.g.&nbsp;<code>reactive</code></p>
+</div><div class="column" style="width:33%;">
+<p>e.g.&nbsp;<code>output</code></p>
 </div>
 </div>
-</div>
+</section>
+<section id="reactivity-stringy-reactivity-graph" class="slide level2">
+<h2>Reactivity: “Stringy” reactivity graph</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Bad <img data-src="resources/connected.png" data-fig-align="center"> Many edges, difficult to anticipate reactivity behaviour</p>
+</div><div class="column" style="width:50%;">
+<p>Good <img data-src="resources/stringy.png" data-fig-align="center"> This “stringy” reactivity graph is easier to understand and debug</p>
 </div>
 </div>
 </section></section>
 <section>
-<section id="exercise" class="title-slide slide level1 center">
-<h1>Exercise</h1>
+<section id="testing" class="title-slide slide level1 center">
+<h1>Testing</h1>
 
-<img data-src="thumbnails/exercise.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="copyright">Photo CC0 by Pixabay on pexels.com</span></p></section>
-<section id="preparation" class="slide level2">
-<h2>Preparation</h2>
-<ol type="1">
-<li>Download the unfinished R package <a href="download/simulatr.zip">simulatr</a></li>
-<li>Extract the package zip file</li>
-<li>Open the project with RStudio</li>
-<li>Complete the tasks below</li>
-</ol>
 </section>
-<section id="tasks" class="slide level2">
-<h2>Tasks</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Task 1</a></li><li><a href="#tabset-2-2">Task 2</a></li><li><a href="#tabset-2-3">Task 3</a></li><li><a href="#tabset-2-4">Task 4</a></li><li><a href="#tabset-2-5">Task 5</a></li><li><a href="#tabset-2-6">Task 6</a></li><li><a href="#tabset-2-7">Task 7</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<p>Add assertions to improve the usability and user experience</p>
-<div class="callout callout-note callout-captioned callout-style-default">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip on assertions</strong></p>
-</div>
-<div class="callout-content">
-<p>Use the package <a href="https://cran.r-project.org/package=checkmate" title="checkmate: Fast and Versatile Argument Checks">checkmate</a> to validate input arguments.</p>
-</div>
-</div>
-</div>
-<p>Example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>playWithAssertions <span class="ot">&lt;-</span> <span class="cf">function</span>(n1) {</span>
-<span id="cb10-2"><a href="#cb10-2"></a>  checkmate<span class="sc">::</span><span class="fu">assertInt</span>(n1, <span class="at">lower =</span> <span class="dv">1</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>}</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">playWithAssertions</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><span class="error">Error in playWithAssertions(-1) :</span> <span class="error">Assertion on ‘n1’ failed: Element 1 is not &gt;= 1.</span></p>
-</div>
-<div id="tabset-2-2">
-<p>Add three additional results:</p>
-<ol type="1">
-<li>n total,</li>
-<li>creation time, and</li>
-<li>allocation ratio</li>
-</ol>
-<div class="callout callout-note callout-captioned callout-style-default">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip on creation time</strong></p>
-</div>
-<div class="callout-content">
-<p><code>Sys.time()</code>, <code>format(Sys.time(), '%B %d, %Y')</code>, <code>Sys.Date()</code></p>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-3">
-<p>Add an additional result: <code>t.test</code> result</p>
-</div>
-<div id="tabset-2-4">
-<p>Add an optional <em>alternative</em> argument and pass it through <code>t.test</code>:<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>alternative <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-5">
-<p>Implement the generic functions <code>print</code> and <code>plot</code>.</p>
-<div class="callout callout-note callout-captioned callout-style-default">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip on print</strong></p>
-</div>
-<div class="callout-content">
-<p>Use the plot example function from above and extend it.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-note callout-captioned callout-style-default">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip on plot</strong></p>
-</div>
-<div class="callout-content">
-<p>Use R base <a href="https://bookdown.org/rdpeng/exdata/the-base-plotting-system-1.html">plot</a> or <a href="https://cran.r-project.org/package=ggplot2">ggplot2</a> to create a grouped boxplot of the fake data.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-6">
-<p><em>Optional extra tasks:</em></p>
+<section id="testing-from-icecream-to-pyramid" class="slide level2">
+<h2>Testing: From Icecream to Pyramid</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Bad</p>
+<p><img data-src="resources/icecream.png" height="400"></p>
 <ul>
-<li><p>Implement the generic functions <code>summary</code> and <code>cat</code></p></li>
-<li><p>Implement the function <code>kable</code> known from the package <a href="https://cran.r-project.org/package=knitr">knitr</a> as generic. <em>Tip</em>: use</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>kable <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"kable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>to define kable as generic</p></li>
+<li>cannot always test manually</li>
+<li>can easily introduce bugs</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Good</p>
+<p><img data-src="resources/pyramid.png" height="400"></p>
+<ul>
+<li>manual testing is reduced</li>
+<li>only for “playing around”</li>
 </ul>
 </div>
-<div id="tabset-2-7">
-<p><em>Optional extra task<sup>1</sup>:</em></p>
-<p>Document your functions with <a href="https://cran.r-project.org/package=roxygen2">Roxygen2</a></p>
-<div class="footnote">
+</div>
+</section>
+<section id="testing-snapshot-tests-for-ui" class="slide level2">
+<h2>Testing: Snapshot tests for UI</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="5-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">test_that</span>(<span class="st">"myInput UI works"</span>, {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  input <span class="ot">&lt;-</span> <span class="st">"foo"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  datasets <span class="ot">&lt;-</span> <span class="fu">mock_datasets</span>()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">expect_snapshot</span>(<span class="fu">myInput</span>(</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="st">"my_test"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="at">datasets =</span> datasets,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">input =</span> input</span>
+<span id="cb4-9"><a href="#cb4-9"></a>  ))</span>
+<span id="cb4-10"><a href="#cb4-10"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Shiny UI functions return <code>shiny.tag</code> objects which print as HTML code</li>
+<li>Can use snapshot tests to avoid accidental changes</li>
+<li>Value is limited</li>
+<li>Can create issues sometimes (non-reproducible hashes)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="testing-shiny-server-tests" class="slide level2">
+<h2>Testing: Shiny server tests</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">test_that</span>(<span class="st">"server works"</span>, {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">testServer</span>(server, {</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    session<span class="sc">$</span><span class="fu">setInputs</span>(...)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="fu">print</span>(<span class="fu">reactive1</span>())</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="fu">print</span>(output<span class="sc">$</span>output1)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="co"># etc</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="co"># To interactively play:</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="co"># browser()</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  </span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="fu">expect_equal</span>(...)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>    <span class="co"># etc.</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>  })</span>
+<span id="cb5-15"><a href="#cb5-15"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Code is run inside the server function</li>
+<li>Can access reactives, outputs, etc.</li>
+<li>Session object simulates user actions and time</li>
+<li>Note: need to insert <code>browser()</code></li>
+<li>Also works for module server functions</li>
+<li>Limitation: No UI, no JavaScript</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="testing-shiny-app-tests" class="slide level2">
+<h2>Testing: Shiny app tests</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(shinytest2)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">test_that</span>(<span class="st">"my app works"</span>, {</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  app <span class="ot">&lt;-</span> AppDriver<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="at">app_dir =</span> <span class="st">"myAppDir"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="at">load_timeout =</span> <span class="fl">1e5</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">variant =</span> <span class="fu">platform_variant</span>()</span>
+<span id="cb6-7"><a href="#cb6-7"></a>  ) <span class="co"># app$get_logs()</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  app<span class="sc">$</span><span class="fu">wait_for_idle</span>(<span class="at">timeout =</span> <span class="fl">1e5</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  app<span class="sc">$</span><span class="fu">get_screenshot</span>()</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  app<span class="sc">$</span><span class="fu">set_inputs</span>(<span class="at">name =</span> <span class="st">"Hadley"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>  app<span class="sc">$</span><span class="fu">get_value</span>(<span class="st">"greeting"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>  app<span class="sc">$</span><span class="fu">click</span>(<span class="st">"reset"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a>  app<span class="sc">$</span><span class="fu">get_value</span>(<span class="st">"greeting"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Usually the app is defined in <code>myAppDir/app.R</code></li>
+<li>New app instance <code>app</code> from <code>AppDriver$new()</code></li>
+<li>Full Shiny app in a headless <code>chromote</code> browser</li>
+<li>Can look into it via <code>app$get_screenshot()</code></li>
+<li>We can set inputs, get values of inputs/outputs, click buttons etc.</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="additional-topics" class="title-slide slide level1 center">
+<h1>Additional Topics</h1>
+
+</section>
+<section id="security" class="slide level2">
+<h2>Security</h2>
+<ul>
+<li>Never include passwords in your source code! Instead:
+<ul>
+<li>Use environment variables</li>
+<li>Or use the <code>{config}</code> package</li>
+<li>Any files containing passwords must be added to <code>.gitignore</code></li>
+</ul></li>
+<li>For user authentication, start with existing solutions that are IT approved
+<ul>
+<li>See some best practices <a href="https://solutions.posit.co/secure-access/auth/kerberos/">here</a> and <a href="https://db.rstudio.com/best-practices/deployment/">here</a>.</li>
+</ul></li>
+<li>Code run in <code>server()</code> is isolated and cannot be seen by other users
+<ul>
+<li>But global environment, e.g.&nbsp;options, are shared across sessions</li>
+</ul></li>
+<li>Check all user input via assertions or validations to avoid JavaScript hacking</li>
+</ul>
+</section>
+<section id="packaging" class="slide level2">
+<h2>Packaging</h2>
+<p>The app should live in an R package. Why? Because we need:</p>
+<ul>
+<li>Metadata and dependencies: from <code>DESCRIPTION</code> + <code>NAMESPACE</code> files</li>
+<li>Code split into functions and modules: in files in the the <code>R</code> directory</li>
+<li>Documentation via vignettes, <code>README</code>, and function and modules documentation</li>
+<li>Automated tests: using <code>testthat</code> and the native <code>R CMD check</code></li>
+<li>Able to share the package as tarball or via repositories for installation</li>
+</ul>
+</section>
+<section id="deployment-options" class="slide level2">
+<h2>Deployment Options</h2>
+<ul>
+<li><a href="https://www.shinyapps.io/">https://www.shinyapps.io/</a>
+<ul>
+<li>Allows for quick sharing of Shiny apps on the cloud</li>
+<li>Free version is good for quick tests or experiments</li>
+<li>Serious use needs subscription</li>
+</ul></li>
+<li>Internal Posit Connect is internal alternative
+<ul>
+<li>More features than above cloud service</li>
+<li>One detail example: can use environment variables</li>
+<li>See <a href="https://posit.co/products/open-source/shinyserver/">https://posit.co/products/open-source/shinyserver/</a> for the differences</li>
+</ul></li>
+</ul>
+</section>
+<section id="deployment-process" class="slide level2">
+<h2>Deployment Process</h2>
+<p>You’ll need few extra steps:</p>
 <ol type="1">
-<li>If you are already familiar with Roxygen2</li>
+<li><p>Instruct the server how to run the app in the package. Simplest is <code>app.R</code> in package root folder containing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>pkgload<span class="sc">::</span><span class="fu">load_all</span>(<span class="st">"."</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">myApp</span>() <span class="co"># = function in your package calling shinyApp()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Ignore the <code>app.R</code> for package build</p></li>
+<li><p>Include <code>shiny</code> and <code>pkgload</code> to the <code>Imports</code> in the <code>DESCRIPTION</code> file</p></li>
+<li><p>Run <code>rsconnect::deployApp()</code> to share the updated app version!</p></li>
 </ol>
-</div>
-</div>
-</div>
-</div>
 </section></section>
 <section id="references" class="title-slide slide level1 center">
 <h1>References</h1>
 <ul>
-<li>Gillespie, C., &amp; Lovelace, R. (2017). Efficient R Programming: A Practical Guide to Smarter Programming. O’Reilly UK Ltd. [<a href="https://amzn.to/3GU8HUW">Book</a> | <a href="https://csgillespie.github.io/efficientR/">Online</a>]</li>
-<li>Grolemund, G. (2014). Hands-On Programming with R: Write Your Own Functions and Simulations (1. Aufl.).<br>
-O’Reilly and Associates. [<a href="https://amzn.to/3QD7DeL">Book</a> | <a href="https://rstudio-education.github.io/hopr/">Online</a>]</li>
-<li>Rupp, C., &amp; SOPHISTen, die. (2009). Requirements-Engineering und -Management: Professionelle, iterative Anforderungsanalyse für die Praxis (5. Ed.). Carl Hanser Verlag GmbH &amp; Co.&nbsp;KG. [<a href="https://amzn.to/3DdwiBe">Book</a>]</li>
-<li>Wickham, H. (2015). R Packages: Organize, Test, Document, and Share Your Code (1. Aufl.). O’Reilly and Associates. [<a href="https://amzn.to/34U0Fyj">Book</a> | <a href="https://r-pkgs.org/">Online</a>]</li>
-<li>Wickham, H. (2019). Advanced R, Second Edition.<br>
-Taylor &amp; Francis Ltd.&nbsp;[<a href="https://amzn.to/3uLnxLd">Book</a> | <a href="https://adv-r.hadley.nz/">Online</a>]</li>
+<li>Adrian Waddell, Pawel Rucki, Daniel Sabanes Bove (2022). Lessons for designing scalable and maintainable Shiny apps Tutorial at useR 2022. [<a href="https://www.youtube.com/watch?v=7o9qjsw4aDU">Youtube recording</a>]</li>
+<li>Hadley Wickham (2020). Mastering Shiny. <a href="https://mastering-shiny.org/">https://mastering-shiny.org/</a></li>
+<li>Colin Fay, Sébastien Rochette, Vincent Guyader and Cervan Girard (2022). Engineering Production-Grade Shiny Apps. <a href="https://engineering-shiny.org/">https://engineering-shiny.org/</a></li>
+<li>Colin Gillespie (2019). R and Security Talk at useR 2019. [<a href="https://www.youtube.com/watch?v=5odJxZj9LE4">Youtube recording</a>]</li>
 </ul>
 
 <div class="footer footer-default">
 <p>Good Software Engineering Practice for R Packages - <a href="../index.html" title="GSWEP4R Workshop">Home</a> | <a href="../listing.html" title="Overview of all slides">Slides</a> | <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="License: CC BY-SA 4.0">License</a></p>
 </div>
 </section>
-
-
     </div>
   </div>
 
