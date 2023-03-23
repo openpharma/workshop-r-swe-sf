@@ -235,14 +235,14 @@
     "href": "slides/03_workflow.html#example---step-3-packaging-4",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1  5.3263346\n2       1  5.5882381\n3       1  3.1053061\n4       1  4.2124646\n5       1 11.6685397\n6       1  5.3890708\n7       1  4.7616497\n8       1  1.7152254\n9       1  9.5272252\n10      1 11.8025993\n11      1  2.2516059\n12      1  4.6623729\n13      1  8.7610620\n14      1  8.4123633\n15      1 -3.5179946\n16      1  4.0648320\n17      1  5.7453057\n18      1  5.1367567\n19      1  7.9521898\n20      1  9.5199930\n21      1 -1.2423117\n22      1  7.5044209\n23      1  6.9681970\n24      1  1.5256733\n25      1  8.0280853\n26      1  5.5506902\n27      1  5.5666734\n28      1  8.7688383\n29      1  6.3082488\n30      1  7.1681386\n31      1  8.7898941\n32      1  9.8494715\n33      1  8.2291728\n34      1 -1.6973091\n35      1  4.0129973\n36      1  6.2543243\n37      1  5.8959014\n38      1  6.0357962\n39      1  5.3539819\n40      1  5.2340542\n41      1  3.8130505\n42      1  6.2470586\n43      1  1.9748363\n44      1  4.7651030\n45      1  7.8624260\n46      1  1.6963375\n47      1  6.4401990\n48      1  4.4986647\n49      1  2.2615674\n50      1  9.4581041\n51      2  4.3210337\n52      2  3.4317695\n53      2  2.8290423\n54      2  4.9241970\n55      2  5.9022025\n56      2 10.5166934\n57      2  7.7246710\n58      2  2.1012733\n59      2  0.8693553\n60      2  5.5916926\n61      2  4.9711982\n62      2  1.6633079\n63      2 14.0404892\n64      2  5.4353498\n65      2 -1.2182472\n66      2  7.6660292\n67      2  8.6832259\n68      2  9.6117710\n69      2 11.9120267\n70      2  4.6142925\n71      2  4.8906714\n72      2 14.9186486\n73      2  7.0274165\n74      2  7.4983746\n75      2 11.1007689\n76      2  3.9094600\n77      2 14.0702052\n78      2 10.6664172\n79      2 -1.8074389\n80      2  4.6842731\n81      2  9.5446565\n82      2 13.3816717\n83      2  9.5911524\n84      2 10.2121234\n85      2  1.2361839\n86      2 10.3241668\n87      2  5.3454140\n88      2  2.0976742\n89      2  9.8865769\n90      2  3.7910594\n91      2  3.6969449\n92      2  9.7561373\n93      2 10.1471701\n94      2  5.2903285\n95      2 11.8198134\n96      2  8.8815994\n97      2  8.0838530\n98      2  6.3565270\n99      2 12.2303957\n100     2  7.8618604\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
+    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1  4.9973314\n2       1  1.2998541\n3       1  3.4479244\n4       1  0.9905489\n5       1  3.3462423\n6       1  2.2758303\n7       1  2.9019431\n8       1  2.3011759\n9       1  5.4350291\n10      1  1.0755764\n11      1  4.0094736\n12      1  7.4351276\n13      1  6.9039412\n14      1 11.5109200\n15      1  1.7257550\n16      1  3.2964242\n17      1  3.0147676\n18      1  6.3856805\n19      1  5.1661308\n20      1  6.2403025\n21      1  5.2088591\n22      1  8.3597321\n23      1  2.1612592\n24      1  2.8230511\n25      1  4.2328294\n26      1  3.8330751\n27      1  9.5484370\n28      1  6.2264019\n29      1  0.1175101\n30      1  4.4254321\n31      1  7.2847763\n32      1  8.4353228\n33      1  3.3198132\n34      1  6.3128562\n35      1  1.5860691\n36      1  4.5500765\n37      1  4.4675330\n38      1  7.0857755\n39      1 -1.0396660\n40      1  8.0095818\n41      1  4.5098022\n42      1  1.2209925\n43      1  1.7471727\n44      1  7.4128748\n45      1  8.7813122\n46      1  3.7750271\n47      1  0.5140343\n48      1 12.0437014\n49      1  6.2250422\n50      1  3.8261289\n51      2  9.3518366\n52      2  1.8512536\n53      2  5.6548283\n54      2 10.1019580\n55      2 12.4803746\n56      2  8.5263035\n57      2  5.8586558\n58      2  7.1028694\n59      2  3.4677643\n60      2 13.3166215\n61      2  8.2720049\n62      2  8.6730992\n63      2 10.4462295\n64      2  9.6536398\n65      2  2.5478938\n66      2  2.8325891\n67      2 14.5429498\n68      2  4.4669706\n69      2  7.9740275\n70      2 13.5416561\n71      2  9.3316073\n72      2 -8.0893413\n73      2  6.2148844\n74      2  7.5966594\n75      2  9.7605105\n76      2 10.1779354\n77      2  4.7040116\n78      2  4.6758754\n79      2  2.6237487\n80      2  9.8818585\n81      2  9.9355592\n82      2  6.2055526\n83      2  6.0256999\n84      2  0.2805092\n85      2  8.6716943\n86      2 11.8524793\n87      2  6.6302779\n88      2  6.7979256\n89      2  5.2296532\n90      2 15.8656662\n91      2  4.5677811\n92      2 11.1998656\n93      2 11.0396073\n94      2  4.0094357\n95      2  9.7618155\n96      2  5.0014912\n97      2 12.1136853\n98      2 10.3855570\n99      2  0.7541902\n100     2  4.8641281\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
   },
   {
     "objectID": "slides/03_workflow.html#example---step-3-packaging-5",
     "href": "slides/03_workflow.html#example---step-3-packaging-5",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1   5.33\n 2     1   5.59\n 3     1   3.11\n 4     1   4.21\n 5     1  11.7 \n 6     1   5.39\n 7     1   4.76\n 8     1   1.72\n 9     1   9.53\n10     1  11.8 \n# ℹ 90 more rows"
+    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1  5.00 \n 2     1  1.30 \n 3     1  3.45 \n 4     1  0.991\n 5     1  3.35 \n 6     1  2.28 \n 7     1  2.90 \n 8     1  2.30 \n 9     1  5.44 \n10     1  1.08 \n# ℹ 90 more rows"
   },
   {
     "objectID": "slides/03_workflow.html#preparation",
@@ -445,7 +445,7 @@
     "href": "slides/01_intro.html#disclaimer",
     "title": "1 Introduction",
     "section": "Disclaimer",
-    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of their respective employer or company."
+    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of Roche."
   },
   {
     "objectID": "slides/01_intro.html#daniel",
@@ -455,25 +455,32 @@
     "text": "Daniel\n\n\n\n\n\nStatistician (Ph.D. in 2013 on Bayesian Model Selection)\nBiostatistician at Roche for 5 years, Data Scientist at Google for 2 years, Statistical Software Engineer at Roche for the last 3 years\nMultiple R packages on CRAN and Bioconductor, co-wrote book on Likelihood and Bayesian Inference, chair of the ASA BIOP working group on Software Engineering (SWE WG)\nfeel free to connect at  LinkedIn or  Github"
   },
   {
-    "objectID": "slides/01_intro.html#friedrich",
-    "href": "slides/01_intro.html#friedrich",
+    "objectID": "slides/01_intro.html#liming",
+    "href": "slides/01_intro.html#liming",
     "title": "1 Introduction",
-    "section": "Friedrich",
-    "text": "Friedrich\n\n\n\nSince 2008 self-employed consultant for computer science and data science as well as biostatistics\nCo-founder and CEO of RPACT, a company developing the formally validated R package rpact with 21 releases on CRAN since 2018\nTrained software architect; R programmer since 2004; R Shiny developer since 2019\nFeel free to connect at  LinkedIn or  Github"
+    "section": "Liming",
+    "text": "Liming\n\n\n\nMaster in Biostatistics from Fudan University\nStatistical Programmer in Roche for 4 years, technical engineering lead for chevron team in NEST project\nMember of ASA BIOP working group on Software Engineering (SWE WG) mmrm taskforce\nFeel free to connect at  Github"
   },
   {
-    "objectID": "slides/01_intro.html#kevin",
-    "href": "slides/01_intro.html#kevin",
+    "objectID": "slides/01_intro.html#joe",
+    "href": "slides/01_intro.html#joe",
     "title": "1 Introduction",
-    "section": "Kevin",
-    "text": "Kevin\n\n\n\n\n\nTrained in math, ‘statistical engineer’ by heart\nResearch associate in Heidelberg & Cambridge\n\noptimal clinical trial design\nstatistical genetics & high dimensional data\n\nMethodology statistician with BI since ’21\nR-tist, extensive experience with R packages, version control, and high-performance computing\nfeel free to connect at  LinkedIn or  Github"
+    "section": "Joe",
+    "text": "Joe\n\n\n\nPh.D. in Statistics\nPostdoc at the University of Oxford for 6 years, Data Scientist at Roche for the last 3 years, technical engineering lead for the NEST SME team.\nMultiple open-source packages on Github and CRAN, see this page for details.\nFeel free to connect at  LinkedIn or  Github"
+  },
+  {
+    "objectID": "slides/01_intro.html#shuang",
+    "href": "slides/01_intro.html#shuang",
+    "title": "1 Introduction",
+    "section": "Shuang",
+    "text": "Shuang\n\n\n\n\n\nMaster in Pharmacology from Fudan University\n5-year experience in clinical data management, curation and related R tools development\nTechnical Lead of several data FARIification R packages, co-auther of the Restrict Data Check Shiny App and the Raw Data Compare R Package\nFeel free to connect at  Github"
   },
   {
     "objectID": "slides/01_intro.html#what-you-will-learn-today",
     "href": "slides/01_intro.html#what-you-will-learn-today",
     "title": "1 Introduction",
     "section": "What you will learn today",
-    "text": "What you will learn today\n\nUnderstand the basic structure of an R package\nCreate your own R \nLearn about & apply professional  development workflow\nLearn & apply fundamentals of quality control for R \nGet crash-course in version control to stay organized\nTry out modern collaboration techniques on GitHub.com\nLearn how to make an R  available to others"
+    "text": "What you will learn today\n\nUnderstand the basic structure of an R package\nCreate your own R \nLearn about & apply professional  development workflow\nLearn & apply fundamentals of quality control for R \nGet crash-course in version control to stay organized\nTry out modern collaboration techniques on GitHub.com\nLearn how to make an R  available to others\nGet a starting point for sustainable Shiny app development"
   },
   {
     "objectID": "slides/01_intro.html#program-outline",
@@ -487,7 +494,14 @@
     "href": "slides/01_intro.html#house-keeping",
     "title": "1 Introduction",
     "section": "House-keeping",
-    "text": "House-keeping\n\nCourse website at kkmann.github.io/workshop-r-swe\n\nall slides\nsources available at github.com/kkmann/workshop-r-swe\nall materials CC-BY 4.0\n\nWe have a gitter chat channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course\n\nslido.com: #3112331"
+    "text": "House-keeping\n\nCourse website at openpharma.github.io/workshop-r-swe\n\nall slides\nsources available at github.com/openpharma/workshop-r-swe\nall materials CC-BY 4.0\n\nWe have a WeChat channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course"
+  },
+  {
+    "objectID": "slides/01_intro.html#enter-wechat",
+    "href": "slides/01_intro.html#enter-wechat",
+    "title": "1 Introduction",
+    "section": "Enter WeChat",
+    "text": "Enter WeChat"
   },
   {
     "objectID": "slides/01_intro.html#what-you-will-need",
@@ -495,6 +509,13 @@
     "title": "1 Introduction",
     "section": "What you will need",
     "text": "What you will need\n\nGithub.com (free) account \nRecommended: posit.cloud \n\nFree tier sufficient\nComes with everything installed\nAlternative: local R development environment with\n\ngit \nRtools/R/Rstudio IDE \n\n\nCuriosity 🦝\nPositive attitude 😄"
+  },
+  {
+    "objectID": "slides/01_intro.html#enter-menti.com-4458-3431",
+    "href": "slides/01_intro.html#enter-menti.com-4458-3431",
+    "title": "1 Introduction",
+    "section": "Enter menti.com: 4458 3431",
+    "text": "Enter menti.com: 4458 3431"
   },
   {
     "objectID": "slides/01_intro.html#what-do-we-mean-by-gswep4r",
@@ -963,6 +984,6 @@
     "href": "listing.html",
     "title": "Slides",
     "section": "",
-    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Friedrich, Kevin\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nFriedrich\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Liming, Shuang, Joe\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nFriedrich\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
   }
 ]
