@@ -7,10 +7,10 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.2.475">
 
-  <meta name="author" content="Kevin">
-  <meta name="dcterms.date" content="2023-03-20">
+  <meta name="author" content="Shuang">
+  <meta name="dcterms.date" content="2023-03-24">
   <title>GSWEP4R Workshop - 5 Version Control &amp; Collaboration</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -334,12 +334,12 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Kevin 
+Shuang 
 </div>
 </div>
 </div>
 
-  <p class="date">March 20, 2023</p>
+  <p class="date">March 24, 2023</p>
 </section>
 <section id="disclaimer" class="slide level2">
 <h2>Disclaimer</h2>
@@ -404,10 +404,10 @@ Kevin
 <div>
 <p>
 </p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
-  A[&lt;font size=4&gt; Kevin v1] --&gt; B[&lt;font size=4&gt; Kevin v2]
-  B --&gt; C[&lt;font size=4&gt; Kevin v3]
-  B --&gt; D[&lt;font size=4&gt; Daniel v1]
-  D --&gt; E[&lt;font size=4&gt; Kevin + Daniel v4]
+  A[&lt;font size=4&gt; Shuang v1] --&gt; B[&lt;font size=4&gt; Shuang v2]
+  B --&gt; C[&lt;font size=4&gt; Shuang v3]
+  B --&gt; D[&lt;font size=4&gt; Joe v1]
+  D --&gt; E[&lt;font size=4&gt; Joe + Shuang v4]
   C --&gt; E
 </pre>
 <div id="mermaid-tooltip-1" class="mermaidTooltip">
@@ -439,7 +439,7 @@ Kevin
 <li>Optimized to compute line-based changes</li>
 <li>Integrated in RStudio IDE, Visual Studio Code</li>
 <li>De facto standard not just in the R world</li>
-<li>Alternatives: mercurial, SCM, …</li>
+<li>Alternatives: mercurial, SVN, …</li>
 </ul>
 </div>
 </div>
@@ -643,7 +643,7 @@ Kevin
 <li>git itself is command line tool for version control</li>
 <li><strong>git platforms add UI for collaboration</strong><sup>1</sup>
 <ul>
-<li><a href="https://github.com">GitHub.com</a> de facto standard in R (alternative: <a href="https://gitlab.com/">GitLab.com</a>)</li>
+<li><a href="https://github.com">GitHub.com</a> de facto standard in R (alternative: <a href="https://gitlab.com/">GitLab.com</a>, <a href="https://gitee.com/">Gitee.com</a>)</li>
 </ul></li>
 <li>git + GitHub
 <ul>
@@ -714,25 +714,25 @@ Kevin
 <div>
 <p>
 </p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-6">sequenceDiagram
-    participant K as Kevin
+    participant S as Shuang
     participant GH as GitHub server
-    participant D as Daniel
-    K-&gt;&gt;K: make change locally &amp; commit to &lt;feature&gt;
-    K-&gt;&gt;GH: push commit
-    K-&gt;&gt;GH: open pull request
+    participant J as Joe
+    S-&gt;&gt;S: make change locally &amp; commit to &lt;feature&gt;
+    S-&gt;&gt;GH: push commit
+    S-&gt;&gt;GH: open pull request
     GH-&gt;&gt;GH: run automated checks
-    K-&gt;&gt;D: request review
-    D-&gt;&gt;D: review code
-    D-&gt;&gt;K: request changes
-    K-&gt;&gt;K: implement changes locally &amp; commit
-    K-&gt;&gt;GH: push commit
+    S-&gt;&gt;J: request review
+    J-&gt;&gt;J: review code
+    J-&gt;&gt;S: request changes
+    S-&gt;&gt;S: implement changes locally &amp; commit
+    S-&gt;&gt;GH: push commit
     GH-&gt;&gt;GH: run automated checks
-    K-&gt;&gt;D: request review
-    D-&gt;&gt;D: review code
-    D-&gt;&gt;GH: approve changes, unblocking merge
-    K-&gt;&gt;GH: merge &lt;feature&gt; into &lt;main&gt;
+    S-&gt;&gt;J: request review
+    J-&gt;&gt;J: review code
+    J-&gt;&gt;GH: approve changes, unblocking merge
+    S-&gt;&gt;GH: merge &lt;feature&gt; into &lt;main&gt;
     GH-&gt;&gt;GH: run automated checks on &lt;main&gt;
-    D-&gt;&gt;GH: pull newest version of &lt;main&gt;
+    J-&gt;&gt;GH: pull newest version of &lt;main&gt;
 </pre>
 <div id="mermaid-tooltip-6" class="mermaidTooltip">
 
@@ -766,7 +766,7 @@ Kevin
 <section id="practical---collaboration-on-github" class="slide level2">
 <h2>Practical - collaboration on GitHub</h2>
 <ul>
-<li>Work in teams of ~3</li>
+<li>Work in teams of ~ 3 or 4</li>
 <li>Go to <a href="https://github.com/kkmann/simulatr" class="uri">https://github.com/kkmann/simulatr</a> and read through the instructions in the README.md file</li>
 <li>The repository is a <strong>template</strong> to practice collaboration on GitHub</li>
 <li><strong>Only one member per team needs to use the template</strong> and invite the others as collaborators!</li>
