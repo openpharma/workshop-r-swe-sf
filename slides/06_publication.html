@@ -458,7 +458,10 @@ Liming
 <li>A separate branch <code>gh-pages</code> that stores the rendered website</li>
 <li>GitHub actions automatically render the website when the <code>main</code> branch is updated</li>
 </ul></li>
-<li>To get started, use <code>usethis::use_pkgdown_github_pages()</code></li>
+<li>To get started, use <code>usethis::use_pkgdown_github_pages()</code>
+<ul>
+<li>Or, manually deploy site with <code>pkgdown::deploy_to_branch()</code></li>
+</ul></li>
 </ul>
 </section>
 <section id="section-1" class="slide level2" data-background-iframe="https://openpharma.github.io/mmrm/main/" data-background-interactive="true">
@@ -651,13 +654,22 @@ r-devel-linux-x86_64-debian-gcc Check: Result: Note_to_CRAN_maintainers Maintain
 
 <section id="exercise" class="title-slide slide level1 center">
 <h1>Exercise</h1>
+<p>Use the same repository created from template <a href="https://github.com/kkmann/simulatr">https://github.com/kkmann/simulatr</a></p>
 <ul>
 <li>Run CRAN like checks in RStudio: use <code>--as-cran</code> in check options</li>
 <li>Look at the CI/CD checks reported on your GitHub repository
 <ul>
 <li>Where are the <code>R CMD check</code> results?</li>
 </ul></li>
-<li>Deploy the <code>pkgdown</code> website with <code>usethis</code></li>
+<li>Enable github page through <code>use_pkgdown_github_pages</code></li>
+<li>Deploy the website with <code>pkgdown</code>
+<ul>
+<li>Need to change remote to <code>git</code></li>
+</ul></li>
+<li>Deploy the website through <code>use_github_action("pkgdown")</code>
+<ul>
+<li>(Optional) Check the automatic github page deploy action</li>
+</ul></li>
 </ul>
 
 <div class="footer footer-default">

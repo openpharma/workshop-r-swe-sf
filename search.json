@@ -1,262 +1,52 @@
 [
   {
-    "objectID": "slides/05_collaboration.html#disclaimer",
-    "href": "slides/05_collaboration.html#disclaimer",
-    "title": "5 Version Control & Collaboration",
-    "section": "Disclaimer",
-    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of their respective employer or company."
-  },
-  {
-    "objectID": "slides/05_collaboration.html#section",
-    "href": "slides/05_collaboration.html#section",
-    "title": "5 Version Control & Collaboration",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Good Software Engineering Practice for R Packages",
     "section": "",
-    "text": "Overview, demo, practical\nCan only scratch surface\nMore resources on website\n\n\n\nPhoto by Rich @ rhubbardstockfootage on Unsplash"
+    "text": "Welcome to the homepage of the workshop “Good Software Engineering Practice for R Packages”. In this course participants will learn hands-on skills and tools to engineer reliable R packages used in biostatistics. The day will be a mix of presentations and exercises. Participants need to be comfortable with writing functions in R and use their own laptops."
   },
   {
-    "objectID": "slides/05_collaboration.html#trade-offs-in-code-development",
-    "href": "slides/05_collaboration.html#trade-offs-in-code-development",
-    "title": "5 Version Control & Collaboration",
-    "section": "Trade-offs in code development",
-    "text": "Trade-offs in code development\n\n\n\nWorking alone\n\nno coordination overhead\nno review\nlack of diversity\ncan slack on documentation\nfragile long-term maintenance\n\n\nWorking in a team\n\ncoordination overhead\nmutual review of code\ndifferent approaches\nforced to document\nmore robust long-term maintenance"
+    "objectID": "index.html#next-event",
+    "href": "index.html#next-event",
+    "title": "Good Software Engineering Practice for R Packages",
+    "section": "Next Event",
+    "text": "Next Event\nThe next event will be online, live streamed from Roche Shanghai, so perfect for attendees from Asia! Please mark the Friday 24th March 2023 and register here:\n\nPlease note that all the content will be in English. Workshop invitations and preparation details for the practice will be sent out in emails. This event is sponsored/organized by Roche PD China Data Sciences and advertised also through the R User Group (RUG) China. Presenters will be Daniel Sabanes Bove, Liming Li, Shuang Li and Joe Zhu.\nWe are looking forward to many online participants!"
   },
   {
-    "objectID": "slides/05_collaboration.html#section-1",
-    "href": "slides/05_collaboration.html#section-1",
-    "title": "5 Version Control & Collaboration",
+    "objectID": "index.html#communication",
+    "href": "index.html#communication",
+    "title": "Good Software Engineering Practice for R Packages",
+    "section": "Communication",
+    "text": "Communication\nWe offer a gitter chat channel to communicate before, during, and after the course."
+  },
+  {
+    "objectID": "index.html#workshop-program",
+    "href": "index.html#workshop-program",
+    "title": "Good Software Engineering Practice for R Packages",
+    "section": "Workshop Program",
+    "text": "Workshop Program\nThis is the program for 24th March 2023, all times in China Standard Time (GMT+8):\n\n\n\n\n\n09:00 - 09:30\nIntroduction and outline\n\n\n09:30 - 10:30\nR Package Syntax\n\n\n10:30 - 10:45\nTea Break\n\n\n10:45 - 11:45\nSoftware Engineering Workflow\n\n\n11:45 - 12:45\nLunch Break\n\n\n12:45 - 13:45\nPackage Quality\n\n\n13:45 - 14:45\nCollaboration via GitHub\n\n\n14:45 - 15:00\nTea Break\n\n\n15:00 - 15:45\nPublication of R Packages\n\n\n15:45 - 16:30\nShiny Development\n\n\n16:30 - 17:00\nSummary and Discussion"
+  },
+  {
+    "objectID": "index.html#prerequisites-technical-setup",
+    "href": "index.html#prerequisites-technical-setup",
+    "title": "Good Software Engineering Practice for R Packages",
+    "section": "Prerequisites & Technical Setup",
+    "text": "Prerequisites & Technical Setup\nPrior to the course, participants should\n\nset up a (free) GitHub.com account. There are other git Platforms like Gitlab or Bitbucket but we made the choice to go with GitHub.com for the course since it is by far the most relevant git platform in the R community.\ndownload and extract simulatr.zip\neither make sure they have a working R software development setup on their own laptop (up-to-date git/Rtools/R/RStudio) or get access to https://posit.cloud. The latter offers a free tier account with 25 hours of computing time per months and can be accessed using ones GitHub.com account.\n\nFor the course, participants are required to use their own laptop to be able to participate in the exercises.\n\nOptional reading list\n\nExcellent and very comprehensive R Packages (2e)\n(Hardcore) description of how Writing R Extensions works\nGitHub ‘Hello World’ tutorial on how to use GitHub.com (does not require git command line knowledge)\nTutorial on version control with git and SVN (we will be using git)\nCommand line git mini intro trygit\nfirst steps with git & github by RStudio\nRStudio cheatsheets/ Git & GitHub"
+  },
+  {
+    "objectID": "index.html#past-events",
+    "href": "index.html#past-events",
+    "title": "Good Software Engineering Practice for R Packages",
+    "section": "Past Events",
+    "text": "Past Events\n\n10th February 2023, Basel"
+  },
+  {
+    "objectID": "listing.html",
+    "href": "listing.html",
+    "title": "Slides",
     "section": "",
-    "text": "Key issue: Manage complexity over time or between people\n\n\nPhoto from Tim Mossholder on Unsplash"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#version-control-systems-vcs",
-    "href": "slides/05_collaboration.html#version-control-systems-vcs",
-    "title": "5 Version Control & Collaboration",
-    "section": "Version control systems (VCS)",
-    "text": "Version control systems (VCS)\n\nManage different versions of a piece of work\nCompare and merge diverged versions effectively1\n\n\n\n\n\nflowchart LR\n  A[<font size=4> Shuang v1] --> B[<font size=4> Shuang v2]\n  B --> C[<font size=4> Shuang v3]\n  B --> D[<font size=4> Joe v1]\n  D --> E[<font size=4> Joe + Shuang v4]\n  C --> E\n\n\n\n\n\n\n\n\n\nCode is complex system \\(\\leadsto\\) ideal application of VCS\nCompounded by multiple people ‘fiddling’ with it!\n\nMerging parallel edits is not simple (try it in MS Word 365)"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#enter-git-the-latin-of-data-science",
-    "href": "slides/05_collaboration.html#enter-git-the-latin-of-data-science",
-    "title": "5 Version Control & Collaboration",
-    "section": "Enter git  the ‘Latin of data science’",
-    "text": "Enter git  the ‘Latin of data science’\n\n\n\n\n\nAuthor Linus Torvalds, for work on Linux kernel\nEssentially a database with snapshots of a monitored ‘repository’ (directory)\nOptimized to compute line-based changes\nIntegrated in RStudio IDE, Visual Studio Code\nDe facto standard not just in the R world\nAlternatives: mercurial, SVN, …\n\n\n\n\nPhoto by Lf Asia & the Archive Team CC BY 3.0"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#stage-commit",
-    "href": "slides/05_collaboration.html#stage-commit",
-    "title": "5 Version Control & Collaboration",
-    "section": "Stage & commit",
-    "text": "Stage & commit\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   commit\n   commit\n   commit\n\n\n\n\n\n\n\n\n\n‘Stage’ changes for inspection\n\nallows to inspect propose changes before locking them in\n\nPermanently ‘commit’ changes to git\n\n\\(\\leadsto\\) Chain of versions with incremental changes\n\n\n\nPhoto by Felicia Montenegro on Unsplash"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#line-based-differences---the-diff",
-    "href": "slides/05_collaboration.html#line-based-differences---the-diff",
-    "title": "5 Version Control & Collaboration",
-    "section": "Line-based differences - the ‘diff’",
-    "text": "Line-based differences - the ‘diff’\n\n\nChanges in git are line-based\nAdditions (green) & deletions (red) between commits"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#going-back-in-time",
-    "href": "slides/05_collaboration.html#going-back-in-time",
-    "title": "5 Version Control & Collaboration",
-    "section": "Going back in time",
-    "text": "Going back in time\n\n\n\n\n\nEvery commit has unique hash value\nCan ‘checkout’ old commit (browse history)\n\ngit checkout [commit hash to browse]\n\nCan ‘reset’ changes\n\ngit reset --hard [commit hash to reset to]\n\nRemoves need for my-file_final_v2_2019.R\nTime travelling has its dangers…1\n\n\n\n\nPhoto by Mila Tovar on Unsplash\n\nNever change published history!"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#branching",
-    "href": "slides/05_collaboration.html#branching",
-    "title": "5 Version Control & Collaboration",
-    "section": "Branching",
-    "text": "Branching\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n\n\n\n\n\n\n\n\n\nVariations of repository: ‘branches’\n\ngit checkout -b [my new branch]\n\nQuick switching between branches\n\ngit checkout [branch name]\n\n\n\nPhoto by Mila Tovar on Unsplash"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#merging-two-branches",
-    "href": "slides/05_collaboration.html#merging-two-branches",
-    "title": "5 Version Control & Collaboration",
-    "section": "‘Merging’ two branches",
-    "text": "‘Merging’ two branches\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n   merge feature\n\n\n\n\n\n\n\n\n\nConsolidate diverged ‘branches’\nUsually merged automergically\nConflicting changes \nLine edited in source/target branch - keep which?\nResolving merge conflicts beyond today’s scope\n\n\n\n\nPhoto by Max LaRochelle on Unsplash"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#example-of-gitflow",
-    "href": "slides/05_collaboration.html#example-of-gitflow",
-    "title": "5 Version Control & Collaboration",
-    "section": "Example of ‘gitflow’",
-    "text": "Example of ‘gitflow’\n\n\n\n\ngitGraph\n   commit tag: \"v0.0.1\"\n   commit\n   branch feature-1\n   checkout feature-1\n   commit\n   commit\n   checkout main\n   branch feature-2\n   checkout feature-2\n   commit\n   checkout feature-1\n   commit\n   checkout main\n   commit tag: \"bugfix\"\n   merge feature-1 tag: \"v0.1.0\"\n   checkout feature-2\n   commit\n\n\n\n\n\n\n\n\n\n‘gitflow’: specific workflow for git repositories\nfeatures developed on branches, then merged into ‘main’"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#version-control-collaboration",
-    "href": "slides/05_collaboration.html#version-control-collaboration",
-    "title": "5 Version Control & Collaboration",
-    "section": "Version Control & Collaboration",
-    "text": "Version Control & Collaboration\n\ngit itself is command line tool for version control\ngit platforms add UI for collaboration1\n\nGitHub.com de facto standard in R (alternative: GitLab.com, Gitee.com)\n\ngit + GitHub\n\nVCS (git)\nWeb hosting of code (GitHub)\nOrganisation with issues, discussions (GitHub)\nAutomation of checks/test (GitHub)\n\n\nAll platforms also available on-premise for enterprise use"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#github.com",
-    "href": "slides/05_collaboration.html#github.com",
-    "title": "5 Version Control & Collaboration",
-    "section": "GitHub.com ",
-    "text": "GitHub.com \n\nHuge number of R packages developed there:\n\nggplot2\ndplyr\npharmaverse\n\n100 million developers on GitHub.com (Jan ’23)\n372 million repositories, 28 million public (Jan ’23)\n‘Facebook’ of developers / social coding\nDiscuss problems / propose changes"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#branches-pull-requests",
-    "href": "slides/05_collaboration.html#branches-pull-requests",
-    "title": "5 Version Control & Collaboration",
-    "section": "Branches & pull requests",
-    "text": "Branches & pull requests\n\nBranches are a git concept\nGit platforms add concept of ‘pull request’ (PR)1\n\nPR is ‘suggested merge’ from branch A to B\nUsually from ‘feature A’ to ‘main’\n\nAllow to preview problems before merge and discuss changes\nOnce everyone is happy, a pull request2 can be merged\nEvery PR has an associated branch, but not every branch has a PR\nMore in the demo!\n\nThe naming is debatable, ask me in the coffee break.technically its associated branch"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#automating-things-with-github",
-    "href": "slides/05_collaboration.html#automating-things-with-github",
-    "title": "5 Version Control & Collaboration",
-    "section": "Automating things with GitHub",
-    "text": "Automating things with GitHub\n\nGitHub provides\n\ncloud compute\nscripting framework (GitHub actions)\n\nAllows task automation, e.g.\n\nrun unittests\nbuild & host documentation\nstatic code analysis (linting)\n\nMost important actions for R: github.com/r-lib/actions\nExtremely useful to enforce best-practices & quality"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#a-typical-github-workflow",
-    "href": "slides/05_collaboration.html#a-typical-github-workflow",
-    "title": "5 Version Control & Collaboration",
-    "section": "A typical GitHub workflow",
-    "text": "A typical GitHub workflow\n\n\n\n\nsequenceDiagram\n    participant S as Shuang\n    participant GH as GitHub server\n    participant J as Joe\n    S->>S: make change locally & commit to <feature>\n    S->>GH: push commit\n    S->>GH: open pull request\n    GH->>GH: run automated checks\n    S->>J: request review\n    J->>J: review code\n    J->>S: request changes\n    S->>S: implement changes locally & commit\n    S->>GH: push commit\n    GH->>GH: run automated checks\n    S->>J: request review\n    J->>J: review code\n    J->>GH: approve changes, unblocking merge\n    S->>GH: merge <feature> into <main>\n    GH->>GH: run automated checks on <main>\n    J->>GH: pull newest version of <main>"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#looks-awefully-complicated-why",
-    "href": "slides/05_collaboration.html#looks-awefully-complicated-why",
-    "title": "5 Version Control & Collaboration",
-    "section": "Looks awefully complicated, why?",
-    "text": "Looks awefully complicated, why?\n\nEfficient collaboration with novice/untrusted contributors\n\nMaintainer: automated checks reduce review burden\nContributor: no need to check manually\n\nBranching promotes asynchronous work on features\nFull history - can always go back\n\n\\(\\leadsto\\) making code-collaboration scalable"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#demo",
-    "href": "slides/05_collaboration.html#demo",
-    "title": "5 Version Control & Collaboration",
-    "section": "Demo",
-    "text": "Demo\n\nHow does a pull request work?\nFirst steps for setting up the next practical\nDon’t panic - steps are all documented at  https://github.com/kkmann/simulatr"
-  },
-  {
-    "objectID": "slides/05_collaboration.html#practical---collaboration-on-github",
-    "href": "slides/05_collaboration.html#practical---collaboration-on-github",
-    "title": "5 Version Control & Collaboration",
-    "section": "Practical - collaboration on GitHub",
-    "text": "Practical - collaboration on GitHub\n\nWork in teams of ~ 3 or 4\nGo to https://github.com/kkmann/simulatr and read through the instructions in the README.md file\nThe repository is a template to practice collaboration on GitHub\nOnly one member per team needs to use the template and invite the others as collaborators!\nTake some time to checkout the README.md file and set up your environment in posit cloud\nCan you fix the errors with some pull requests?\nThe purpose of this exercise is to explore the collaboration functionality of GitHub - not to produce a perfect package ;)\n\n\n\nGood Software Engineering Practice for R Packages - Home | Slides | License"
-  },
-  {
-    "objectID": "slides/03_workflow.html#typical-work-steps",
-    "href": "slides/03_workflow.html#typical-work-steps",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Typical work steps",
-    "text": "Typical work steps\n\n\n\n\nIdea\nConcept creation\nValidation planning\nSpecification:\n\nUser Requirements Spec (URS),\nFunctional Spec (FS), and\nSoftware Design Spec (SDS)\n\n\n\n\nR package programming\nDocumented verification\nCompletion of formal validation\nR package release\nUse in production\nMaintenance"
-  },
-  {
-    "objectID": "slides/03_workflow.html#frequently-used-workflow-in-practice",
-    "href": "slides/03_workflow.html#frequently-used-workflow-in-practice",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Frequently Used Workflow in Practice",
-    "text": "Frequently Used Workflow in Practice\n\n\n\n\nIdea\nR package programming\nUse in production\nBug fixing\nUse in production\n\n\n\nBug fixing + Documentation\nUse in production\nBug fixing + Further development\nUse in production\nBug fixing + …\n\n\n\n\n\n Bad practice!\n\n\n Why?"
-  },
-  {
-    "objectID": "slides/03_workflow.html#why-practice-good-engineering-1",
-    "href": "slides/03_workflow.html#why-practice-good-engineering-1",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Why practice good engineering?",
-    "text": "Why practice good engineering?\n\n\nOrigin of errors in system development\n\nBoehm, B. (1981). Software Engineering Economics. Prentice Hall."
-  },
-  {
-    "objectID": "slides/03_workflow.html#why-practice-good-engineering-2",
-    "href": "slides/03_workflow.html#why-practice-good-engineering-2",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Why practice good engineering?",
-    "text": "Why practice good engineering?\n\n\n\nDon’t waste time on maintenance\nBe faster with release on CRAN\nDon’t waste time with inefficient and buggy further development\n\n\n\nFulfill regulatory requirements1\nSave refactoring time when the PoC becomes the release version\nYou don’t have to be shy any longer about inviting other developers to contribute to the package on GitHub\n\n\n\nSee also Ensuring Quality by Joe"
-  },
-  {
-    "objectID": "slides/03_workflow.html#why-practice-good-engineering-3",
-    "href": "slides/03_workflow.html#why-practice-good-engineering-3",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Why practice good engineering?",
-    "text": "Why practice good engineering?\nInvest time in\n\nrequirements analysis,\nsoftware design, and\narchitecture…\n\n\n… but in many cases the workflow must be workable for a single developer or a small team."
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-1-idea",
-    "href": "slides/03_workflow.html#example---step-1-idea",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 1: Idea",
-    "text": "Example - Step 1: Idea\nLet’s assume that you used some lines of code to create simulated data in multiple projects:\n\ndat <- data.frame(\n    group = c(rep(1, 50), rep(2, 50)),\n    values = c(\n        rnorm(n = 50, mean = 8, sd = 12),\n        rnorm(n = 50, mean = 14, sd = 11)\n    )\n)\n\nIdea: put the code into a package"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-2-design-docs",
-    "href": "slides/03_workflow.html#example---step-2-design-docs",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 2: Design docs",
-    "text": "Example - Step 2: Design docs\n\nDescribe the purpose and scope of the package\nAnalyse and describe the requirements in clear and simple terms (“prose”)\n\n\n\n\nObligation level\nKey word1\nDescription\n\n\n\n\nDuty\nshall\n“must have”\n\n\nDesire\nshould\n“nice to have”\n\n\nIntention\nwill\n“optional”\n\n\n\nRupp, C., & SOPHISTen, die. (2009). Requirements-Engineering und -Management: Professionelle, iterative Anforderungsanalyse für die Praxis (5. Ed.). Carl Hanser Verlag GmbH & Co. KG."
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-2-design-docs-1",
-    "href": "slides/03_workflow.html#example---step-2-design-docs-1",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 2: Design docs",
-    "text": "Example - Step 2: Design docs\nPurpose and Scope\nThe R package simulatr shall enable the creation of reproducible fake data.\nPackage Requirements\nsimulatr shall provide a function to generate normal distributed random data for two independent groups. The function shall allow flexible definition of sample size per group, mean per group, standard deviation per group. The reproducibility of the simulated data shall be ensured via an optional seed It should be possible to print the function result. A graphical presentation of the simulated data will also be possible."
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-2-design-docs-2",
-    "href": "slides/03_workflow.html#example---step-2-design-docs-2",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 2: Design docs",
-    "text": "Example - Step 2: Design docs\n\n\nUseful formats / tools for design docs:\n\nR Markdown1 (*.Rmd)\nQuarto1 (*.qmd)\nOverleaf2\ndraw.io3\n\n\n\nUML Diagram\n\n\n\n\n\n\n\n\nBased on Markdown, the easy-to-use markup languageThe easy to use, online, collaborative LaTeX editorA picture is worth a thousand words"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging",
-    "href": "slides/03_workflow.html#example---step-3-packaging",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nR package programming\n\nCreate basic package project (see R Packages by Liming)\nC&P existing R scripts (one-off scripts, prototype functions) and refactor1 it if necessary\nCreate R generic functions\nDocument all functions\n\nSee also Ensuring Quality by Joe"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging-1",
-    "href": "slides/03_workflow.html#example---step-3-packaging-1",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nOne-off script as starting point:\n\nsim.data <- function(n1, n2, m1, m2, s1, s2) {\n    data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = m1, sd = s1),\n            rnorm(n = n2, mean = m2, sd = s2)\n        )\n    )\n}"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging-2",
-    "href": "slides/03_workflow.html#example---step-3-packaging-2",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nRefactored script:\n\ngetSimulatedTwoArmMeans <- function(n1, n2, mean1, mean2, sd1, sd2) {\n    data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = mean1, sd = sd1),\n            rnorm(n = n2, mean = mean2, sd = sd2)\n        )\n    )\n}\n\nAlmost all functions, arguments, and objects should be self-explanatory due to their names."
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging-3",
-    "href": "slides/03_workflow.html#example---step-3-packaging-3",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nDefine that the result is a list1 which is defined as class2:\n\ngetSimulatedTwoArmMeans <- function(n1, n2, mean1, mean2, sd1, sd2) {\n    result <- list(n1 = n1, n2 = n2, \n         mean1 = mean1, mean2 = mean2, sd1 = sd1, sd2 = sd2)\n    result$data <- data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = mean1, sd = sd1),\n            rnorm(n = n2, mean = mean2, sd = sd2)\n        )\n    )\n    # set the class attribute\n    result <- structure(result, class = \"SimulationResult\")\n    return(result)\n}\n\nIt’s common practice to add the function arguments to the result \\(\\rightarrow\\) should be a list or classTo implement generics, the result must be a class"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging-4",
-    "href": "slides/03_workflow.html#example---step-3-packaging-4",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1  5.4666576\n2       1  7.3535685\n3       1  0.2710780\n4       1  8.4260403\n5       1 -0.4570889\n6       1  2.2059286\n7       1  4.8534626\n8       1  2.2654603\n9       1  9.2671023\n10      1  5.5064776\n11      1  3.4301453\n12      1  7.4998702\n13      1  2.5034898\n14      1  6.1843365\n15      1  8.1197732\n16      1  2.4843906\n17      1  6.0039759\n18      1  5.5435313\n19      1  8.8494433\n20      1  3.8894655\n21      1  2.1831799\n22      1  3.7285555\n23      1  3.3491097\n24      1  5.6136862\n25      1 -0.1760666\n26      1  3.3847849\n27      1  1.5904362\n28      1  3.1633219\n29      1  3.3505939\n30      1  9.5078604\n31      1  3.6597688\n32      1  3.3118769\n33      1  3.5180449\n34      1  8.3590168\n35      1  6.2754912\n36      1  4.6162874\n37      1  3.4008412\n38      1  7.4032105\n39      1  5.4877776\n40      1  8.0476741\n41      1  6.8592245\n42      1  6.9605284\n43      1  4.2559009\n44      1  8.7378223\n45      1  1.6903599\n46      1  6.1210928\n47      1  3.7414779\n48      1  9.1709975\n49      1  4.0193447\n50      1  4.3341680\n51      2  7.0970169\n52      2  4.8399962\n53      2 14.5424204\n54      2  2.5047427\n55      2 11.7090229\n56      2  4.8265343\n57      2  1.2727099\n58      2  6.6949489\n59      2  3.7519248\n60      2  6.1414309\n61      2  4.3447426\n62      2  4.1155287\n63      2 10.8495682\n64      2  6.9577374\n65      2  4.3528522\n66      2  8.6903539\n67      2 14.9494574\n68      2 13.4430151\n69      2 -3.0191454\n70      2  7.6451465\n71      2  8.8627309\n72      2  8.1380442\n73      2  6.8104246\n74      2  8.7374361\n75      2  5.9008673\n76      2  2.8464938\n77      2 11.8847353\n78      2  6.6928091\n79      2  4.8533107\n80      2  9.1916414\n81      2  4.8647786\n82      2  2.8741488\n83      2  9.0131504\n84      2  6.7902833\n85      2 10.9147817\n86      2 10.0942990\n87      2  3.9288906\n88      2  9.8056172\n89      2  6.8025850\n90      2 11.6594057\n91      2  8.0182336\n92      2  6.3392559\n93      2  3.4492647\n94      2  6.2259943\n95      2  8.3669006\n96      2  2.3439985\n97      2  9.9481657\n98      2 -0.6014706\n99      2  9.3911630\n100     2  5.8839196\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
-  },
-  {
-    "objectID": "slides/03_workflow.html#example---step-3-packaging-5",
-    "href": "slides/03_workflow.html#example---step-3-packaging-5",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1  5.47 \n 2     1  7.35 \n 3     1  0.271\n 4     1  8.43 \n 5     1 -0.457\n 6     1  2.21 \n 7     1  4.85 \n 8     1  2.27 \n 9     1  9.27 \n10     1  5.51 \n# ℹ 90 more rows"
-  },
-  {
-    "objectID": "slides/03_workflow.html#preparation",
-    "href": "slides/03_workflow.html#preparation",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Preparation",
-    "text": "Preparation\n\nDownload the unfinished R package simulatr\nExtract the package zip file\nOpen the project with RStudio\nComplete the tasks below"
-  },
-  {
-    "objectID": "slides/03_workflow.html#tasks",
-    "href": "slides/03_workflow.html#tasks",
-    "title": "3 An R Package Engineering Workflow",
-    "section": "Tasks",
-    "text": "Tasks\n\nTask 1Task 2Task 3Task 4Task 5Task 6Task 7\n\n\nAdd assertions to improve the usability and user experience\n\n\n\n\n\n\nTip on assertions\n\n\nUse the package checkmate to validate input arguments.\n\n\n\nExample:\n\nplayWithAssertions <- function(n1) {\n  checkmate::assertInt(n1, lower = 1)\n}\nplayWithAssertions(-1)\n\nError in playWithAssertions(-1) : Assertion on ‘n1’ failed: Element 1 is not >= 1.\n\n\nAdd three additional results:\n\nn total,\ncreation time, and\nallocation ratio\n\n\n\n\n\n\n\nTip on creation time\n\n\nSys.time(), format(Sys.time(), '%B %d, %Y'), Sys.Date()\n\n\n\n\n\nAdd an additional result: t.test result\n\n\nAdd an optional alternative argument and pass it through t.test:\n\n\nalternative = c(\"two.sided\", \"less\", \"greater\")\n\n\n\nImplement the generic functions print and plot.\n\n\n\n\n\n\nTip on print\n\n\nUse the plot example function from above and extend it.\n\n\n\n\n\n\n\n\n\nTip on plot\n\n\nUse R base plot or ggplot2 to create a grouped boxplot of the fake data.\n\n\n\n\n\nOptional extra tasks:\n\nImplement the generic functions summary and cat\nImplement the function kable known from the package knitr as generic. Tip: use\n\nkable <- function(x) UseMethod(\"kable\")\n\nto define kable as generic\n\n\n\nOptional extra task1:\nDocument your functions with Roxygen2\n\n\nIf you are already familiar with Roxygen2"
+    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Liming, Shuang, Joe\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Shiny Development\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n8 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/02_r_packages.html#what-you-know-already",
@@ -441,6 +231,118 @@
     "text": "Let’s try this out now 😊\n\nSet up a new R package with a fancy name\nFill out the DESCRIPTION file\nInclude a new function\nAdd roxygen documentation\nExport the function to the namespace\nProduce the package documentation\nRun checks\nBuild the package"
   },
   {
+    "objectID": "slides/06_publication.html#setup-of-pkgdown",
+    "href": "slides/06_publication.html#setup-of-pkgdown",
+    "title": "6 Publication",
+    "section": "Setup of pkgdown",
+    "text": "Setup of pkgdown\n\npkgdown makes it quick and easy to build a website for your package\nAfter installing pkgdown, just use usethis::use_pkgdown() to get started\nMain configuration happens in _pkgdown.yml file\nMany customizations can be applied, but main work during development is to keep the reference section updated with names of .Rd files"
+  },
+  {
+    "objectID": "slides/06_publication.html#example-_pkgdown.yml-file",
+    "href": "slides/06_publication.html#example-_pkgdown.yml-file",
+    "title": "6 Publication",
+    "section": "Example _pkgdown.yml file",
+    "text": "Example _pkgdown.yml file\n---\nurl: https://openpharma.github.io/mmrm\n\ntemplate:\n  bootstrap: 5\n  params:\n    ganalytics: UA-125641273-1\n\nnavbar:\n  right:\n    - icon: fa-github\n      href: https://github.com/openpharma/mmrm\n\nreference:\n  - title: Package\n    contents:\n      - mmrm-package\n  - title: Functions\n    contents:\n      - mmrm\n      - fit_mmrm\n      - mmrm_control\n      - fit_single_optimizer\n      - refit_multiple_optimizers\n      - df_1d\n      - df_md\n      - component"
+  },
+  {
+    "objectID": "slides/06_publication.html#publication-as-github-page",
+    "href": "slides/06_publication.html#publication-as-github-page",
+    "title": "6 Publication",
+    "section": "Publication as GitHub Page",
+    "text": "Publication as GitHub Page\n\nIt is helpful for users to read the website online\nGitHub is very helpful here because it allows\n\nA separate branch gh-pages that stores the rendered website\nGitHub actions automatically render the website when the main branch is updated\n\nTo get started, use usethis::use_pkgdown_github_pages()\n\nOr, manually deploy site with pkgdown::deploy_to_branch()"
+  },
+  {
+    "objectID": "slides/06_publication.html#licensing",
+    "href": "slides/06_publication.html#licensing",
+    "title": "6 Publication",
+    "section": "Licensing",
+    "text": "Licensing\n\nHigh level categorization of licenses:\n\n“Permissive”: Relaxed. Can be freely copied, modified, published (under the same license).\n“Copyleft”: Stricter. Same rights need to be preserved in derivative works.\n\nR itself is licensed under GPL, but packages can choose, e.g.:\n\nusethis::use_mit_license() for permissive MIT\nusethis::use_gpl_license() for copyleft GPL\n\nInclude minimum version, e.g. GPL (>= 3)"
+  },
+  {
+    "objectID": "slides/06_publication.html#licensing-contd",
+    "href": "slides/06_publication.html#licensing-contd",
+    "title": "6 Publication",
+    "section": "Licensing (cont’d)",
+    "text": "Licensing (cont’d)\n\nNeed to be careful here when you bundle any code from other software\n\nCare must be taken that any copyright/license statements from copied or modified code are preserved and authorship is not misrepresented\n\nAre the licenses of your package and the source compatible?\n\ne.g. cannot copy/paste code from a GPL package and publish in an MIT package\n\nLICENSE file optionally can contain further restrictions of the license"
+  },
+  {
+    "objectID": "slides/06_publication.html#open-sourcing",
+    "href": "slides/06_publication.html#open-sourcing",
+    "title": "6 Publication",
+    "section": "Open Sourcing",
+    "text": "Open Sourcing\n\nThe easiest way to “open source” your R package is to make the GitHub repository public\nThis allows for easy open source contributions from other developers via pull requests\nPlease check with your organization first:\n\nAre they ok to publish the software?\nWhat is the appropriate copyright holder?\n\nAlso allows bugs to be filed and to have the GitHub issues page in the package description"
+  },
+  {
+    "objectID": "slides/06_publication.html#versioning",
+    "href": "slides/06_publication.html#versioning",
+    "title": "6 Publication",
+    "section": "Versioning",
+    "text": "Versioning\n\nThe Version field defines the package version\nSyntax: Three integers separated by . or -\n\nCanonical form is: x.y-z, equivalent to x.y.z\n\nUseful conventions of “semantic versioning”:\n\nx is major: Increment this for breaking changes\ny is minor: Increment this for new features\nz is patch: Increment this for bug fixes only\nx.y.z.9000 and count up during development\nusethis::use_version() can help with this"
+  },
+  {
+    "objectID": "slides/06_publication.html#cran-the-comprehensive-r-archive-network",
+    "href": "slides/06_publication.html#cran-the-comprehensive-r-archive-network",
+    "title": "6 Publication",
+    "section": "CRAN (The Comprehensive R Archive Network)",
+    "text": "CRAN (The Comprehensive R Archive Network)\n\nCRAN is the central repository for R packages\nIt has additional requirements beyond the standard package ones, which are described in the Repository Policy\nSubmitting a package indicates agreement with the policy\nIn particular: “The time of the volunteers is CRAN’s most precious resource, and they reserve the right to remove or modify packages on CRAN without notice or explanation (although notification will usually be given).”"
+  },
+  {
+    "objectID": "slides/06_publication.html#cran-contd",
+    "href": "slides/06_publication.html#cran-contd",
+    "title": "6 Publication",
+    "section": "CRAN (cont’d)",
+    "text": "CRAN (cont’d)\n\nOnly source packages can be submitted \n\nBut .rda data files are allowed\n\nNeed single designated maintainer (person, not mailing list)\n\nAdditional Contact field could be used\n\nCitations in author-year style, followed by <doi:...>\nReducing run time of tests, checks, examples, vignettes is important\nNeed to provide cross-platform portable code: CRAN runs checks on Windows, Mac, several Linux OS"
+  },
+  {
+    "objectID": "slides/06_publication.html#cran-contd-1",
+    "href": "slides/06_publication.html#cran-contd-1",
+    "title": "6 Publication",
+    "section": "CRAN (cont’d)",
+    "text": "CRAN (cont’d)\n❗ A CRAN submission can be punishing, painful, and nerve-racking:\nThe first release of the rpact package took 5 weeks and 6 submission attempts; painful experiences:\n\nSome Linux machines may generate different random numbers than expected (despite setting a seed)\nNot only errors and warnings lead to the rejection of a submitted package, but also notes\nYour local Windows test system may be much faster than the CRAN system (e.g., 5 times)\nDon’t use “R Package for” in your package title\nThe description of the package must be provided with a doi reference"
+  },
+  {
+    "objectID": "slides/06_publication.html#cran-contd-2",
+    "href": "slides/06_publication.html#cran-contd-2",
+    "title": "6 Publication",
+    "section": "CRAN (cont’d)",
+    "text": "CRAN (cont’d)\nExample message informing about the rejection of the last rpact submission:\nDear maintainer,\npackage rpact_3.3.2.tar.gz does not pass the incoming checks automatically, please see the following pre-tests:\nWindows: 00check.log Status: OK, Debian: 00check.log Status: OK\nPlease fix all problems and resubmit a fixed version via the webform.\nBest regards,\nCRAN teams’ auto-check service\nr-devel-windows-x86_64 Check: Result: NA, Maintainer: ‘Friedrich Pahlke’\nr-devel-windows-x86_64 Check: Overall checktime, Result: NOTE, Overall checktime 12 min > 10 min\nr-devel-linux-x86_64-debian-gcc Check: Result: Note_to_CRAN_maintainers Maintainer: ‘Friedrich Pahlke’"
+  },
+  {
+    "objectID": "slides/06_publication.html#r-hub-to-the-rescue",
+    "href": "slides/06_publication.html#r-hub-to-the-rescue",
+    "title": "6 Publication",
+    "section": "R-Hub to the Rescue",
+    "text": "R-Hub to the Rescue\n\n\n\n\n\nFree R CMD check runs on different operating systems before submitting to CRAN\nSupported by the R consortium\nTypically used via the website\nThere is also an R API: rhub::check_for_cran() is comfortable"
+  },
+  {
+    "objectID": "slides/06_publication.html#tags",
+    "href": "slides/06_publication.html#tags",
+    "title": "6 Publication",
+    "section": "Tags",
+    "text": "Tags\n\nTags are a feature of Git, i.e., not specific to GitHub\nGit can tag specific points in the code history as being important\nTypically, for each release, create a tag vx.y.z\nThe value here is that users can later check out the package in the state of this release version\n\nDownload in R: remotes::install_github(\"org/package\", ref = \"vx.y.z\")\nComparison of versions are also possible, etc."
+  },
+  {
+    "objectID": "slides/06_publication.html#tags-example",
+    "href": "slides/06_publication.html#tags-example",
+    "title": "6 Publication",
+    "section": "Tags: Example",
+    "text": "Tags: Example"
+  },
+  {
+    "objectID": "slides/06_publication.html#releases",
+    "href": "slides/06_publication.html#releases",
+    "title": "6 Publication",
+    "section": "Releases",
+    "text": "Releases\n\nBased on Git tags, and a feature of GitHub\nAre “deployable software packages to make them available for a wider audience to download and use”\nContain release notes and links to the binary package files for download\n\nHowever, for R packages these tar.gz package files are rarely used directly"
+  },
+  {
+    "objectID": "slides/06_publication.html#releases-example",
+    "href": "slides/06_publication.html#releases-example",
+    "title": "6 Publication",
+    "section": "Releases: Example",
+    "text": "Releases: Example"
+  },
+  {
     "objectID": "slides/07_shiny.html#why-are-best-practices-important-for-shiny",
     "href": "slides/07_shiny.html#why-are-best-practices-important-for-shiny",
     "title": "7 Shiny Development",
@@ -616,228 +518,144 @@
     "text": "Deployment Process\nYou’ll need few extra steps:\n\nInstruct the server how to run the app in the package. Simplest is app.R in package root folder containing:\n\npkgload::load_all(\".\")\nmyApp() # = function in your package calling shinyApp()\n\nIgnore the app.R for package build\nInclude shiny and pkgload to the Imports in the DESCRIPTION file\nRun rsconnect::deployApp() to share the updated app version!"
   },
   {
-    "objectID": "slides/01_intro.html#disclaimer",
-    "href": "slides/01_intro.html#disclaimer",
-    "title": "1 Introduction",
+    "objectID": "slides/05_collaboration.html#disclaimer",
+    "href": "slides/05_collaboration.html#disclaimer",
+    "title": "5 Version Control & Collaboration",
     "section": "Disclaimer",
-    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of Roche."
+    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of their respective employer or company."
   },
   {
-    "objectID": "slides/01_intro.html#daniel",
-    "href": "slides/01_intro.html#daniel",
-    "title": "1 Introduction",
-    "section": "Daniel",
-    "text": "Daniel\n\n\n\n\n\nStatistician (Ph.D. in 2013 on Bayesian Model Selection)\nBiostatistician at Roche for 5 years, Data Scientist at Google for 2 years, Statistical Software Engineer at Roche for the last 3 years\nMultiple R packages on CRAN and Bioconductor, co-wrote book on Likelihood and Bayesian Inference, chair of the ASA BIOP working group on Software Engineering (SWE WG)\nfeel free to connect at  LinkedIn or  Github"
+    "objectID": "slides/05_collaboration.html#section",
+    "href": "slides/05_collaboration.html#section",
+    "title": "5 Version Control & Collaboration",
+    "section": "",
+    "text": "Overview, demo, practical\nCan only scratch surface\nMore resources on website\n\n\n\nPhoto by Rich @ rhubbardstockfootage on Unsplash"
   },
   {
-    "objectID": "slides/01_intro.html#liming",
-    "href": "slides/01_intro.html#liming",
-    "title": "1 Introduction",
-    "section": "Liming",
-    "text": "Liming\n\n\n\nMaster in Biostatistics from Fudan University\nStatistical Programmer in Roche for 4 years, technical engineering lead for chevron team in NEST project\nMember of ASA BIOP working group on Software Engineering (SWE WG) mmrm taskforce\nFeel free to connect at  Github"
+    "objectID": "slides/05_collaboration.html#trade-offs-in-code-development",
+    "href": "slides/05_collaboration.html#trade-offs-in-code-development",
+    "title": "5 Version Control & Collaboration",
+    "section": "Trade-offs in code development",
+    "text": "Trade-offs in code development\n\n\n\nWorking alone\n\nno coordination overhead\nno review\nlack of diversity\ncan slack on documentation\nfragile long-term maintenance\n\n\nWorking in a team\n\ncoordination overhead\nmutual review of code\ndifferent approaches\nforced to document\nmore robust long-term maintenance"
   },
   {
-    "objectID": "slides/01_intro.html#joe",
-    "href": "slides/01_intro.html#joe",
-    "title": "1 Introduction",
-    "section": "Joe",
-    "text": "Joe\n\n\n\nPh.D. in Statistics\nPostdoc at the University of Oxford for 6 years, Data Scientist at Roche for the last 3 years, technical engineering lead for the NEST SME team.\nMultiple open-source packages on Github and CRAN, see this page for details.\nFeel free to connect at  LinkedIn or  Github"
+    "objectID": "slides/05_collaboration.html#section-1",
+    "href": "slides/05_collaboration.html#section-1",
+    "title": "5 Version Control & Collaboration",
+    "section": "",
+    "text": "Key issue: Manage complexity over time or between people\n\n\nPhoto from Tim Mossholder on Unsplash"
   },
   {
-    "objectID": "slides/01_intro.html#shuang",
-    "href": "slides/01_intro.html#shuang",
-    "title": "1 Introduction",
-    "section": "Shuang",
-    "text": "Shuang\n\n\n\n\n\nMaster in Pharmacology from Fudan University\n5-year experience in clinical data management, curation and related R tools development\nTechnical Lead of several data FARIification R packages, co-auther of the Restrict Data Check Shiny App and the Raw Data Compare R Package\nFeel free to connect at  Github"
+    "objectID": "slides/05_collaboration.html#version-control-systems-vcs",
+    "href": "slides/05_collaboration.html#version-control-systems-vcs",
+    "title": "5 Version Control & Collaboration",
+    "section": "Version control systems (VCS)",
+    "text": "Version control systems (VCS)\n\nManage different versions of a piece of work\nCompare and merge diverged versions effectively1\n\n\n\n\n\nflowchart LR\n  A[<font size=4> Shuang v1] --> B[<font size=4> Shuang v2]\n  B --> C[<font size=4> Shuang v3]\n  B --> D[<font size=4> Joe v1]\n  D --> E[<font size=4> Joe + Shuang v4]\n  C --> E\n\n\n\n\n\n\n\n\n\nCode is complex system \\(\\leadsto\\) ideal application of VCS\nCompounded by multiple people ‘fiddling’ with it!\n\nMerging parallel edits is not simple (try it in MS Word 365)"
   },
   {
-    "objectID": "slides/01_intro.html#what-you-will-learn-today",
-    "href": "slides/01_intro.html#what-you-will-learn-today",
-    "title": "1 Introduction",
-    "section": "What you will learn today",
-    "text": "What you will learn today\n\nUnderstand the basic structure of an R package\nCreate your own R \nLearn about & apply professional  development workflow\nLearn & apply fundamentals of quality control for R \nGet crash-course in version control to stay organized\nTry out modern collaboration techniques on GitHub.com\nLearn how to make an R  available to others\nGet a starting point for sustainable Shiny app development"
+    "objectID": "slides/05_collaboration.html#enter-git-the-latin-of-data-science",
+    "href": "slides/05_collaboration.html#enter-git-the-latin-of-data-science",
+    "title": "5 Version Control & Collaboration",
+    "section": "Enter git  the ‘Latin of data science’",
+    "text": "Enter git  the ‘Latin of data science’\n\n\n\n\n\nAuthor Linus Torvalds, for work on Linux kernel\nEssentially a database with snapshots of a monitored ‘repository’ (directory)\nOptimized to compute line-based changes\nIntegrated in RStudio IDE, Visual Studio Code\nDe facto standard not just in the R world\nAlternatives: mercurial, SVN, …\n\n\n\n\nPhoto by Lf Asia & the Archive Team CC BY 3.0"
   },
   {
-    "objectID": "slides/01_intro.html#program-outline",
-    "href": "slides/01_intro.html#program-outline",
-    "title": "1 Introduction",
-    "section": "Program outline",
-    "text": "Program outline\n\n\n\n\n\n09:00 - 09:30\nIntroduction and outline\n\n\n09:30 - 10:30\nR Package Syntax\n\n\n10:30 - 10:45\nTea Break\n\n\n10:45 - 11:45\nSoftware Engineering Workflow\n\n\n11:45 - 12:45\nLunch Break\n\n\n12:45 - 13:45\nPackage Quality\n\n\n13:45 - 14:45\nCollaboration via GitHub\n\n\n14:45 - 15:00\nTea Break\n\n\n15:00 - 15:45\nPublication of R Packages\n\n\n15:45 - 16:30\nShiny Development\n\n\n16:30 - 17:00\nSummary and Discussion"
+    "objectID": "slides/05_collaboration.html#stage-commit",
+    "href": "slides/05_collaboration.html#stage-commit",
+    "title": "5 Version Control & Collaboration",
+    "section": "Stage & commit",
+    "text": "Stage & commit\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   commit\n   commit\n   commit\n\n\n\n\n\n\n\n\n\n‘Stage’ changes for inspection\n\nallows to inspect propose changes before locking them in\n\nPermanently ‘commit’ changes to git\n\n\\(\\leadsto\\) Chain of versions with incremental changes\n\n\n\nPhoto by Felicia Montenegro on Unsplash"
   },
   {
-    "objectID": "slides/01_intro.html#house-keeping",
-    "href": "slides/01_intro.html#house-keeping",
-    "title": "1 Introduction",
-    "section": "House-keeping",
-    "text": "House-keeping\n\nCourse website at openpharma.github.io/workshop-r-swe\n\nall slides\nsources available at github.com/openpharma/workshop-r-swe\nall materials CC-BY 4.0\n\nWe have a WeChat channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course"
+    "objectID": "slides/05_collaboration.html#line-based-differences---the-diff",
+    "href": "slides/05_collaboration.html#line-based-differences---the-diff",
+    "title": "5 Version Control & Collaboration",
+    "section": "Line-based differences - the ‘diff’",
+    "text": "Line-based differences - the ‘diff’\n\n\nChanges in git are line-based\nAdditions (green) & deletions (red) between commits"
   },
   {
-    "objectID": "slides/01_intro.html#enter-wechat",
-    "href": "slides/01_intro.html#enter-wechat",
-    "title": "1 Introduction",
-    "section": "Enter WeChat",
-    "text": "Enter WeChat"
+    "objectID": "slides/05_collaboration.html#going-back-in-time",
+    "href": "slides/05_collaboration.html#going-back-in-time",
+    "title": "5 Version Control & Collaboration",
+    "section": "Going back in time",
+    "text": "Going back in time\n\n\n\n\n\nEvery commit has unique hash value\nCan ‘checkout’ old commit (browse history)\n\ngit checkout [commit hash to browse]\n\nCan ‘reset’ changes\n\ngit reset --hard [commit hash to reset to]\n\nRemoves need for my-file_final_v2_2019.R\nTime travelling has its dangers…1\n\n\n\n\nPhoto by Mila Tovar on Unsplash\n\nNever change published history!"
   },
   {
-    "objectID": "slides/01_intro.html#what-you-will-need",
-    "href": "slides/01_intro.html#what-you-will-need",
-    "title": "1 Introduction",
-    "section": "What you will need",
-    "text": "What you will need\n\nGithub.com (free) account \nRecommended: posit.cloud \n\nFree tier sufficient\nComes with everything installed\nAlternative: local R development environment with\n\ngit \nRtools/R/Rstudio IDE \n\n\nCuriosity 🦝\nPositive attitude 😄"
+    "objectID": "slides/05_collaboration.html#branching",
+    "href": "slides/05_collaboration.html#branching",
+    "title": "5 Version Control & Collaboration",
+    "section": "Branching",
+    "text": "Branching\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n\n\n\n\n\n\n\n\n\nVariations of repository: ‘branches’\n\ngit checkout -b [my new branch]\n\nQuick switching between branches\n\ngit checkout [branch name]\n\n\n\nPhoto by Mila Tovar on Unsplash"
   },
   {
-    "objectID": "slides/01_intro.html#enter-menti.com-4458-3431",
-    "href": "slides/01_intro.html#enter-menti.com-4458-3431",
-    "title": "1 Introduction",
-    "section": "Enter menti.com: 4458 3431",
-    "text": "Enter menti.com: 4458 3431"
+    "objectID": "slides/05_collaboration.html#merging-two-branches",
+    "href": "slides/05_collaboration.html#merging-two-branches",
+    "title": "5 Version Control & Collaboration",
+    "section": "‘Merging’ two branches",
+    "text": "‘Merging’ two branches\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n   merge feature\n\n\n\n\n\n\n\n\n\nConsolidate diverged ‘branches’\nUsually merged automergically\nConflicting changes \nLine edited in source/target branch - keep which?\nResolving merge conflicts beyond today’s scope\n\n\n\n\nPhoto by Max LaRochelle on Unsplash"
   },
   {
-    "objectID": "slides/01_intro.html#what-do-we-mean-by-gswep4r",
-    "href": "slides/01_intro.html#what-do-we-mean-by-gswep4r",
-    "title": "1 Introduction",
-    "section": "What do we mean by GSWEP4R*?",
-    "text": "What do we mean by GSWEP4R*?\n\n\nApplying concept of GxP to SWE with R\nImprove quality of R code/packages, particularly in regulated enviroments but not limited to!\nNot a fixed term, we share our perspectives\nCollection of best practices\nDo not reinvent the wheel: learn from IT/open source space\n\n\n* Good Software Engineering Practice for R"
+    "objectID": "slides/05_collaboration.html#example-of-gitflow",
+    "href": "slides/05_collaboration.html#example-of-gitflow",
+    "title": "5 Version Control & Collaboration",
+    "section": "Example of ‘gitflow’",
+    "text": "Example of ‘gitflow’\n\n\n\n\ngitGraph\n   commit tag: \"v0.0.1\"\n   commit\n   branch feature-1\n   checkout feature-1\n   commit\n   commit\n   checkout main\n   branch feature-2\n   checkout feature-2\n   commit\n   checkout feature-1\n   commit\n   checkout main\n   commit tag: \"bugfix\"\n   merge feature-1 tag: \"v0.1.0\"\n   checkout feature-2\n   commit\n\n\n\n\n\n\n\n\n\n‘gitflow’: specific workflow for git repositories\nfeatures developed on branches, then merged into ‘main’"
   },
   {
-    "objectID": "slides/01_intro.html#why-care-about-gswep4r",
-    "href": "slides/01_intro.html#why-care-about-gswep4r",
-    "title": "1 Introduction",
-    "section": "Why care about GSWEP4R?",
-    "text": "Why care about GSWEP4R?\n\nMove to / integration of R in pharma is clear trend\nR is a powerful yet complex ecosystem\n\nCore component: R packages\nMature analysts: users & contributors\nDeep understanding crucial, even to just assess quality\n\nAnalyses increasingly require complex scripts/programs  \\(\\leadsto\\) line between programming and data analysis blurs\nValue: de-risking use of R and efficiency gains"
+    "objectID": "slides/05_collaboration.html#version-control-collaboration",
+    "href": "slides/05_collaboration.html#version-control-collaboration",
+    "title": "5 Version Control & Collaboration",
+    "section": "Version Control & Collaboration",
+    "text": "Version Control & Collaboration\n\ngit itself is command line tool for version control\ngit platforms add UI for collaboration1\n\nGitHub.com de facto standard in R (alternative: GitLab.com, Gitee.com)\n\ngit + GitHub\n\nVCS (git)\nWeb hosting of code (GitHub)\nOrganisation with issues, discussions (GitHub)\nAutomation of checks/test (GitHub)\n\n\nAll platforms also available on-premise for enterprise use"
   },
   {
-    "objectID": "slides/01_intro.html#start-small---from-script-to-package",
-    "href": "slides/01_intro.html#start-small---from-script-to-package",
-    "title": "1 Introduction",
-    "section": "Start small - from script to package",
-    "text": "Start small - from script to package\n\nEncapsulate behavior (functions)\nAvoid global state/variables\nAdopt consistent coding style\nDocument well\nAdd test cases\nVersion your code\nShare as ‘bundle’\n\n\\(\\leadsto\\) R package"
+    "objectID": "slides/05_collaboration.html#github.com",
+    "href": "slides/05_collaboration.html#github.com",
+    "title": "5 Version Control & Collaboration",
+    "section": "GitHub.com ",
+    "text": "GitHub.com \n\nHuge number of R packages developed there:\n\nggplot2\ndplyr\npharmaverse\n\n100 million developers on GitHub.com (Jan ’23)\n372 million repositories, 28 million public (Jan ’23)\n‘Facebook’ of developers / social coding\nDiscuss problems / propose changes"
   },
   {
-    "objectID": "slides/01_intro.html#the-r-package-ecosystem---huge-success",
-    "href": "slides/01_intro.html#the-r-package-ecosystem---huge-success",
-    "title": "1 Introduction",
-    "section": "The R package ecosystem - huge success",
-    "text": "The R package ecosystem - huge success"
+    "objectID": "slides/05_collaboration.html#branches-pull-requests",
+    "href": "slides/05_collaboration.html#branches-pull-requests",
+    "title": "5 Version Control & Collaboration",
+    "section": "Branches & pull requests",
+    "text": "Branches & pull requests\n\nBranches are a git concept\nGit platforms add concept of ‘pull request’ (PR)1\n\nPR is ‘suggested merge’ from branch A to B\nUsually from ‘feature A’ to ‘main’\n\nAllow to preview problems before merge and discuss changes\nOnce everyone is happy, a pull request2 can be merged\nEvery PR has an associated branch, but not every branch has a PR\nMore in the demo!\n\nThe naming is debatable, ask me in the coffee break.technically its associated branch"
   },
   {
-    "objectID": "slides/01_intro.html#gxp-r",
-    "href": "slides/01_intro.html#gxp-r",
-    "title": "1 Introduction",
-    "section": "GxP + R  = ",
-    "text": "GxP + R  = \n\nCore infrastructure packages only through industry\nQuality, burden sharing: open-source pharmaverse and others\nOpen methodological packages can de-risk innovative methods\nR packages make (statistical/methodological) code\n\ntestable (with documented evidence thereof, CRF 11)\nreusable\nshareable\neasier to document"
+    "objectID": "slides/05_collaboration.html#automating-things-with-github",
+    "href": "slides/05_collaboration.html#automating-things-with-github",
+    "title": "5 Version Control & Collaboration",
+    "section": "Automating things with GitHub",
+    "text": "Automating things with GitHub\n\nGitHub provides\n\ncloud compute\nscripting framework (GitHub actions)\n\nAllows task automation, e.g.\n\nrun unittests\nbuild & host documentation\nstatic code analysis (linting)\n\nMost important actions for R: github.com/r-lib/actions\nExtremely useful to enforce best-practices & quality"
   },
   {
-    "objectID": "slides/06_publication.html#setup-of-pkgdown",
-    "href": "slides/06_publication.html#setup-of-pkgdown",
-    "title": "6 Publication",
-    "section": "Setup of pkgdown",
-    "text": "Setup of pkgdown\n\npkgdown makes it quick and easy to build a website for your package\nAfter installing pkgdown, just use usethis::use_pkgdown() to get started\nMain configuration happens in _pkgdown.yml file\nMany customizations can be applied, but main work during development is to keep the reference section updated with names of .Rd files"
+    "objectID": "slides/05_collaboration.html#a-typical-github-workflow",
+    "href": "slides/05_collaboration.html#a-typical-github-workflow",
+    "title": "5 Version Control & Collaboration",
+    "section": "A typical GitHub workflow",
+    "text": "A typical GitHub workflow\n\n\n\n\nsequenceDiagram\n    participant S as Shuang\n    participant GH as GitHub server\n    participant J as Joe\n    S->>S: make change locally & commit to <feature>\n    S->>GH: push commit\n    S->>GH: open pull request\n    GH->>GH: run automated checks\n    S->>J: request review\n    J->>J: review code\n    J->>S: request changes\n    S->>S: implement changes locally & commit\n    S->>GH: push commit\n    GH->>GH: run automated checks\n    S->>J: request review\n    J->>J: review code\n    J->>GH: approve changes, unblocking merge\n    S->>GH: merge <feature> into <main>\n    GH->>GH: run automated checks on <main>\n    J->>GH: pull newest version of <main>"
   },
   {
-    "objectID": "slides/06_publication.html#example-_pkgdown.yml-file",
-    "href": "slides/06_publication.html#example-_pkgdown.yml-file",
-    "title": "6 Publication",
-    "section": "Example _pkgdown.yml file",
-    "text": "Example _pkgdown.yml file\n---\nurl: https://openpharma.github.io/mmrm\n\ntemplate:\n  bootstrap: 5\n  params:\n    ganalytics: UA-125641273-1\n\nnavbar:\n  right:\n    - icon: fa-github\n      href: https://github.com/openpharma/mmrm\n\nreference:\n  - title: Package\n    contents:\n      - mmrm-package\n  - title: Functions\n    contents:\n      - mmrm\n      - fit_mmrm\n      - mmrm_control\n      - fit_single_optimizer\n      - refit_multiple_optimizers\n      - df_1d\n      - df_md\n      - component"
+    "objectID": "slides/05_collaboration.html#looks-awefully-complicated-why",
+    "href": "slides/05_collaboration.html#looks-awefully-complicated-why",
+    "title": "5 Version Control & Collaboration",
+    "section": "Looks awefully complicated, why?",
+    "text": "Looks awefully complicated, why?\n\nEfficient collaboration with novice/untrusted contributors\n\nMaintainer: automated checks reduce review burden\nContributor: no need to check manually\n\nBranching promotes asynchronous work on features\nFull history - can always go back\n\n\\(\\leadsto\\) making code-collaboration scalable"
   },
   {
-    "objectID": "slides/06_publication.html#publication-as-github-page",
-    "href": "slides/06_publication.html#publication-as-github-page",
-    "title": "6 Publication",
-    "section": "Publication as GitHub Page",
-    "text": "Publication as GitHub Page\n\nIt is helpful for users to read the website online\nGitHub is very helpful here because it allows\n\nA separate branch gh-pages that stores the rendered website\nGitHub actions automatically render the website when the main branch is updated\n\nTo get started, use usethis::use_pkgdown_github_pages()"
+    "objectID": "slides/05_collaboration.html#demo",
+    "href": "slides/05_collaboration.html#demo",
+    "title": "5 Version Control & Collaboration",
+    "section": "Demo",
+    "text": "Demo\n\nHow does a pull request work?\nFirst steps for setting up the next practical\nDon’t panic - steps are all documented at  https://github.com/kkmann/simulatr"
   },
   {
-    "objectID": "slides/06_publication.html#licensing",
-    "href": "slides/06_publication.html#licensing",
-    "title": "6 Publication",
-    "section": "Licensing",
-    "text": "Licensing\n\nHigh level categorization of licenses:\n\n“Permissive”: Relaxed. Can be freely copied, modified, published (under the same license).\n“Copyleft”: Stricter. Same rights need to be preserved in derivative works.\n\nR itself is licensed under GPL, but packages can choose, e.g.:\n\nusethis::use_mit_license() for permissive MIT\nusethis::use_gpl_license() for copyleft GPL\n\nInclude minimum version, e.g. GPL (>= 3)"
-  },
-  {
-    "objectID": "slides/06_publication.html#licensing-contd",
-    "href": "slides/06_publication.html#licensing-contd",
-    "title": "6 Publication",
-    "section": "Licensing (cont’d)",
-    "text": "Licensing (cont’d)\n\nNeed to be careful here when you bundle any code from other software\n\nCare must be taken that any copyright/license statements from copied or modified code are preserved and authorship is not misrepresented\n\nAre the licenses of your package and the source compatible?\n\ne.g. cannot copy/paste code from a GPL package and publish in an MIT package\n\nLICENSE file optionally can contain further restrictions of the license"
-  },
-  {
-    "objectID": "slides/06_publication.html#open-sourcing",
-    "href": "slides/06_publication.html#open-sourcing",
-    "title": "6 Publication",
-    "section": "Open Sourcing",
-    "text": "Open Sourcing\n\nThe easiest way to “open source” your R package is to make the GitHub repository public\nThis allows for easy open source contributions from other developers via pull requests\nPlease check with your organization first:\n\nAre they ok to publish the software?\nWhat is the appropriate copyright holder?\n\nAlso allows bugs to be filed and to have the GitHub issues page in the package description"
-  },
-  {
-    "objectID": "slides/06_publication.html#versioning",
-    "href": "slides/06_publication.html#versioning",
-    "title": "6 Publication",
-    "section": "Versioning",
-    "text": "Versioning\n\nThe Version field defines the package version\nSyntax: Three integers separated by . or -\n\nCanonical form is: x.y-z, equivalent to x.y.z\n\nUseful conventions of “semantic versioning”:\n\nx is major: Increment this for breaking changes\ny is minor: Increment this for new features\nz is patch: Increment this for bug fixes only\nx.y.z.9000 and count up during development\nusethis::use_version() can help with this"
-  },
-  {
-    "objectID": "slides/06_publication.html#cran-the-comprehensive-r-archive-network",
-    "href": "slides/06_publication.html#cran-the-comprehensive-r-archive-network",
-    "title": "6 Publication",
-    "section": "CRAN (The Comprehensive R Archive Network)",
-    "text": "CRAN (The Comprehensive R Archive Network)\n\nCRAN is the central repository for R packages\nIt has additional requirements beyond the standard package ones, which are described in the Repository Policy\nSubmitting a package indicates agreement with the policy\nIn particular: “The time of the volunteers is CRAN’s most precious resource, and they reserve the right to remove or modify packages on CRAN without notice or explanation (although notification will usually be given).”"
-  },
-  {
-    "objectID": "slides/06_publication.html#cran-contd",
-    "href": "slides/06_publication.html#cran-contd",
-    "title": "6 Publication",
-    "section": "CRAN (cont’d)",
-    "text": "CRAN (cont’d)\n\nOnly source packages can be submitted \n\nBut .rda data files are allowed\n\nNeed single designated maintainer (person, not mailing list)\n\nAdditional Contact field could be used\n\nCitations in author-year style, followed by <doi:...>\nReducing run time of tests, checks, examples, vignettes is important\nNeed to provide cross-platform portable code: CRAN runs checks on Windows, Mac, several Linux OS"
-  },
-  {
-    "objectID": "slides/06_publication.html#cran-contd-1",
-    "href": "slides/06_publication.html#cran-contd-1",
-    "title": "6 Publication",
-    "section": "CRAN (cont’d)",
-    "text": "CRAN (cont’d)\n❗ A CRAN submission can be punishing, painful, and nerve-racking:\nThe first release of the rpact package took 5 weeks and 6 submission attempts; painful experiences:\n\nSome Linux machines may generate different random numbers than expected (despite setting a seed)\nNot only errors and warnings lead to the rejection of a submitted package, but also notes\nYour local Windows test system may be much faster than the CRAN system (e.g., 5 times)\nDon’t use “R Package for” in your package title\nThe description of the package must be provided with a doi reference"
-  },
-  {
-    "objectID": "slides/06_publication.html#cran-contd-2",
-    "href": "slides/06_publication.html#cran-contd-2",
-    "title": "6 Publication",
-    "section": "CRAN (cont’d)",
-    "text": "CRAN (cont’d)\nExample message informing about the rejection of the last rpact submission:\nDear maintainer,\npackage rpact_3.3.2.tar.gz does not pass the incoming checks automatically, please see the following pre-tests:\nWindows: 00check.log Status: OK, Debian: 00check.log Status: OK\nPlease fix all problems and resubmit a fixed version via the webform.\nBest regards,\nCRAN teams’ auto-check service\nr-devel-windows-x86_64 Check: Result: NA, Maintainer: ‘Friedrich Pahlke’\nr-devel-windows-x86_64 Check: Overall checktime, Result: NOTE, Overall checktime 12 min > 10 min\nr-devel-linux-x86_64-debian-gcc Check: Result: Note_to_CRAN_maintainers Maintainer: ‘Friedrich Pahlke’"
-  },
-  {
-    "objectID": "slides/06_publication.html#r-hub-to-the-rescue",
-    "href": "slides/06_publication.html#r-hub-to-the-rescue",
-    "title": "6 Publication",
-    "section": "R-Hub to the Rescue",
-    "text": "R-Hub to the Rescue\n\n\n\n\n\nFree R CMD check runs on different operating systems before submitting to CRAN\nSupported by the R consortium\nTypically used via the website\nThere is also an R API: rhub::check_for_cran() is comfortable"
-  },
-  {
-    "objectID": "slides/06_publication.html#tags",
-    "href": "slides/06_publication.html#tags",
-    "title": "6 Publication",
-    "section": "Tags",
-    "text": "Tags\n\nTags are a feature of Git, i.e., not specific to GitHub\nGit can tag specific points in the code history as being important\nTypically, for each release, create a tag vx.y.z\nThe value here is that users can later check out the package in the state of this release version\n\nDownload in R: remotes::install_github(\"org/package\", ref = \"vx.y.z\")\nComparison of versions are also possible, etc."
-  },
-  {
-    "objectID": "slides/06_publication.html#tags-example",
-    "href": "slides/06_publication.html#tags-example",
-    "title": "6 Publication",
-    "section": "Tags: Example",
-    "text": "Tags: Example"
-  },
-  {
-    "objectID": "slides/06_publication.html#releases",
-    "href": "slides/06_publication.html#releases",
-    "title": "6 Publication",
-    "section": "Releases",
-    "text": "Releases\n\nBased on Git tags, and a feature of GitHub\nAre “deployable software packages to make them available for a wider audience to download and use”\nContain release notes and links to the binary package files for download\n\nHowever, for R packages these tar.gz package files are rarely used directly"
-  },
-  {
-    "objectID": "slides/06_publication.html#releases-example",
-    "href": "slides/06_publication.html#releases-example",
-    "title": "6 Publication",
-    "section": "Releases: Example",
-    "text": "Releases: Example"
+    "objectID": "slides/05_collaboration.html#practical---collaboration-on-github",
+    "href": "slides/05_collaboration.html#practical---collaboration-on-github",
+    "title": "5 Version Control & Collaboration",
+    "section": "Practical - collaboration on GitHub",
+    "text": "Practical - collaboration on GitHub\n\nWork in teams of ~ 3 or 4\nGo to https://github.com/kkmann/simulatr and read through the instructions in the README.md file\nThe repository is a template to practice collaboration on GitHub\nOnly one member per team needs to use the template and invite the others as collaborators!\nTake some time to checkout the README.md file and set up your environment in posit cloud\nCan you fix the errors with some pull requests?\nThe purpose of this exercise is to explore the collaboration functionality of GitHub - not to produce a perfect package ;)\n\n\n\nGood Software Engineering Practice for R Packages - Home | Slides | License"
   },
   {
     "objectID": "slides/04_quality.html#why-is-clean-code-important",
@@ -1064,6 +882,237 @@
     "text": "Tasks\n\nTask 1Task 2Task 3Task 4\n\n\nTake your local simulatr package project (see previous excercise) and refactor it, i.e., apply the linked clean code rules:\n\nOptimize naming manually (CCR#1)\nUse the styler package to optimize the formatting (CCR#2)\nCheck and correct where appropriate:\n\nSimplicity (CCR#3)\nSRP (CCR#4)\nDRY (CCR#5)\n\n\n\n\n\nImplement appropriate error handling (CCR#7) in the simulatr package\nAdd comments to explain the purpose of code blocks (CCR#6)\n\nIf it concerns exported functions use Roxygen2 notation\n\nCheck correct spelling with the devtools function spell_check()\n\n\n\nApply CCR#8 to the simulatr package project:\n\nAdd unit tests\nOptimize your test coverage with help of the covr functions package_coverage and report\n\n\n\nCheck if your package is ready for use in production with the devtools function check()"
   },
   {
+    "objectID": "slides/03_workflow.html#typical-work-steps",
+    "href": "slides/03_workflow.html#typical-work-steps",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Typical work steps",
+    "text": "Typical work steps\n\n\n\n\nIdea\nConcept creation\nValidation planning\nSpecification:\n\nUser Requirements Spec (URS),\nFunctional Spec (FS), and\nSoftware Design Spec (SDS)\n\n\n\n\nR package programming\nDocumented verification\nCompletion of formal validation\nR package release\nUse in production\nMaintenance"
+  },
+  {
+    "objectID": "slides/03_workflow.html#frequently-used-workflow-in-practice",
+    "href": "slides/03_workflow.html#frequently-used-workflow-in-practice",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Frequently Used Workflow in Practice",
+    "text": "Frequently Used Workflow in Practice\n\n\n\n\nIdea\nR package programming\nUse in production\nBug fixing\nUse in production\n\n\n\nBug fixing + Documentation\nUse in production\nBug fixing + Further development\nUse in production\nBug fixing + …\n\n\n\n\n\n Bad practice!\n\n\n Why?"
+  },
+  {
+    "objectID": "slides/03_workflow.html#why-practice-good-engineering-1",
+    "href": "slides/03_workflow.html#why-practice-good-engineering-1",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Why practice good engineering?",
+    "text": "Why practice good engineering?\n\n\nOrigin of errors in system development\n\nBoehm, B. (1981). Software Engineering Economics. Prentice Hall."
+  },
+  {
+    "objectID": "slides/03_workflow.html#why-practice-good-engineering-2",
+    "href": "slides/03_workflow.html#why-practice-good-engineering-2",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Why practice good engineering?",
+    "text": "Why practice good engineering?\n\n\n\nDon’t waste time on maintenance\nBe faster with release on CRAN\nDon’t waste time with inefficient and buggy further development\n\n\n\nFulfill regulatory requirements1\nSave refactoring time when the PoC becomes the release version\nYou don’t have to be shy any longer about inviting other developers to contribute to the package on GitHub\n\n\n\nSee also Ensuring Quality by Joe"
+  },
+  {
+    "objectID": "slides/03_workflow.html#why-practice-good-engineering-3",
+    "href": "slides/03_workflow.html#why-practice-good-engineering-3",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Why practice good engineering?",
+    "text": "Why practice good engineering?\nInvest time in\n\nrequirements analysis,\nsoftware design, and\narchitecture…\n\n\n… but in many cases the workflow must be workable for a single developer or a small team."
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-1-idea",
+    "href": "slides/03_workflow.html#example---step-1-idea",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 1: Idea",
+    "text": "Example - Step 1: Idea\nLet’s assume that you used some lines of code to create simulated data in multiple projects:\n\ndat <- data.frame(\n    group = c(rep(1, 50), rep(2, 50)),\n    values = c(\n        rnorm(n = 50, mean = 8, sd = 12),\n        rnorm(n = 50, mean = 14, sd = 11)\n    )\n)\n\nIdea: put the code into a package"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-2-design-docs",
+    "href": "slides/03_workflow.html#example---step-2-design-docs",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 2: Design docs",
+    "text": "Example - Step 2: Design docs\n\nDescribe the purpose and scope of the package\nAnalyse and describe the requirements in clear and simple terms (“prose”)\n\n\n\n\nObligation level\nKey word1\nDescription\n\n\n\n\nDuty\nshall\n“must have”\n\n\nDesire\nshould\n“nice to have”\n\n\nIntention\nwill\n“optional”\n\n\n\nRupp, C., & SOPHISTen, die. (2009). Requirements-Engineering und -Management: Professionelle, iterative Anforderungsanalyse für die Praxis (5. Ed.). Carl Hanser Verlag GmbH & Co. KG."
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-2-design-docs-1",
+    "href": "slides/03_workflow.html#example---step-2-design-docs-1",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 2: Design docs",
+    "text": "Example - Step 2: Design docs\nPurpose and Scope\nThe R package simulatr shall enable the creation of reproducible fake data.\nPackage Requirements\nsimulatr shall provide a function to generate normal distributed random data for two independent groups. The function shall allow flexible definition of sample size per group, mean per group, standard deviation per group. The reproducibility of the simulated data shall be ensured via an optional seed It should be possible to print the function result. A graphical presentation of the simulated data will also be possible."
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-2-design-docs-2",
+    "href": "slides/03_workflow.html#example---step-2-design-docs-2",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 2: Design docs",
+    "text": "Example - Step 2: Design docs\n\n\nUseful formats / tools for design docs:\n\nR Markdown1 (*.Rmd)\nQuarto1 (*.qmd)\nOverleaf2\ndraw.io3\n\n\n\nUML Diagram\n\n\n\n\n\n\n\n\nBased on Markdown, the easy-to-use markup languageThe easy to use, online, collaborative LaTeX editorA picture is worth a thousand words"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging",
+    "href": "slides/03_workflow.html#example---step-3-packaging",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nR package programming\n\nCreate basic package project (see R Packages by Liming)\nC&P existing R scripts (one-off scripts, prototype functions) and refactor1 it if necessary\nCreate R generic functions\nDocument all functions\n\nSee also Ensuring Quality by Joe"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging-1",
+    "href": "slides/03_workflow.html#example---step-3-packaging-1",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nOne-off script as starting point:\n\nsim.data <- function(n1, n2, m1, m2, s1, s2) {\n    data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = m1, sd = s1),\n            rnorm(n = n2, mean = m2, sd = s2)\n        )\n    )\n}"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging-2",
+    "href": "slides/03_workflow.html#example---step-3-packaging-2",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nRefactored script:\n\ngetSimulatedTwoArmMeans <- function(n1, n2, mean1, mean2, sd1, sd2) {\n    data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = mean1, sd = sd1),\n            rnorm(n = n2, mean = mean2, sd = sd2)\n        )\n    )\n}\n\nAlmost all functions, arguments, and objects should be self-explanatory due to their names."
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging-3",
+    "href": "slides/03_workflow.html#example---step-3-packaging-3",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nDefine that the result is a list1 which is defined as class2:\n\ngetSimulatedTwoArmMeans <- function(n1, n2, mean1, mean2, sd1, sd2) {\n    result <- list(n1 = n1, n2 = n2, \n         mean1 = mean1, mean2 = mean2, sd1 = sd1, sd2 = sd2)\n    result$data <- data.frame(\n        group = c(rep(1, n1), rep(2, n2)),\n        values = c(\n            rnorm(n = n1, mean = mean1, sd = sd1),\n            rnorm(n = n2, mean = mean2, sd = sd2)\n        )\n    )\n    # set the class attribute\n    result <- structure(result, class = \"SimulationResult\")\n    return(result)\n}\n\nIt’s common practice to add the function arguments to the result \\(\\rightarrow\\) should be a list or classTo implement generics, the result must be a class"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging-4",
+    "href": "slides/03_workflow.html#example---step-3-packaging-4",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group      values\n1       1  3.27597983\n2       1  3.70005322\n3       1  6.01566831\n4       1  4.64046416\n5       1  2.84328204\n6       1  5.02026446\n7       1  8.32752479\n8       1  2.39392869\n9       1  8.01181682\n10      1  5.36807851\n11      1  8.82769973\n12      1  3.69826672\n13      1  8.58292470\n14      1  7.14050210\n15      1  3.61446563\n16      1  6.90934959\n17      1  5.90457065\n18      1  3.48411233\n19      1  5.54381385\n20      1 -0.74924510\n21      1  4.02566748\n22      1  2.84157960\n23      1  2.62961629\n24      1  6.90291519\n25      1  8.35757203\n26      1  6.23146566\n27      1  2.51961929\n28      1  3.84939986\n29      1  7.34308582\n30      1  0.25186589\n31      1  6.68759492\n32      1  6.72176056\n33      1  8.63391966\n34      1  5.90606733\n35      1  0.22585909\n36      1  3.64295520\n37      1  5.46669238\n38      1  6.69646849\n39      1  6.90309176\n40      1  9.96828841\n41      1  7.79458139\n42      1  5.76031369\n43      1  2.25657626\n44      1  8.60597389\n45      1  3.99783328\n46      1 -0.83412578\n47      1  5.13381238\n48      1  7.49300986\n49      1  4.43729451\n50      1  4.73517411\n51      2 15.71463132\n52      2  2.41476272\n53      2  7.86530145\n54      2  8.06210634\n55      2 -0.13691693\n56      2 -0.55407257\n57      2  8.20361411\n58      2  9.40447978\n59      2  5.65723143\n60      2  4.75641036\n61      2  5.41330619\n62      2  7.79779540\n63      2  4.33195104\n64      2  4.50438371\n65      2 -1.21915539\n66      2  8.98105717\n67      2  8.25888212\n68      2  6.78567291\n69      2  3.88456935\n70      2  8.19437954\n71      2  7.48544062\n72      2  0.03211403\n73      2  1.31790710\n74      2  1.53282210\n75      2  3.44771430\n76      2  7.27009776\n77      2  7.10453977\n78      2  5.93514724\n79      2  6.66745198\n80      2  6.31792969\n81      2 11.81073289\n82      2  4.56900857\n83      2  0.30613182\n84      2  7.15306033\n85      2  5.45035390\n86      2  8.49267022\n87      2 -2.03745897\n88      2  6.15269156\n89      2  1.83397436\n90      2 15.46540008\n91      2  6.95883407\n92      2 13.72021289\n93      2  1.66759452\n94      2 12.97653172\n95      2  7.62771940\n96      2  2.36661102\n97      2  6.44472686\n98      2  3.81621537\n99      2  3.72645271\n100     2  8.73732096\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
+  },
+  {
+    "objectID": "slides/03_workflow.html#example---step-3-packaging-5",
+    "href": "slides/03_workflow.html#example---step-3-packaging-5",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Example - Step 3: Packaging",
+    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult <- function(x, ...) {\n    args <- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x <- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   <dbl>  <dbl>\n 1     1   3.28\n 2     1   3.70\n 3     1   6.02\n 4     1   4.64\n 5     1   2.84\n 6     1   5.02\n 7     1   8.33\n 8     1   2.39\n 9     1   8.01\n10     1   5.37\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "slides/03_workflow.html#preparation",
+    "href": "slides/03_workflow.html#preparation",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Preparation",
+    "text": "Preparation\n\nDownload the unfinished R package simulatr\nExtract the package zip file\nOpen the project with RStudio\nComplete the tasks below"
+  },
+  {
+    "objectID": "slides/03_workflow.html#tasks",
+    "href": "slides/03_workflow.html#tasks",
+    "title": "3 An R Package Engineering Workflow",
+    "section": "Tasks",
+    "text": "Tasks\n\nTask 1Task 2Task 3Task 4Task 5Task 6Task 7\n\n\nAdd assertions to improve the usability and user experience\n\n\n\n\n\n\nTip on assertions\n\n\nUse the package checkmate to validate input arguments.\n\n\n\nExample:\n\nplayWithAssertions <- function(n1) {\n  checkmate::assertInt(n1, lower = 1)\n}\nplayWithAssertions(-1)\n\nError in playWithAssertions(-1) : Assertion on ‘n1’ failed: Element 1 is not >= 1.\n\n\nAdd three additional results:\n\nn total,\ncreation time, and\nallocation ratio\n\n\n\n\n\n\n\nTip on creation time\n\n\nSys.time(), format(Sys.time(), '%B %d, %Y'), Sys.Date()\n\n\n\n\n\nAdd an additional result: t.test result\n\n\nAdd an optional alternative argument and pass it through t.test:\n\n\nalternative = c(\"two.sided\", \"less\", \"greater\")\n\n\n\nImplement the generic functions print and plot.\n\n\n\n\n\n\nTip on print\n\n\nUse the plot example function from above and extend it.\n\n\n\n\n\n\n\n\n\nTip on plot\n\n\nUse R base plot or ggplot2 to create a grouped boxplot of the fake data.\n\n\n\n\n\nOptional extra tasks:\n\nImplement the generic functions summary and cat\nImplement the function kable known from the package knitr as generic. Tip: use\n\nkable <- function(x) UseMethod(\"kable\")\n\nto define kable as generic\n\n\n\nOptional extra task1:\nDocument your functions with Roxygen2\n\n\nIf you are already familiar with Roxygen2"
+  },
+  {
+    "objectID": "slides/01_intro.html#disclaimer",
+    "href": "slides/01_intro.html#disclaimer",
+    "title": "1 Introduction",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\nAny opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of Roche."
+  },
+  {
+    "objectID": "slides/01_intro.html#daniel",
+    "href": "slides/01_intro.html#daniel",
+    "title": "1 Introduction",
+    "section": "Daniel",
+    "text": "Daniel\n\n\n\n\n\nStatistician (Ph.D. in 2013 on Bayesian Model Selection)\nBiostatistician at Roche for 5 years, Data Scientist at Google for 2 years, Statistical Software Engineer at Roche for the last 3 years\nMultiple R packages on CRAN and Bioconductor, co-wrote book on Likelihood and Bayesian Inference, chair of the ASA BIOP working group on Software Engineering (SWE WG)\nfeel free to connect at  LinkedIn or  Github"
+  },
+  {
+    "objectID": "slides/01_intro.html#liming",
+    "href": "slides/01_intro.html#liming",
+    "title": "1 Introduction",
+    "section": "Liming",
+    "text": "Liming\n\n\n\nMaster in Biostatistics from Fudan University\nStatistical Programmer in Roche for 4 years, technical engineering lead for chevron team in NEST project\nMember of ASA BIOP working group on Software Engineering (SWE WG) mmrm taskforce\nFeel free to connect at  Github"
+  },
+  {
+    "objectID": "slides/01_intro.html#joe",
+    "href": "slides/01_intro.html#joe",
+    "title": "1 Introduction",
+    "section": "Joe",
+    "text": "Joe\n\n\n\nPh.D. in Statistics\nPostdoc at the University of Oxford for 6 years, Data Scientist at Roche for the last 3 years, technical engineering lead for the NEST SME team.\nMultiple open-source packages on Github and CRAN, see this page for details.\nFeel free to connect at  LinkedIn or  Github"
+  },
+  {
+    "objectID": "slides/01_intro.html#shuang",
+    "href": "slides/01_intro.html#shuang",
+    "title": "1 Introduction",
+    "section": "Shuang",
+    "text": "Shuang\n\n\n\n\n\nMaster in Pharmacology from Fudan University\n5-year experience in clinical data management, curation and related R tools development\nTechnical Lead of several data FARIification R packages, co-auther of the Restrict Data Check Shiny App and the Raw Data Compare R Package\nFeel free to connect at  Github"
+  },
+  {
+    "objectID": "slides/01_intro.html#what-you-will-learn-today",
+    "href": "slides/01_intro.html#what-you-will-learn-today",
+    "title": "1 Introduction",
+    "section": "What you will learn today",
+    "text": "What you will learn today\n\nUnderstand the basic structure of an R package\nCreate your own R \nLearn about & apply professional  development workflow\nLearn & apply fundamentals of quality control for R \nGet crash-course in version control to stay organized\nTry out modern collaboration techniques on GitHub.com\nLearn how to make an R  available to others\nGet a starting point for sustainable Shiny app development"
+  },
+  {
+    "objectID": "slides/01_intro.html#program-outline",
+    "href": "slides/01_intro.html#program-outline",
+    "title": "1 Introduction",
+    "section": "Program outline",
+    "text": "Program outline\n\n\n\n\n\n09:00 - 09:30\nIntroduction and outline\n\n\n09:30 - 10:30\nR Package Syntax\n\n\n10:30 - 10:45\nTea Break\n\n\n10:45 - 11:45\nSoftware Engineering Workflow\n\n\n11:45 - 12:45\nLunch Break\n\n\n12:45 - 13:45\nPackage Quality\n\n\n13:45 - 14:45\nCollaboration via GitHub\n\n\n14:45 - 15:00\nTea Break\n\n\n15:00 - 15:45\nPublication of R Packages\n\n\n15:45 - 16:30\nShiny Development\n\n\n16:30 - 17:00\nSummary and Discussion"
+  },
+  {
+    "objectID": "slides/01_intro.html#house-keeping",
+    "href": "slides/01_intro.html#house-keeping",
+    "title": "1 Introduction",
+    "section": "House-keeping",
+    "text": "House-keeping\n\nCourse website at openpharma.github.io/workshop-r-swe\n\nall slides\nsources available at github.com/openpharma/workshop-r-swe\nall materials CC-BY 4.0\n\nWe have a WeChat channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course"
+  },
+  {
+    "objectID": "slides/01_intro.html#enter-wechat",
+    "href": "slides/01_intro.html#enter-wechat",
+    "title": "1 Introduction",
+    "section": "Enter WeChat",
+    "text": "Enter WeChat"
+  },
+  {
+    "objectID": "slides/01_intro.html#what-you-will-need",
+    "href": "slides/01_intro.html#what-you-will-need",
+    "title": "1 Introduction",
+    "section": "What you will need",
+    "text": "What you will need\n\nGithub.com (free) account \nRecommended: posit.cloud \n\nFree tier sufficient\nComes with everything installed\nAlternative: local R development environment with\n\ngit \nRtools/R/Rstudio IDE \n\n\nCuriosity 🦝\nPositive attitude 😄"
+  },
+  {
+    "objectID": "slides/01_intro.html#enter-menti.com-4458-3431",
+    "href": "slides/01_intro.html#enter-menti.com-4458-3431",
+    "title": "1 Introduction",
+    "section": "Enter menti.com: 4458 3431",
+    "text": "Enter menti.com: 4458 3431"
+  },
+  {
+    "objectID": "slides/01_intro.html#what-do-we-mean-by-gswep4r",
+    "href": "slides/01_intro.html#what-do-we-mean-by-gswep4r",
+    "title": "1 Introduction",
+    "section": "What do we mean by GSWEP4R*?",
+    "text": "What do we mean by GSWEP4R*?\n\n\nApplying concept of GxP to SWE with R\nImprove quality of R code/packages, particularly in regulated enviroments but not limited to!\nNot a fixed term, we share our perspectives\nCollection of best practices\nDo not reinvent the wheel: learn from IT/open source space\n\n\n* Good Software Engineering Practice for R"
+  },
+  {
+    "objectID": "slides/01_intro.html#why-care-about-gswep4r",
+    "href": "slides/01_intro.html#why-care-about-gswep4r",
+    "title": "1 Introduction",
+    "section": "Why care about GSWEP4R?",
+    "text": "Why care about GSWEP4R?\n\nMove to / integration of R in pharma is clear trend\nR is a powerful yet complex ecosystem\n\nCore component: R packages\nMature analysts: users & contributors\nDeep understanding crucial, even to just assess quality\n\nAnalyses increasingly require complex scripts/programs  \\(\\leadsto\\) line between programming and data analysis blurs\nValue: de-risking use of R and efficiency gains"
+  },
+  {
+    "objectID": "slides/01_intro.html#start-small---from-script-to-package",
+    "href": "slides/01_intro.html#start-small---from-script-to-package",
+    "title": "1 Introduction",
+    "section": "Start small - from script to package",
+    "text": "Start small - from script to package\n\nEncapsulate behavior (functions)\nAvoid global state/variables\nAdopt consistent coding style\nDocument well\nAdd test cases\nVersion your code\nShare as ‘bundle’\n\n\\(\\leadsto\\) R package"
+  },
+  {
+    "objectID": "slides/01_intro.html#the-r-package-ecosystem---huge-success",
+    "href": "slides/01_intro.html#the-r-package-ecosystem---huge-success",
+    "title": "1 Introduction",
+    "section": "The R package ecosystem - huge success",
+    "text": "The R package ecosystem - huge success"
+  },
+  {
+    "objectID": "slides/01_intro.html#gxp-r",
+    "href": "slides/01_intro.html#gxp-r",
+    "title": "1 Introduction",
+    "section": "GxP + R  = ",
+    "text": "GxP + R  = \n\nCore infrastructure packages only through industry\nQuality, burden sharing: open-source pharmaverse and others\nOpen methodological packages can de-risk innovative methods\nR packages make (statistical/methodological) code\n\ntestable (with documented evidence thereof, CRF 11)\nreusable\nshareable\neasier to document"
+  },
+  {
     "objectID": "slides/08_conclusion.html#enter-menti.com-7920-6996",
     "href": "slides/08_conclusion.html#enter-menti.com-7920-6996",
     "title": "8 Conclusion",
@@ -1125,54 +1174,5 @@
     "title": "GSWEP4R Workshop",
     "section": "",
     "text": "Attribution 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More considerations\n for the public: \nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\nIf You Share Adapted Material You produce, the Adapter’s License You apply must not prevent recipients of the Adapted Material from complying with this Public License.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "",
-    "text": "Welcome to the homepage of the workshop “Good Software Engineering Practice for R Packages”. In this course participants will learn hands-on skills and tools to engineer reliable R packages used in biostatistics. The day will be a mix of presentations and exercises. Participants need to be comfortable with writing functions in R and use their own laptops."
-  },
-  {
-    "objectID": "index.html#next-event",
-    "href": "index.html#next-event",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "Next Event",
-    "text": "Next Event\nThe next event will be online, live streamed from Roche Shanghai, so perfect for attendees from Asia! Please mark the Friday 24th March 2023 and register here:\n\nPlease note that all the content will be in English. Workshop invitations and preparation details for the practice will be sent out in emails. This event is sponsored/organized by Roche PD China Data Sciences and advertised also through the R User Group (RUG) China. Presenters will be Daniel Sabanes Bove, Liming Li, Shuang Li and Joe Zhu.\nWe are looking forward to many online participants!"
-  },
-  {
-    "objectID": "index.html#communication",
-    "href": "index.html#communication",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "Communication",
-    "text": "Communication\nWe offer a gitter chat channel to communicate before, during, and after the course."
-  },
-  {
-    "objectID": "index.html#workshop-program",
-    "href": "index.html#workshop-program",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "Workshop Program",
-    "text": "Workshop Program\nThis is the program for 24th March 2023, all times in China Standard Time (GMT+8):\n\n\n\n\n\n09:00 - 09:30\nIntroduction and outline\n\n\n09:30 - 10:30\nR Package Syntax\n\n\n10:30 - 10:45\nTea Break\n\n\n10:45 - 11:45\nSoftware Engineering Workflow\n\n\n11:45 - 12:45\nLunch Break\n\n\n12:45 - 13:45\nPackage Quality\n\n\n13:45 - 14:45\nCollaboration via GitHub\n\n\n14:45 - 15:00\nTea Break\n\n\n15:00 - 15:45\nPublication of R Packages\n\n\n15:45 - 16:30\nShiny Development\n\n\n16:30 - 17:00\nSummary and Discussion"
-  },
-  {
-    "objectID": "index.html#prerequisites-technical-setup",
-    "href": "index.html#prerequisites-technical-setup",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "Prerequisites & Technical Setup",
-    "text": "Prerequisites & Technical Setup\nPrior to the course, participants should\n\nset up a (free) GitHub.com account. There are other git Platforms like Gitlab or Bitbucket but we made the choice to go with GitHub.com for the course since it is by far the most relevant git platform in the R community.\ndownload and extract simulatr.zip\neither make sure they have a working R software development setup on their own laptop (up-to-date git/Rtools/R/RStudio) or get access to https://posit.cloud. The latter offers a free tier account with 25 hours of computing time per months and can be accessed using ones GitHub.com account.\n\nFor the course, participants are required to use their own laptop to be able to participate in the exercises.\n\nOptional reading list\n\nExcellent and very comprehensive R Packages (2e)\n(Hardcore) description of how Writing R Extensions works\nGitHub ‘Hello World’ tutorial on how to use GitHub.com (does not require git command line knowledge)\nTutorial on version control with git and SVN (we will be using git)\nCommand line git mini intro trygit\nfirst steps with git & github by RStudio\nRStudio cheatsheets/ Git & GitHub"
-  },
-  {
-    "objectID": "index.html#past-events",
-    "href": "index.html#past-events",
-    "title": "Good Software Engineering Practice for R Packages",
-    "section": "Past Events",
-    "text": "Past Events\n\n10th February 2023, Basel"
-  },
-  {
-    "objectID": "listing.html",
-    "href": "listing.html",
-    "title": "Slides",
-    "section": "",
-    "text": "1 Introduction\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel, Liming, Shuang, Joe\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nShuang\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nLiming\n\n\n\n\n\n\n  \n\n\n\n\n7 Shiny Development\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nDaniel\n\n\n\n\n\n\n  \n\n\n\n\n8 Conclusion\n\n\nBBS Course: Good Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nMar 24, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
   }
 ]
