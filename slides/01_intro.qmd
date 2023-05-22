@@ -1,6 +1,6 @@
 ---
 title: "1 Introduction"
-author: "Daniel, Liming, Shuang, Joe"
+author: "Ya, Laura, Matt"
 description: "Introduction and outline of program.</br>[Photo CC0 by Mabel Amber on pexels.com]{.copyright}"
 image: thumbnails/hello.jpg
 ---
@@ -26,18 +26,18 @@ image: thumbnails/hello.jpg
 :::
 :::
 
-## Liming
+## Matt
 
 ::: columns
 ::: {.column width="70%"}
--   Master in Biostatistics from Fudan University
--   Statistical Programmer in Roche for 4 years, technical engineering lead for chevron team in NEST project
--   Member of ASA BIOP working group on Software Engineering (SWE WG) mmrm taskforce
--   Feel free to connect at [`r fontawesome::fa("github")` Github](https://github.com/clarkliming "Liming GitHub")
+-   Masters in Epidemiology from McGill University
+-   RWD epidemiologist for 7 years, including 3 in Roche RWD product development
+-   Developer of the open-source [`psborrow2` R package](https://github.com/Genentech/psborrow2) [![](resources/psborrow2_hex.png){width=25px}](https://github.com/Genentech/psborrow2) for Bayesian dynamic borrowing analyses as well as internal Roche packages
+-   Feel free to connect at `r fontawesome::fa("linkedin")` [LinkedIn](https://www.linkedin.com/in/matthewsecrest/) or `r fontawesome::fa("github")` [Github](https://github.com/mattsecrest "Matt GitHub")
 :::
 
 ::: {.column width="30%"}
-![](resources/liming.jpg)
+![](resources/matt.jpg)
 :::
 :::
 
@@ -98,13 +98,14 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
     -   all slides
     -   sources available at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe)
     -   all materials CC-BY 4.0
--   We have a WeChat channel for this course that you can connect to
+-   We have a Google currents channel for this course that you can connect to
     -   use to ask your peers questions
     -   will try to monitor during course
 
-## Enter WeChat
+## Enter Google currents
 
-![](resources/workshop-wechat.jfif)
+TODO
+<!-- ![](resources/workshop-wechat.jfif) -->
 
 ## What you will need
 
@@ -118,11 +119,13 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
 -   Curiosity `r emoji::emoji("curious")`
 -   Positive attitude `r emoji::emoji("smile")`
 
-## Enter menti.com: 4458 3431
+## Enter menti.com: 
 
-![](resources/mentimeter_qr_code_intro.png)
+TODO 
 
-##  {background-iframe="https://www.mentimeter.com/app/presentation/alunb5x5bjy78a86vwrsac53qhau9uoi/embed" background-interactive="true"}
+<!-- ![](resources/mentimeter_qr_code_intro.png) -->
+
+<!-- ##  {background-iframe="https://www.mentimeter.com/app/presentation/alunb5x5bjy78a86vwrsac53qhau9uoi/embed" background-interactive="true"} -->
 
 ## What do we mean by GSWEP4R\*?
 
