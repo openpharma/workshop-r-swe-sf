@@ -14,7 +14,7 @@ Please mark the Friday 24th March 2023 and register here:
 Please note that all the content will be in English. 
 Workshop invitations and preparation details for the practice will be sent out in emails.
 This event is sponsored/organized by Roche PD China Data Sciences and advertised also through
-the R User Group (RUG) China. Presenters will be Daniel Sabanes Bove, Liming Li, Shuang Li and Joe Zhu.
+the R User Group (RUG) China. Presenters will be Ya Wang, Matt Secrest, Laura Harris.
 
 We are looking forward to many online participants!
 
