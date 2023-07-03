@@ -5,13 +5,6 @@ description: "Collaboration via GitHub + practical<br/>[Photo CC0 by THIS IS ZUN
 image: thumbnails/collaboration.jpg
 ---
 
-## Disclaimer
-
-</br></br></br>
-
-*Any opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of their respective employer or company.*
-
-
 ##  {background-image="resources/scratch.jpg"}
 
 ::: {.absolute bottom="100" left="0" right="500"}
@@ -79,7 +72,7 @@ flowchart LR
 
 # git basics
 
-## Enter git `r fontawesome::fa("git-alt")` the 'Latin of data science'
+## Enter git {{< fa brands github >}} the 'Latin of data science'
 
 ::: columns
 ::: {.column width="30%"}
@@ -278,7 +271,7 @@ gitGraph
 
 # git platforms
 
-## GitHub.com `r fontawesome::fa("github")`
+## GitHub.com {{< fa brands github >}}
 
 - Huge number of R packages developed there:
   - [ggplot2](https://github.com/tidyverse/ggplot2)
@@ -324,7 +317,7 @@ sequenceDiagram
     M->>GH: push commit
     M->>GH: open pull request
     GH->>GH: run automated checks
-    S->>Y: request review
+    M->>Y: request review
     Y->>Y: review code
     Y->>M: request changes
     M->>M: implement changes locally & commit
