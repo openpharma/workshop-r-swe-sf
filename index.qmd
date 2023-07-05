@@ -6,25 +6,15 @@ Welcome to the homepage of the workshop *"Good Software Engineering Practice for
 
 ## Next Event
 
-The next event will be online, live streamed from Roche Shanghai, so perfect for attendees from Asia!
-Please mark the Friday 24th March 2023 and register here:
+The next event will be held on July 20, 2023 as an in-person workshop in San Francisco bay area. Register [here](https://bbsw-tickets.ticketleap.com/summer-r-day1/) by July 9.
 
-![](resources/asia-24Mar2023-barcode.png)
-
-Please note that all the content will be in English. 
-Workshop invitations and preparation details for the practice will be sent out in emails.
-This event is sponsored/organized by Roche PD China Data Sciences and advertised also through
-the R User Group (RUG) China. Presenters will be Ya Wang, Matt Secrest, Laura Harris.
-
-We are looking forward to many online participants!
+This event is organized by ASA BIOP Software Engineering Working Group (SWE WG) and co-sponsored by Bay Area Biotech-Pharma Statistics Workshop (BBSW), San Francisco bay area chapter of ASA (SFASA), and R Consortium. Presenters will be Matt Secrest, Laura Harris, Daniel Sjoberg.
 
 ## Communication
 
 We offer a [gitter chat channel](https://matrix.to/#/#workshop-r-swe_community:gitter.im) to communicate before, during, and after the course.
 
 ## Workshop Program
-
-This is the program for 24th March 2023, all times in China Standard Time (GMT+8):
 
 ```{r}
 #| echo: false
@@ -55,3 +45,4 @@ For the course, participants are required to use their own laptop to be able to 
 ## Past Events
 
 - 10th February 2023, Basel
+- 24th March 2023, Shanghai
