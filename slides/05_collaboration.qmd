@@ -1,16 +1,9 @@
 ---
 title: "5 Version Control & Collaboration"
-author: "Shuang"
+author: "Matt"
 description: "Collaboration via GitHub + practical<br/>[Photo CC0 by THIS IS ZUN on pexels.com]{.copyright}"
 image: thumbnails/collaboration.jpg
 ---
-
-## Disclaimer
-
-</br></br></br>
-
-*Any opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of their respective employer or company.*
-
 
 ##  {background-image="resources/scratch.jpg"}
 
@@ -67,10 +60,10 @@ Photo from <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&utm_
 
 ```{mermaid}
 flowchart LR
-  A[<font size=4> Shuang v1] --> B[<font size=4> Shuang v2]
-  B --> C[<font size=4> Shuang v3]
-  B --> D[<font size=4> Joe v1]
-  D --> E[<font size=4> Joe + Shuang v4]
+  A[<font size=4> Matt v1] --> B[<font size=4> Ya v2]
+  B --> C[<font size=4> Matt v3]
+  B --> D[<font size=4> Ya v1]
+  D --> E[<font size=4> Ya + Matt v4]
   C --> E
 ```
 
@@ -79,7 +72,7 @@ flowchart LR
 
 # git basics
 
-## Enter git `r fontawesome::fa("git-alt")` the 'Latin of data science'
+## Enter git {{< fa brands github >}} the 'Latin of data science'
 
 ::: columns
 ::: {.column width="30%"}
@@ -278,7 +271,7 @@ gitGraph
 
 # git platforms
 
-## GitHub.com `r fontawesome::fa("github")`
+## GitHub.com {{< fa brands github >}}
 
 - Huge number of R packages developed there:
   - [ggplot2](https://github.com/tidyverse/ggplot2)
@@ -317,25 +310,25 @@ gitGraph
 
 ```{mermaid}
 sequenceDiagram
-    participant S as Shuang
+    participant M as Matt
     participant GH as GitHub server
-    participant J as Joe
-    S->>S: make change locally & commit to <feature>
-    S->>GH: push commit
-    S->>GH: open pull request
+    participant Y as Ya
+    M->>M: make change locally & commit to <feature>
+    M->>GH: push commit
+    M->>GH: open pull request
     GH->>GH: run automated checks
-    S->>J: request review
-    J->>J: review code
-    J->>S: request changes
-    S->>S: implement changes locally & commit
-    S->>GH: push commit
+    M->>Y: request review
+    Y->>Y: review code
+    Y->>M: request changes
+    M->>M: implement changes locally & commit
+    M->>GH: push commit
     GH->>GH: run automated checks
-    S->>J: request review
-    J->>J: review code
-    J->>GH: approve changes, unblocking merge
-    S->>GH: merge <feature> into <main>
+    M->>Y: request review
+    Y->>Y: review code
+    Y->>GH: approve changes, unblocking merge
+    M->>GH: merge <feature> into <main>
     GH->>GH: run automated checks on <main>
-    J->>GH: pull newest version of <main>
+    Y->>GH: pull newest version of <main>
 ```
 
 ## Looks awefully complicated, why?
