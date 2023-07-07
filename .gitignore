@@ -12,3 +12,4 @@ docs
 .luarc.json
 
 /.luarc.json
+.DS_Store
