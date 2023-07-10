@@ -1,6 +1,7 @@
 ---
 title: "2 R packages"
-author: "Laura"
+subtitle: "Creators: Daniel Sabanes Bove, Friedrich Pahlke, Kevin Kunzmann, Liming Li, Joe Zhu, Shuang Li"
+author: "Presented By: Laura Harris"
 description: "R package syntax + practical<br/>[Photo CC0 by cottonbro studio on pexels.com]{.copyright}"
 image: thumbnails/packages.jpg
 ---
