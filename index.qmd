@@ -4,27 +4,13 @@ title: "Good Software Engineering Practice for R Packages"
 
 Welcome to the homepage of the workshop *"Good Software Engineering Practice for R Packages"*. In this course participants will learn hands-on skills and tools to engineer reliable R packages used in biostatistics. The day will be a mix of presentations and exercises. Participants need to be comfortable with writing functions in R and use their own laptops.
 
-## Next Event
-
-The next event will be online, live streamed from Roche Shanghai, so perfect for attendees from Asia!
-Please mark the Friday 24th March 2023 and register here:
-
-![](resources/asia-24Mar2023-barcode.png)
-
-Please note that all the content will be in English. 
-Workshop invitations and preparation details for the practice will be sent out in emails.
-This event is sponsored/organized by Roche PD China Data Sciences and advertised also through
-the R User Group (RUG) China. Presenters will be Ya Wang, Matt Secrest, Laura Harris.
-
-We are looking forward to many online participants!
-
 ## Communication
 
 We offer a [gitter chat channel](https://matrix.to/#/#workshop-r-swe_community:gitter.im) to communicate before, during, and after the course.
 
 ## Workshop Program
 
-This is the program for 24th March 2023, all times in China Standard Time (GMT+8):
+This is the program for San Jose State University on 20th July 2023, all times in Pacific Standard Time (PST):
 
 ```{r}
 #| echo: false
@@ -53,5 +39,5 @@ For the course, participants are required to use their own laptop to be able to 
 -   [RStudio cheatsheets/ Git & GitHub](https://github.com/rstudio/cheatsheets/blob/main/git-github.pdf)
 
 ## Past Events
-
+- 24th March 2023, Shanghai
 - 10th February 2023, Basel
