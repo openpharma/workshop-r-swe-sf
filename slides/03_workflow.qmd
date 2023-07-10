@@ -195,7 +195,7 @@ ggplot(effortData, aes(x = "", y = prop, fill = class)) +
 :::
 
 [^1]: See also [Ensuring Quality](04_quality.html) by
-    [Joe](https://github.com/shajoezhu)
+    [Matt](https://github.com/mattsecrest)
 
 ## Why practice good engineering?
 
@@ -314,7 +314,7 @@ UML Diagram
 4.  Document all functions
 
 [^6]: See also [Ensuring Quality](04_quality.html) by
-    [Joe](https://github.com/shajoezhu)
+    [Matt](https://github.com/mattsecrest)
 
 ## Example - Step 3: Packaging
 
