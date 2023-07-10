@@ -1,6 +1,6 @@
 ---
 title: "4 Ensuring Quality"
-author: "Matt"
+author: "Matt Secrest (original slides by Friedrich Pahlke)"
 description: "Package quality + exercise<br/>[Photo CC0 by Pixabay on pexels.com]{.copyright}"
 image: thumbnails/quality.jpg
 ---
