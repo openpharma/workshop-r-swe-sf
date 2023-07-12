@@ -1,6 +1,5 @@
 ---
 title: "3 An R Package Engineering Workflow"
-subtitle: "Creators: Daniel Sabanes Bove, Friedrich Pahlke, Kevin Kunzmann, Liming Li, Joe Zhu, Shuang Li"
 author: "Presented By: Laura Harris"
 description: "Workflow for creating R packages + practical<br/>[Photo CC0 by Andrea Piacquadio on pexels.com]{.copyright}"
 image: thumbnails/workflow.jpg
