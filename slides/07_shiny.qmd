@@ -1,6 +1,6 @@
 ---
 title: "7 Shiny Development"
-author: "Daniel"
+author: "Laura Harris"
 description: "Best Practices for Shiny App Development<br/>[Photo by Pixabay on pexels.com]{.copyright}"
 image: thumbnails/shiny.jpg
 ---
