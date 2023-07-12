@@ -11,7 +11,7 @@ image: thumbnails/hello.jpg
 
 *Any opinions expressed in this presentation and on the following slides are solely those of the presenter and not necessarily those of Roche.*
 
-## Ya
+## Daniel
 
 ::: columns
 ::: {.column width="30%"}
