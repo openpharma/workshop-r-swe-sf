@@ -15,11 +15,11 @@ image: thumbnails/hello.jpg
 
 ::: columns
 ::: {.column width="30%"}
-![](resources/ya.jpg)
+<!-- !![](resources/ya.jpg) --> TODO: add photo
 :::
 
 ::: {.column width="70%"}
--   Statistician
+-   TODO: bio
 -   Feel free to connect at 
 :::
 :::
@@ -88,10 +88,10 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
     -   use to ask your peers questions
     -   will try to monitor during course
 
-## Enter Google currents
+## Enter Gitter Chat Channel
 
-TODO
-<!-- ![](resources/workshop-wechat.jfif) -->
+[Gitter Chat Channel](https://matrix.to/#/#workshop-r-swe-sf:matrix.org)
+[](resources/workshop-gitter-chat-channel.png)
 
 ## What you will need
 
@@ -107,11 +107,11 @@ TODO
 
 ## Enter menti.com: 
 
-TODO 
+TODO: need to update the qr code and the link
 
-<!-- ![](resources/mentimeter_qr_code_intro.png) -->
+[](resources/workshop-mentimeter.png)
 
-<!-- ##  {background-iframe="https://www.mentimeter.com/app/presentation/alunb5x5bjy78a86vwrsac53qhau9uoi/embed" background-interactive="true"} -->
+##  {background-iframe="https://www.mentimeter.com/app/presentation/aljjjxmphsrgrg1z92ynw2mqeysduryr/embed" background-interactive="true"}
 
 ## What do we mean by GSWEP4R\*?
 
