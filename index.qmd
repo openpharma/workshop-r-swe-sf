@@ -32,7 +32,7 @@ This event is organized by ASA BIOP Software Engineering Working Group (SWE WG) 
 
 ## Communication
 
-We offer a [gitter chat channel](https://matrix.to/#/#workshop-r-swe_community:gitter.im) to communicate before, during, and after the course.
+We offer a [gitter chat channel](https://matrix.to/#/#workshop-r-swe-sf:matrix.org) to communicate before, during, and after the course.
 
 ## Workshop Program
 
