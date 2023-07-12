@@ -91,7 +91,7 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
 ## Enter Gitter Chat Channel
 
 [Gitter Chat Channel](https://matrix.to/#/#workshop-r-swe-sf:matrix.org)
-[](resources/workshop-gitter-chat-channel.png)
+[](resources/workshop-sf-gitter-chat-channel.png)
 
 ## What you will need
 
@@ -104,14 +104,6 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
         -   Rtools/R/Rstudio IDE `r fontawesome::fa("r-project")`
 -   Curiosity `r emoji::emoji("curious")`
 -   Positive attitude `r emoji::emoji("smile")`
-
-## Enter menti.com: 
-
-TODO: need to update the qr code and the link
-
-[](resources/workshop-mentimeter.png)
-
-##  {background-iframe="https://www.mentimeter.com/app/presentation/aljjjxmphsrgrg1z92ynw2mqeysduryr/embed" background-interactive="true"}
 
 ## What do we mean by GSWEP4R\*?
 
