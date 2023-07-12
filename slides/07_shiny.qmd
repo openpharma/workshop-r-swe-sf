@@ -1,6 +1,5 @@
 ---
 title: "7 Shiny Development"
-subtitle: "Creators: Daniel Sabanes Bove, Friedrich Pahlke, Kevin Kunzmann, Liming Li, Joe Zhu, Shuang Li"
 author: "Presented By: Laura Harris"
 description: "Best Practices for Shiny App Development<br/>[Photo by Pixabay on pexels.com]{.copyright}"
 image: thumbnails/shiny.jpg
