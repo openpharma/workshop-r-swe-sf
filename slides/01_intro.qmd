@@ -90,7 +90,7 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
 
 ## Enter Gitter Chat Channel
 
-[Gitter Chat Channel](https://matrix.to/#/#workshop-r-swe-sf:matrix.org)
+https://matrix.to/#/#workshop-r-swe-sf:matrix.org
 [](resources/workshop-sf-gitter-chat-channel.png)
 
 ## What you will need

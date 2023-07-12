@@ -9,7 +9,7 @@ image: thumbnails/conclusion.jpg
 
 ## Enter menti.com: 7973 5260
 
-TODO: update the qr code and the link (expires in 7 days) before the workshop
+TODO: update the qr code and the link (expire in 7 days) before the workshop
 
 ![](resources/workshop-sf-mentimeter.png)
 
