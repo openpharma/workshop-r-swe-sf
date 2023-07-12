@@ -223,7 +223,7 @@ pexels.com]{.copyright}](thumbnails/workflow3.jpg){fig-align="center"}
 4.  Quality check (see [Ensuring Quality](04_quality.html) by
     [Matt](https://github.com/mattsecrest))
 5.  Publication (see [Publication](06_publication.html) by
-    [Ya](https://github.com/ywang-gilead))
+    [Daniel](https://github.com/ddsjoberg))
 6.  Use in production
 
 ## Example - Step 1: Idea
