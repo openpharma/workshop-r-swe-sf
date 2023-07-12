@@ -31,7 +31,7 @@ image: thumbnails/hello.jpg
 ::: {.column width="70%"}
 -   Masters in Epidemiology from McGill University
 -   RWD epidemiologist for 7 years, including 3 in Roche RWD product development
--   Developer of the open-source [`psborrow2` R package](https://github.com/Genentech/psborrow2) [![](resources/psborrow2_hex.png){width=25px}](https://github.com/Genentech/psborrow2) for Bayesian dynamic borrowing analyses as well as internal Roche packages
+-   Developer of the open-source [`psborrow2` R package](https://github.com/Genentech/psborrow2) for Bayesian dynamic borrowing analyses as well as internal Roche packages
 -   Feel free to connect at `r fontawesome::fa("linkedin")` [LinkedIn](https://www.linkedin.com/in/matthewsecrest/) or `r fontawesome::fa("github")` [Github](https://github.com/mattsecrest "Matt GitHub")
 :::
 
@@ -84,11 +84,11 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
     -   all slides
     -   sources available at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe)
     -   all materials CC-BY 4.0
--   We have a Google currents channel for this course that you can connect to
+-   We have a gitter channel for this course that you can connect to
     -   use to ask your peers questions
     -   will try to monitor during course
 
-## Enter Google currents
+## Gitter channel
 
 TODO
 <!-- ![](resources/workshop-wechat.jfif) -->
