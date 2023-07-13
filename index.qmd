@@ -26,7 +26,7 @@ Welcome to the homepage of the workshop *"Good Software Engineering Practice for
 
 ## Next Event
 
-The next event will be held on July 20, 2023 as an in-person workshop in San Francisco bay area. Register [here](https://bbsw-tickets.ticketleap.com/summer-r-day1/) by July 9.
+The next event will be held on 20th July 2023 as an in-person workshop in San Francisco bay area. Register [here](https://bbsw-tickets.ticketleap.com/summer-r-day1/) by July 9.
 
 This event is organized by ASA BIOP Software Engineering Working Group (SWE WG) and co-sponsored by Bay Area Biotech-Pharma Statistics Workshop (BBSW), San Francisco bay area chapter of ASA (SFASA), and R Consortium. Presenters will be Matt Secrest, Laura Harris, Daniel Sjoberg.
 
@@ -35,6 +35,8 @@ This event is organized by ASA BIOP Software Engineering Working Group (SWE WG) 
 We offer a [gitter chat channel](https://matrix.to/#/#workshop-r-swe-sf:matrix.org) to communicate before, during, and after the course.
 
 ## Workshop Program
+
+This is the program for 20th July 2023, all times in Pacific Standard Time (PST).
 
 ```{r}
 #| echo: false
