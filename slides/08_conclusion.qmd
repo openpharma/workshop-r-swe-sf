@@ -7,11 +7,13 @@ image: thumbnails/conclusion.jpg
 
 # Temperature check
 
-## Enter menti.com: 7920 6996
+## Enter menti.com: 7973 5260
 
-![](resources/mentimeter_qr_code_conclusion.png)
+TODO: update the qr code and the link (expire in 7 days) before the workshop
 
-##  {background-iframe="https://www.mentimeter.com/app/presentation/al23h9gize6giryqo6jn3kfxw6k7e18p/embed" background-interactive="true"}
+![](resources/workshop-sf-mentimeter.png)
+
+##  {background-iframe="https://www.mentimeter.com/app/presentation/aljjjxmphsrgrg1z92ynw2mqeysduryr/embed" background-interactive="true"}
 
 # Take away messages
 
@@ -92,7 +94,8 @@ image: thumbnails/conclusion.jpg
 - Creators (initial authors): 
   Daniel Sabanes Bove [`r fontawesome::fa("github")`](https://github.com/danielinteractive/) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/danielsabanesbove/)
 - In the current version, changes were done by (later authors): 
-  TODO: FILL IN, OR IF NOT APPLICABLE DELETE THIS BULLET
+  Ya Wang [`r fontawesome::fa("github")`](https://github.com/ywang-gilead)
+  [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/ya-wang-98531524/)
 - This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 - The source files are hosted at [github.com/openpharma/workshop-r-swe-sf](https://github.com/openpharma/workshop-r-swe-sf), which is forked from the original version at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe/).
 - Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made
