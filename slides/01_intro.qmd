@@ -3,6 +3,7 @@ title: "1 Introduction"
 author: "Daniel Sjoberg, Laura Harris, Matt Secrest"
 description: "Introduction and outline of program.</br>[Photo CC0 by Mabel Amber on pexels.com]{.copyright}"
 image: thumbnails/hello.jpg
+engine: knitr
 ---
 
 ## Disclaimer
