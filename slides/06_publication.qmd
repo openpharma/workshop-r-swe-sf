@@ -1,8 +1,9 @@
 ---
 title: "6 Publication"
-author: "Liming"
+author: "Daniel Sjoberg"
 description: "Publication of R packages + practical<br/>[Photo CC0 by Andrea Piacquadio on pexels.com]{.copyright}"
 image: thumbnails/publish.jpg
+engine: knitr
 ---
 
 # Website with `pkgdown`
@@ -240,8 +241,7 @@ Use the same repository created from template [https://github.com/kkmann/simulat
   Daniel Sabanes Bove [`r fontawesome::fa("github")`](https://github.com/danielinteractive/) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/danielsabanesbove/),
   Friedrich Pahlke [`r fontawesome::fa("github")`](https://github.com/fpahlke/) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/pahlke/),
   Liming Li [`r fontawesome::fa("github")`](https://github.com/clarkliming)
-- In the current version, changes were done by (later authors): 
-  TODO: FILL IN, OR IF NOT APPLICABLE DELETE THIS BULLET
+- In the current version, changes were done by (later authors): Daniel Sjoberg [`r fontawesome::fa("link")`](https://www.danieldsjoberg.com) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/ddsjoberg/) [`r fontawesome::fa("github")`](https://github.com/ddsjoberg/) [`r fontawesome::fa("twitter")`](https://twitter.com/statistishdan)
 - This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 - The source files are hosted at [github.com/openpharma/workshop-r-swe-sf](https://github.com/openpharma/workshop-r-swe-sf), which is forked from the original version at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe/).
 - Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made
