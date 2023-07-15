@@ -3,6 +3,7 @@ title: "1 Introduction"
 author: "Daniel Sjoberg, Laura Harris, Matt Secrest"
 description: "Introduction and outline of program.</br>[Photo CC0 by Mabel Amber on pexels.com]{.copyright}"
 image: thumbnails/hello.jpg
+engine: knitr
 ---
 
 ## Disclaimer
@@ -96,10 +97,10 @@ readr::read_csv("resources/program.csv", col_types = "cc") |>
     -   use to ask your peers questions
     -   will try to monitor during course
 
-## Enter Google currents
+## Enter Gitter Chat Channel
 
-TODO
-<!-- ![](resources/workshop-wechat.jfif) -->
+https://matrix.to/#/#workshop-r-swe-sf:matrix.org
+[](resources/workshop-sf-gitter-chat-channel.png)
 
 ## What you will need
 
@@ -112,14 +113,6 @@ TODO
         -   Rtools/R/Rstudio IDE `r fontawesome::fa("r-project")`
 -   Curiosity `r emoji::emoji("curious")`
 -   Positive attitude `r emoji::emoji("smile")`
-
-## Enter menti.com: 
-
-TODO 
-
-<!-- ![](resources/mentimeter_qr_code_intro.png) -->
-
-<!-- ##  {background-iframe="https://www.mentimeter.com/app/presentation/alunb5x5bjy78a86vwrsac53qhau9uoi/embed" background-interactive="true"} -->
 
 ## What do we mean by GSWEP4R\*?
 
