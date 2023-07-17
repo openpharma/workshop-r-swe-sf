@@ -34,7 +34,7 @@ engine: knitr
 :::
 
 
-## Matt
+## Matt Secrest
 
 ::: columns
 ::: {.column width="70%"}

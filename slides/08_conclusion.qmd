@@ -1,6 +1,6 @@
 ---
 title: "8 Conclusion"
-author: "Joe Zhu"
+author: "Matt Secrest"
 description: "Discussion of learning experience, summary of workflow, conclusion and next steps.</br>[Photo by Ann H on pexels.com]{.copyright}"
 image: thumbnails/conclusion.jpg
 ---
