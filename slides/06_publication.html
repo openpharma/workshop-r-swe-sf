@@ -658,17 +658,17 @@ r-devel-linux-x86_64-debian-gcc Check: Result: Note_to_CRAN_maintainers Maintain
 <h1>Exercise</h1>
 <p>Use the same repository created from template <a href="https://github.com/kkmann/simulatr">https://github.com/kkmann/simulatr</a></p>
 <ul>
-<li>Run CRAN like checks in RStudio: use <code>--as-cran</code> in check options</li>
+<li>Run CRAN like checks in RStudio: use <code>devtools::check()</code></li>
 <li>Look at the CI/CD checks reported on your GitHub repository
 <ul>
 <li>Where are the <code>R CMD check</code> results?</li>
 </ul></li>
-<li>Enable github page through <code>use_pkgdown_github_pages</code></li>
+<li>Enable github page through <code>usethis::use_pkgdown_github_pages()</code></li>
 <li>Deploy the website with <code>pkgdown</code>
 <ul>
 <li>Need to change remote to <code>git</code></li>
 </ul></li>
-<li>Deploy the website through <code>use_github_action("pkgdown")</code>
+<li>Deploy the website through <code>usethis::use_github_action("pkgdown")</code>
 <ul>
 <li>(Optional) Check the automatic github page deploy action</li>
 </ul></li>
