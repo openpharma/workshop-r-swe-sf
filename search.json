@@ -102,14 +102,14 @@
     "href": "slides/03_workflow.html#example---step-3-packaging-4",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx &lt;- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group     values\n1       1 -0.2113904\n2       1  5.2481848\n3       1  3.6121686\n4       1  3.7606629\n5       1  4.7763791\n6       1  3.6315455\n7       1  6.4641024\n8       1  5.3628333\n9       1  4.1509994\n10      1 -0.3751385\n11      1  3.0295163\n12      1  5.0813675\n13      1  1.4172159\n14      1  4.8736204\n15      1  7.5766582\n16      1  7.4615287\n17      1  7.6659402\n18      1  3.8919691\n19      1  5.5696027\n20      1  4.6935904\n21      1  5.5927711\n22      1  9.9647502\n23      1  7.0506243\n24      1  8.5931876\n25      1  1.7294836\n26      1  2.6360604\n27      1  1.5612287\n28      1  3.2213184\n29      1  4.4359100\n30      1  4.1397491\n31      1  3.5592194\n32      1  1.4645014\n33      1  7.3589794\n34      1  8.7991372\n35      1  3.1822964\n36      1  3.7043824\n37      1  6.0260248\n38      1  4.3990480\n39      1 10.3558943\n40      1  5.1731532\n41      1  5.4816935\n42      1  5.0275978\n43      1  4.0320865\n44      1  3.6715458\n45      1  5.5054984\n46      1  5.4391617\n47      1  0.7020748\n48      1 -1.9099016\n49      1  3.2133089\n50      1 -1.2023226\n51      2  1.3343050\n52      2  5.8888952\n53      2 12.0033613\n54      2 12.2615149\n55      2  9.3408233\n56      2  8.7845937\n57      2  3.6452844\n58      2  9.1563933\n59      2  6.5621377\n60      2  2.4871232\n61      2  2.8474457\n62      2  2.4317602\n63      2  6.4263868\n64      2  5.0508469\n65      2 10.6078728\n66      2 -1.9643222\n67      2  8.2013501\n68      2  6.4718833\n69      2  7.0234177\n70      2  9.4151866\n71      2  5.2053339\n72      2 10.1681114\n73      2 10.5233115\n74      2 13.7473966\n75      2 11.4663480\n76      2  7.4001766\n77      2 10.8308225\n78      2  5.4038602\n79      2  4.5783026\n80      2  7.0273893\n81      2  6.1435915\n82      2  3.1227948\n83      2 13.8077933\n84      2  6.9889991\n85      2 -2.1121177\n86      2  4.4176773\n87      2 11.0172784\n88      2  6.2350569\n89      2  6.1534385\n90      2 14.9792903\n91      2  5.2241669\n92      2  5.6967475\n93      2 13.8509112\n94      2  4.4540049\n95      2  9.3634368\n96      2  9.9984486\n97      2  8.2711844\n98      2 13.4809615\n99      2  4.5514834\n100     2  5.2498672\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
+    "text": "Example - Step 3: Packaging\nThe output is impractical, e.g., we need to scroll down:\n\nx &lt;- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, mean2 = 7, sd1 = 3, sd2 = 4)\nx\n\n$n1\n[1] 50\n\n$n2\n[1] 50\n\n$mean1\n[1] 5\n\n$mean2\n[1] 7\n\n$sd1\n[1] 3\n\n$sd2\n[1] 4\n\n$data\n    group       values\n1       1  8.251250180\n2       1  4.527613524\n3       1  1.310550485\n4       1  1.623507168\n5       1  1.855199644\n6       1  0.191948350\n7       1  7.234314659\n8       1  5.757360683\n9       1  3.394201049\n10      1  7.654232839\n11      1  7.567131683\n12      1 -1.303232278\n13      1  9.779986793\n14      1  3.754515359\n15      1  7.082900732\n16      1  4.987484572\n17      1  3.778509769\n18      1  2.839414028\n19      1  3.310935182\n20      1  6.771104973\n21      1  6.505688172\n22      1  0.854780190\n23      1  5.979743389\n24      1  5.538514562\n25      1  8.911135213\n26      1  5.941414249\n27      1  7.776740291\n28      1  8.743495685\n29      1  3.103559704\n30      1  5.004965578\n31      1  5.238414859\n32      1  1.152195958\n33      1  9.502942267\n34      1  1.010470648\n35      1  1.469949678\n36      1  5.645735941\n37      1  3.905943579\n38      1  5.484180711\n39      1  4.022345184\n40      1  5.248043052\n41      1  7.120376921\n42      1  7.694613794\n43      1  8.161839006\n44      1  7.403397581\n45      1  5.531524125\n46      1  5.038626698\n47      1  3.228219031\n48      1  1.441258416\n49      1 10.745423076\n50      1 -0.954319356\n51      2  2.424194022\n52      2  3.553493436\n53      2  8.039638443\n54      2 14.622540150\n55      2  4.984411205\n56      2  9.462421941\n57      2  3.022262970\n58      2  8.635746107\n59      2 10.389411152\n60      2  4.772899337\n61      2  3.248557050\n62      2  7.587207894\n63      2 12.161514228\n64      2  9.565236251\n65      2 14.271798528\n66      2 10.763642913\n67      2  9.886643326\n68      2 13.889607232\n69      2  3.187776220\n70      2  0.408641031\n71      2  4.444743642\n72      2 13.028941142\n73      2  6.627748665\n74      2 11.252700671\n75      2  7.056743588\n76      2  3.127032282\n77      2  0.807264949\n78      2 11.485083243\n79      2  1.806251849\n80      2  5.794368880\n81      2  2.957681649\n82      2  8.246388969\n83      2  0.002311517\n84      2  9.691090583\n85      2  9.922514533\n86      2  5.215387278\n87      2  0.833540001\n88      2  0.971748951\n89      2  6.857347774\n90      2 -1.345844969\n91      2  9.673518423\n92      2  3.803331767\n93      2  9.584241109\n94      2  7.871075967\n95      2 10.913345934\n96      2 16.044532740\n97      2 12.341033155\n98      2  5.196547432\n99      2 10.443319695\n100     2  8.819303569\n\nattr(,\"class\")\n[1] \"SimulationResult\"\n\n\n\nSolution: implement generic function print"
   },
   {
     "objectID": "slides/03_workflow.html#example---step-3-packaging-5",
     "href": "slides/03_workflow.html#example---step-3-packaging-5",
     "title": "3 An R Package Engineering Workflow",
     "section": "Example - Step 3: Packaging",
-    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult &lt;- function(x, ...) {\n    args &lt;- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x &lt;- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 -0.211\n 2     1  5.25 \n 3     1  3.61 \n 4     1  3.76 \n 5     1  4.78 \n 6     1  3.63 \n 7     1  6.46 \n 8     1  5.36 \n 9     1  4.15 \n10     1 -0.375\n# ℹ 90 more rows"
+    "text": "Example - Step 3: Packaging\nGeneric function print:\n\nCodeRoxygenOutput\n\n\n\nprint.SimulationResult &lt;- function(x, ...) {\n    args &lt;- list(n1 = x$n1, n2 = x$n2, \n        mean1 = x$mean1, mean2 = x$mean2, sd1 = x$sd1, sd2 = x$sd2)\n    \n    print(list(\n        args = format(args), \n        data = dplyr::tibble(x$data)\n    ), ...)\n}\nx\n\n\n\n\n#' @title\n#' Print Simulation Result\n#'\n#' @description\n#' Generic function to print a `SimulationResult` object.\n#'\n#' @param x a \\code{SimulationResult} object to print.\n#' @param ... further arguments passed to or from other methods.\n#' \n#' @examples\n#' x &lt;- getSimulatedTwoArmMeans(n1 = 50, n2 = 50, mean1 = 5, \n#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)\n#' print(x)\n#'\n#' @export\n\n\n\n\n\n$args\n   n1    n2 mean1 mean2   sd1   sd2 \n \"50\"  \"50\"   \"5\"   \"7\"   \"3\"   \"4\" \n\n$data\n# A tibble: 100 × 2\n   group values\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1  8.25 \n 2     1  4.53 \n 3     1  1.31 \n 4     1  1.62 \n 5     1  1.86 \n 6     1  0.192\n 7     1  7.23 \n 8     1  5.76 \n 9     1  3.39 \n10     1  7.65 \n# ℹ 90 more rows"
   },
   {
     "objectID": "slides/03_workflow.html#preparation",
@@ -126,11 +126,11 @@
     "text": "Tasks\n\nTask 1Task 2Task 3Task 4Task 5Task 6Task 7\n\n\nAdd assertions to improve the usability and user experience\n\n\n\n\n\n\nTip on assertions\n\n\nUse the package checkmate to validate input arguments.\n\n\n\nExample:\n\nplayWithAssertions &lt;- function(n1) {\n  checkmate::assertInt(n1, lower = 1)\n}\nplayWithAssertions(-1)\n\nError in playWithAssertions(-1) : Assertion on ‘n1’ failed: Element 1 is not &gt;= 1.\n\n\nAdd three additional results:\n\nn total,\ncreation time, and\nallocation ratio\n\n\n\n\n\n\n\nTip on creation time\n\n\nSys.time(), format(Sys.time(), '%B %d, %Y'), Sys.Date()\n\n\n\n\n\nAdd an additional result: t.test result\n\n\nAdd an optional alternative argument and pass it through t.test:\n\n\nalternative = c(\"two.sided\", \"less\", \"greater\")\n\n\n\nImplement the generic functions print and plot.\n\n\n\n\n\n\nTip on print\n\n\nUse the plot example function from above and extend it.\n\n\n\n\n\n\n\n\n\nTip on plot\n\n\nUse R base plot or ggplot2 to create a grouped boxplot of the fake data.\n\n\n\n\n\nOptional extra tasks:\n\nImplement the generic functions summary and cat\nImplement the function kable known from the package knitr as generic. Tip: use\n\nkable &lt;- function(x) UseMethod(\"kable\")\n\nto define kable as generic\n\n\n\nOptional extra task1:\nDocument your functions with Roxygen2\n\n\nIf you are already familiar with Roxygen2"
   },
   {
-    "objectID": "slides/08_conclusion.html#enter-menti.com-7973-5260",
-    "href": "slides/08_conclusion.html#enter-menti.com-7973-5260",
+    "objectID": "slides/08_conclusion.html#enter-menti.com-4507-3498",
+    "href": "slides/08_conclusion.html#enter-menti.com-4507-3498",
     "title": "8 Conclusion",
-    "section": "Enter menti.com: 7973 5260",
-    "text": "Enter menti.com: 7973 5260\nTODO: update the qr code and the link (expire in 7 days) before the workshop"
+    "section": "Enter menti.com: 4507 3498",
+    "text": "Enter menti.com: 4507 3498"
   },
   {
     "objectID": "slides/08_conclusion.html#r-package-structure",
@@ -172,7 +172,7 @@
     "href": "slides/08_conclusion.html#thank-you",
     "title": "8 Conclusion",
     "section": "Thank you!",
-    "text": "Thank you!\n\n\n\n\n\nIt was great to teach you today on how to build R packages\nLet’s keep in touch e.g. via gitter chat channel or wechat channel for this course that you can connect to\nWe welcome feedback on topics/format/content - reach out!"
+    "text": "Thank you!\n\n\n\n\n\nIt was great to teach you today on how to build R packages\nLet’s keep in touch e.g. via gitter chat channel for this course that you can connect to\nWe welcome feedback on topics/format/content - reach out!"
   },
   {
     "objectID": "slides/08_conclusion.html#possible-next-steps",
@@ -200,7 +200,7 @@
     "href": "slides/04_quality.html#example-ccr1",
     "title": "4 Ensuring Quality",
     "section": "Example: CCR#1",
-    "text": "Example: CCR#1\n\n\n\ny=function(x){\n  s1=0\n  for(v1 in x){s1=s1+v1}\n  m1=s1/length(x)\n  i=ceiling(length(x)/2)\n  if(length(x) %% 2 == 0){i=c(i,i+1)}\n  s2=0\n  for(v2 in i){s2=s2+x[v2]}\n  m2=s2/length(i)\n  c(m1,m2)\n}\ny(c(1:7, 100))\n\n[1] 16.0  4.5\n\n\n\nCCR#1 Naming: Are the names of the variables, functions, and classes descriptive and meaningful?"
+    "text": "Example: CCR#1\n\n\n\ny=function(x){\n  s1=0\n  for(v1 in x){s1=s1+v1}\n  m1=s1/length(x)\n  i=ceiling(length(x)/2)\n  if(length(x) %% 2 == 0){i=c(i,i+1)}\n  s2=0\n  for(v2 in i){s2=s2+x[v2]}\n  m2=s2/length(i)\n  c(m1,m2)\n}\ny(c(1:7, 100))\n\n[1] 16.0  4.5\n\n\n\nCCR#1 Naming: Are the names of the variables, functions, and classes descriptive and meaningful?\n“There are only two hard things in Computer Science: cache invalidation and naming things”"
   },
   {
     "objectID": "slides/04_quality.html#example-ccr1-1",
@@ -256,14 +256,21 @@
     "href": "slides/04_quality.html#example-ccr6",
     "title": "4 Ensuring Quality",
     "section": "Example: CCR#6",
-    "text": "Example: CCR#6\n\n\n\n# returns the mean of numeric vector x\ngetMean &lt;- function(x) {\n    sum(x) / length(x)\n}\n\n# returns TRUE if the length of numeric vector x \n# is an even number; FALSE otherwise\nisLengthAnEvenNumber &lt;- function(x) {\n    length(x) %% 2 == 0\n}\n\n# returns the median of numeric vector x\ngetMedian &lt;- function(x) {\n    centerIndices &lt;- ceiling(length(x) / 2)\n    if (isLengthAnEvenNumber(x)) {\n        centerIndices &lt;- c(centerIndices, \n             centerIndices + 1)\n    }\n    getMean(x[centerIndices])\n}\n\n\nCCR#6 Comments \nCCR#7 Error Handling: Did you include error handling code to gracefully handle exceptions and unexpected situations \n\ngetMean(\"a\":\"z\")\n\nError in “a”:“z” : NA/NaN argument Additionally: Warning messages: In getMean(“a”:“z”) : NAs generated by conversion"
+    "text": "Example: CCR#6\n\n\n\n# returns the mean of numeric vector x\ngetMean &lt;- function(x) {\n    sum(x) / length(x)\n}\n\n# returns TRUE if the length of numeric vector x \n# is an even number; FALSE otherwise\nisLengthAnEvenNumber &lt;- function(x) {\n    length(x) %% 2 == 0\n}\n\n# returns the median of numeric vector x\ngetMedian &lt;- function(x) {\n    centerIndices &lt;- ceiling(length(x) / 2)\n    if (isLengthAnEvenNumber(x)) {\n        centerIndices &lt;- c(centerIndices, \n             centerIndices + 1)\n    }\n    getMean(x[centerIndices])\n}\n\n\nCCR#6 Comments \nCCR#7 Error Handling: Did you include error handling code to gracefully handle exceptions and unexpected situations \n\ngetMean(c(\"a\", \"b\", \"c\"))\n\nError in sum(x) : invalid ‘type’ (character) of argument"
   },
   {
     "objectID": "slides/04_quality.html#example-ccr7",
     "href": "slides/04_quality.html#example-ccr7",
     "title": "4 Ensuring Quality",
     "section": "Example: CCR#7",
-    "text": "Example: CCR#7\n\n# returns the mean of numeric vector x\ngetMean &lt;- function(x) {\n    tryCatch({\n        sum(x) / length(x)      \n    }, error = function(e) {\n        stop(\"Failed to calculate the mean of 'x': \", e$message)\n    })\n}\n\n# returns TRUE if the length of numeric vector x \n# is an even number; FALSE otherwise\nisLengthAnEvenNumber &lt;- function(x) {\n    tryCatch({\n        length(x) %% 2 == 0\n    }, error = function(e) {\n        stop(\"Failed to check if 'x' is an even number: \", e$message)\n    })\n}\n\n# returns the median of numeric vector x\ngetMedian &lt;- function(x) {\n    tryCatch({\n        centerIndices &lt;- ceiling(length(x) / 2)\n        if (isLengthAnEvenNumber(x)) {\n            centerIndices &lt;- c(centerIndices, centerIndices + 1)\n        }\n        getMean(x[centerIndices])            \n    }, error = function(e) {\n        stop(\"Failed to calculate the median of 'x': \", e$message)\n    })\n}\n\nCCR#7 Error Handling"
+    "text": "Example: CCR#7\n\n# returns the mean of numeric vector x\ngetMean &lt;- function(x) {\n    tryCatch({\n        sum(x) / length(x)      \n    }, error = function(e) {\n        stop(\"Failed to calculate the mean of 'x': \", e$message)\n    })\n}\n\n# returns TRUE if the length of numeric vector x \n# is an even number; FALSE otherwise\nisLengthAnEvenNumber &lt;- function(x) {\n    tryCatch({\n        length(x) %% 2 == 0\n    }, error = function(e) {\n        stop(\"Failed to check if 'x' is an even number: \", e$message)\n    })\n}\n\n# returns the median of numeric vector x\ngetMedian &lt;- function(x) {\n    tryCatch({\n        centerIndices &lt;- ceiling(length(x) / 2)\n        if (isLengthAnEvenNumber(x)) {\n            centerIndices &lt;- c(centerIndices, centerIndices + 1)\n        }\n        getMean(x[centerIndices])            \n    }, error = function(e) {\n        stop(\"Failed to calculate the median of 'x': \", e$message)\n    })\n}"
+  },
+  {
+    "objectID": "slides/04_quality.html#example-ccr7-1",
+    "href": "slides/04_quality.html#example-ccr7-1",
+    "title": "4 Ensuring Quality",
+    "section": "Example: CCR#7",
+    "text": "Example: CCR#7\n\n# returns the mean of numeric vector x\ngetMean &lt;- function(x) {\n\n    if (is.character(x)) {\n        stop(\"x must be a numeric vector, but is a character vector.\")\n    }\n    tryCatch({\n        sum(x) / length(x)      \n    }, error = function(e) {\n        stop(\"Failed to calculate the mean of 'x': \", e$message)\n    })\n}\n\nThis is an opportunity to anticipate your user’s problems. You may prioritize the biggest errors with custom messages. (Remember: checkmate can also be useful in drafting error messages).\nCCR#7 Error Handling"
   },
   {
     "objectID": "slides/04_quality.html#summary-of-clean-code-rules",
@@ -819,11 +826,11 @@
     "text": "Daniel\n\n\n\n\n\nSenior Principle Data Scientist at Genentech.\nPreviously, Senior Biostatistician at Memorial Sloan Kettering Cancer Center in New York City.\nResearch interests include adaptive methods in clinical trials, precision medicine, and predictive modeling.\nWinner of the 2021 American Statistical Association (ASA) Innovation in Statistical Programming and Analytics award."
   },
   {
-    "objectID": "slides/01_intro.html#matt",
-    "href": "slides/01_intro.html#matt",
+    "objectID": "slides/01_intro.html#matt-secrest",
+    "href": "slides/01_intro.html#matt-secrest",
     "title": "1 Introduction",
-    "section": "Matt",
-    "text": "Matt\n\n\n\nMasters in Epidemiology from McGill University\nRWD epidemiologist for 7 years, including 3 in Roche RWD product development\nDeveloper of the open-source psborrow2 R package  for Bayesian dynamic borrowing analyses as well as internal Roche packages\nFeel free to connect at  LinkedIn or  Github"
+    "section": "Matt Secrest",
+    "text": "Matt Secrest\n\n\n\nSenior Data Scientist at Genentech\nMasters in Epidemiology from McGill University\nRWD epidemiologist for 7 years, including 3 in RWD product development\nDeveloper of the open-source psborrow2 R package  for Bayesian dynamic borrowing analyses as well as internal Roche packages\nFeel free to connect at  LinkedIn or  Github"
   },
   {
     "objectID": "slides/01_intro.html#laura",
@@ -851,14 +858,14 @@
     "href": "slides/01_intro.html#house-keeping",
     "title": "1 Introduction",
     "section": "House-keeping",
-    "text": "House-keeping\n\nCourse website at openpharma.github.io/workshop-r-swe\n\nall slides\nsources available at github.com/openpharma/workshop-r-swe\nall materials CC-BY 4.0\n\nWe have a Google currents channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course"
+    "text": "House-keeping\n\nCourse website at openpharma.github.io/workshop-r-swe-sf\n\nall slides\nsources available at github.com/openpharma/workshop-r-sw-sf\nall materials CC-BY 4.0\n\nWe have a Google currents channel for this course that you can connect to\n\nuse to ask your peers questions\nwill try to monitor during course"
   },
   {
     "objectID": "slides/01_intro.html#enter-gitter-chat-channel",
     "href": "slides/01_intro.html#enter-gitter-chat-channel",
     "title": "1 Introduction",
     "section": "Enter Gitter Chat Channel",
-    "text": "Enter Gitter Chat Channel\nhttps://matrix.to/#/#workshop-r-swe-sf:matrix.org"
+    "text": "Enter Gitter Chat Channel"
   },
   {
     "objectID": "slides/01_intro.html#what-you-will-need",
@@ -970,7 +977,7 @@
     "href": "slides/05_collaboration.html#merging-two-branches",
     "title": "5 Version Control & Collaboration",
     "section": "‘Merging’ two branches",
-    "text": "‘Merging’ two branches\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n   merge feature\n\n\n\n\n\n\nConsolidate diverged ‘branches’\nUsually merged automergically\nConflicting changes r fontawesome::fa(\"skull\")\nLine edited in source/target branch - keep which?\nResolving merge conflicts beyond today’s scope\n\n\n\n\nPhoto by Max LaRochelle on Unsplash"
+    "text": "‘Merging’ two branches\n\n\n\n\n\n\n\n\ngitGraph\n   commit\n   commit\n   branch feature\n   checkout feature\n   commit\n   commit\n   checkout main\n   commit\n   merge feature\n\n\n\n\n\n\nConsolidate diverged ‘branches’\nUsually merged automergically\nConflicting changes \nLine edited in source/target branch - keep which?\nResolving merge conflicts beyond today’s scope\n\n\n\n\nPhoto by Max LaRochelle on Unsplash"
   },
   {
     "objectID": "slides/05_collaboration.html#example-of-gitflow",
@@ -1152,6 +1159,6 @@
     "href": "listing.html",
     "title": "Slides",
     "section": "",
-    "text": "1 Introduction\n\n\nGood Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nDaniel Sjoberg, Laura Harris, Matt Secrest\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nGood Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nGood Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nGood Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nMatt\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nGood Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nMatt\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nGood Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nDaniel Sjoberg\n\n\n\n\n\n\n  \n\n\n\n\n7 Shiny Development\n\n\nGood Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n8 Conclusion\n\n\nGood Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nJoe Zhu\n\n\n\n\n\n\nNo matching items"
+    "text": "1 Introduction\n\n\nGood Software Engineering Practice for R Packages\n\n\nIntroduction and outline of program.Photo CC0 by Mabel Amber on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nDaniel Sjoberg, Laura Harris, Matt Secrest\n\n\n\n\n\n\n  \n\n\n\n\n2 R packages\n\n\nGood Software Engineering Practice for R Packages\n\n\nR package syntax + practicalPhoto CC0 by cottonbro studio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n3 An R Package Engineering Workflow\n\n\nGood Software Engineering Practice for R Packages\n\n\nWorkflow for creating R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n4 Ensuring Quality\n\n\nGood Software Engineering Practice for R Packages\n\n\nPackage quality + exercisePhoto CC0 by Pixabay on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nMatt Secrest\n\n\n\n\n\n\n  \n\n\n\n\n5 Version Control & Collaboration\n\n\nGood Software Engineering Practice for R Packages\n\n\nCollaboration via GitHub + practicalPhoto CC0 by THIS IS ZUN on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nMatt Secrest\n\n\n\n\n\n\n  \n\n\n\n\n6 Publication\n\n\nGood Software Engineering Practice for R Packages\n\n\nPublication of R packages + practicalPhoto CC0 by Andrea Piacquadio on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nDaniel Sjoberg\n\n\n\n\n\n\n  \n\n\n\n\n7 Shiny Development\n\n\nGood Software Engineering Practice for R Packages\n\n\nBest Practices for Shiny App DevelopmentPhoto by Pixabay on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nLaura Harris\n\n\n\n\n\n\n  \n\n\n\n\n8 Conclusion\n\n\nGood Software Engineering Practice for R Packages\n\n\nDiscussion of learning experience, summary of workflow, conclusion and next steps.Photo by Ann H on pexels.com\n\n\n\n\n\n\nJul 20, 2023\n\n\nMatt Secrest\n\n\n\n\n\n\nNo matching items"
   }
 ]
