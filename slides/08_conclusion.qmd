@@ -1,19 +1,17 @@
 ---
 title: "8 Conclusion"
-author: "Joe Zhu"
+author: "Matt Secrest"
 description: "Discussion of learning experience, summary of workflow, conclusion and next steps.</br>[Photo by Ann H on pexels.com]{.copyright}"
 image: thumbnails/conclusion.jpg
 ---
 
 # Temperature check
 
-## Enter menti.com: 7973 5260
-
-TODO: update the qr code and the link (expire in 7 days) before the workshop
+## Enter menti.com: 4507 3498
 
 ![](resources/workshop-sf-mentimeter.png)
 
-##  {background-iframe="https://www.mentimeter.com/app/presentation/aljjjxmphsrgrg1z92ynw2mqeysduryr/embed" background-interactive="true"}
+##  {background-iframe="https://www.mentimeter.com/app/presentation/alzhn8f5gzo99ib8o523dpeau8kj91d5/embed" background-interactive="true"}
 
 # Take away messages
 
@@ -77,7 +75,7 @@ TODO: update the qr code and the link (expire in 7 days) before the workshop
 
 ::: {.column width="70%"}
 -   It was great to teach you today on how to build R packages
--   Let's keep in touch e.g. via [gitter chat channel](https://gitter.im/workshop-r-swe/community) or wechat channel for this course that you can connect to
+-   Let's keep in touch e.g. via [gitter chat channel](https://app.gitter.im/#/room/#workshop-r-swe-sf:matrix.org) for this course that you can connect to
 -   We welcome feedback on topics/format/content - reach out!
 :::
 :::
@@ -92,10 +90,9 @@ TODO: update the qr code and the link (expire in 7 days) before the workshop
 # License information
 
 - Creators (initial authors): 
-  Daniel Sabanes Bove [`r fontawesome::fa("github")`](https://github.com/danielinteractive/) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/danielsabanesbove/)
+  Daniel Sabanes Bove
 - In the current version, changes were done by (later authors): 
-  Ya Wang [`r fontawesome::fa("github")`](https://github.com/ywang-gilead)
-  [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/ya-wang-98531524/)
+  Ya Wang and Matt Secrest
 - This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 - The source files are hosted at [github.com/openpharma/workshop-r-swe-sf](https://github.com/openpharma/workshop-r-swe-sf), which is forked from the original version at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe/).
 - Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made

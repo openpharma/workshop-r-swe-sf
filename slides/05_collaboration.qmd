@@ -1,6 +1,6 @@
 ---
 title: "5 Version Control & Collaboration"
-author: "Matt"
+author: "Matt Secrest"
 description: "Collaboration via GitHub + practical<br/>[Photo CC0 by THIS IS ZUN on pexels.com]{.copyright}"
 image: thumbnails/collaboration.jpg
 ---
@@ -220,7 +220,7 @@ gitGraph
 
 - Consolidate diverged 'branches'
 - Usually merged automergically
-- Conflicting changes `r fontawesome::fa("skull")`
+- Conflicting changes {{< fa skull >}}
 - Line edited in source/target branch - keep which?
 - [Resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) beyond today's scope
 :::
@@ -364,10 +364,8 @@ sequenceDiagram
 # License information
 
 - Creators (initial authors): 
-  Kevin Kunzmann [`r fontawesome::fa("github")`](https://github.com/kkmann/) [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/kevin-kunzmann-6486a11bb/),
-  Shuang Li [`r fontawesome::fa("github")`](https://github.com/shuangli22)
-- In the current version, changes were done by (later authors): 
-  TODO: FILL IN, OR IF NOT APPLICABLE DELETE THIS BULLET
+  Kevin Kunzmann [{{< fa brands github >}}](https://github.com/kkmann/),
+  Shuang Li [{{< fa brands github >}}](https://github.com/shuangli22)
 - This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 - The source files are hosted at [github.com/openpharma/workshop-r-swe-sf](https://github.com/openpharma/workshop-r-swe-sf), which is forked from the original version at [github.com/openpharma/workshop-r-swe](https://github.com/openpharma/workshop-r-swe/).
 - Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made
