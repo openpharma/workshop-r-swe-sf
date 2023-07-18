@@ -738,8 +738,7 @@ Check if your package is ready for use in production with the
     [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/pahlke/), Joe
     Zhu [`r fontawesome::fa("github")`](https://github.com/shajoezhu)
     [`r fontawesome::fa("linkedin")`](http://www.linkedin.com/in/joe-zhu-464b5818)
--   In the current version, changes were done by (later authors): TODO: FILL IN,
-    OR IF NOT APPLICABLE DELETE THIS BULLET
+-   In the current version, changes were done by (later authors): Matt Secrest [`r fontawesome::fa("github")`](https://github.com/mattsecrest/)
 -   This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0
     International License](http://creativecommons.org/licenses/by-sa/4.0/).
 -   The source files are hosted at
