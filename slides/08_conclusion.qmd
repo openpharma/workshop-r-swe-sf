@@ -3,13 +3,12 @@ title: "8 Conclusion"
 author: "Joe Zhu"
 description: "Discussion of learning experience, summary of workflow, conclusion and next steps.</br>[Photo by Ann H on pexels.com]{.copyright}"
 image: thumbnails/conclusion.jpg
+engine: knitr
 ---
 
 # Temperature check
 
 ## Enter menti.com: 7973 5260
-
-TODO: update the qr code and the link (expire in 7 days) before the workshop
 
 ![](resources/workshop-sf-mentimeter.png)
 
