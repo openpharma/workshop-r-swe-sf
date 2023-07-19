@@ -323,7 +323,6 @@ getMedian <- function(x) {
 }
 ```
 
-
 ## Example: CCR#7
 
 ```{r, echo = TRUE, eval = FALSE}
@@ -343,9 +342,9 @@ getMean <- function(x) {
 }
 ```
 
-This is an opportunity to anticipate your user's problems. You may 
-prioritize the biggest errors with custom messages. (**Remember**: 
-`checkmate` can also be useful in drafting error messages).
+This is an opportunity to anticipate your user's problems. You may prioritize
+the biggest errors with custom messages. (**Remember**: `checkmate` can also be
+useful in drafting error messages).
 
 CCR#7 **Error Handling** [{{< fa circle-check size=1x >}}]{.green}
 
@@ -497,6 +496,35 @@ expect_equal(getMean(1:4), 2)
 ::: red-small
 Error: mean(1:4) (actual) not equal to 2 (expected).
 :::
+
+## Possible workflow - write the unit tests first
+
+**First**, write a placeholder function:
+
+```{r, echo = TRUE, eval = FALSE}
+getMean <- function(x) {
+   
+}
+```
+
+**Then**, write your unit tests, which should fail:
+
+```{r, echo = TRUE, eval = FALSE}
+library(testthat)
+expect_error(getMean(x = c("a","b","c")))
+```
+
+::: red-small
+Error: `getMean(c("a", "b", "c"))` did not throw the expected error.
+:::
+
+**Finally**, go back and edit the function so that the unit tests will pass:
+
+```{r, echo = TRUE, eval = FALSE}
+getMean <- function(x) {
+   checkmate::expect_numeric(x)
+}
+```
 
 ## testthat Comparisons Functions (1/2)
 
@@ -738,7 +766,8 @@ Check if your package is ready for use in production with the
     [`r fontawesome::fa("linkedin")`](https://www.linkedin.com/in/pahlke/), Joe
     Zhu [`r fontawesome::fa("github")`](https://github.com/shajoezhu)
     [`r fontawesome::fa("linkedin")`](http://www.linkedin.com/in/joe-zhu-464b5818)
--   In the current version, changes were done by (later authors): Matt Secrest [`r fontawesome::fa("github")`](https://github.com/mattsecrest/)
+-   In the current version, changes were done by (later authors): Matt Secrest
+    [`r fontawesome::fa("github")`](https://github.com/mattsecrest/)
 -   This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0
     International License](http://creativecommons.org/licenses/by-sa/4.0/).
 -   The source files are hosted at

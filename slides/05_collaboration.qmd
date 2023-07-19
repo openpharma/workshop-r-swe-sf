@@ -27,7 +27,6 @@ Photo by <a href="https://unsplash.com/@rhubbardstockfootage?utm_source=unsplash
 
 -   no coordination overhead
 -   no review
--   lack of diversity
 -   can slack on documentation
 -   fragile long-term maintenance
 :::
@@ -37,20 +36,9 @@ Photo by <a href="https://unsplash.com/@rhubbardstockfootage?utm_source=unsplash
 
 -   coordination overhead
 -   mutual review of code
--   different approaches
 -   forced to document
 -   more robust long-term maintenance
 :::
-:::
-
-##  {background-image="resources/complexity.jpg"}
-
-::: {.absolute top="250" left="625"}
-**Key issue:</br> Manage complexity over time or between people**
-:::
-
-::: footer
-Photo from <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Mossholder</a> on <a href="https://unsplash.com/de/fotos/FwzhysPCQZc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 :::
 
 ## Version control systems (VCS)
@@ -60,10 +48,10 @@ Photo from <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&utm_
 
 ```{mermaid}
 flowchart LR
-  A[<font size=4> Matt v1] --> B[<font size=4> Ya v2]
-  B --> C[<font size=4> Matt v3]
-  B --> D[<font size=4> Ya v1]
-  D --> E[<font size=4> Ya + Matt v4]
+  A[Matt v1] --> B[Ya v2]
+  B --> C[Matt v3]
+  B --> D[Ya v1]
+  D --> E[Ya+Matt v4]
   C --> E
 ```
 
@@ -262,7 +250,7 @@ gitGraph
 
 - git itself is command line tool for version control
 - **git platforms add UI for collaboration**^[All platforms also available on-premise for enterprise use]
-    - [GitHub.com](https://github.com) de facto standard in R (alternative: [GitLab.com](https://gitlab.com/), [Gitee.com](https://gitee.com/))
+    - [GitHub.com](https://github.com) de facto standard in R (alternative: [GitLab.com](https://gitlab.com/), [BitBucket.org](https://bitbucket.org/), [Gitee.com](https://gitee.com/))
 - git + GitHub
   - VCS (git)
   - Web hosting of code (GitHub)
