@@ -226,13 +226,13 @@ Maintainer: 'Friedrich Pahlke'
 
 Use the same repository created from template [https://github.com/kkmann/simulatr](https://github.com/kkmann/simulatr)
 
-- Run CRAN like checks in RStudio: use `--as-cran` in check options
+- Run CRAN like checks in RStudio: use `devtools::check()`
 - Look at the CI/CD checks reported on your GitHub repository
   - Where are the `R CMD check` results?
-- Enable github page through `use_pkgdown_github_pages`
+- Enable github page through `usethis::use_pkgdown_github_pages()`
 - Deploy the website with `pkgdown`
   - Need to change remote to `git`
-- Deploy the website through `use_github_action("pkgdown")`
+- Deploy the website through `usethis::use_github_action("pkgdown")`
   - (Optional) Check the automatic github page deploy action
 
 # License information
