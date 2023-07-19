@@ -366,7 +366,6 @@ Matt Secrest
 <ul>
 <li>no coordination overhead</li>
 <li>no review</li>
-<li>lack of diversity</li>
 <li>can slack on documentation</li>
 <li>fragile long-term maintenance</li>
 </ul>
@@ -375,20 +374,10 @@ Matt Secrest
 <ul>
 <li>coordination overhead</li>
 <li>mutual review of code</li>
-<li>different approaches</li>
 <li>forced to document</li>
 <li>more robust long-term maintenance</li>
 </ul>
 </div>
-</div>
-</section>
-<section id="section-1" class="slide level2" data-background-image="resources/complexity.jpg">
-<h2></h2>
-<div class="absolute" style="top: 250px; left: 625px; ">
-<p><strong>Key issue:<br> Manage complexity over time or between people</strong></p>
-</div>
-<div class="footer">
-<p>Photo from <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Tim Mossholder</a> on <a href="https://unsplash.com/de/fotos/FwzhysPCQZc?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
 </div>
 </section>
 <section id="version-control-systems-vcs" class="slide level2">
@@ -402,10 +391,10 @@ Matt Secrest
 <div>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A[&lt;font size=4&gt; Matt v1] --&gt; B[&lt;font size=4&gt; Ya v2]
-  B --&gt; C[&lt;font size=4&gt; Matt v3]
-  B --&gt; D[&lt;font size=4&gt; Ya v1]
-  D --&gt; E[&lt;font size=4&gt; Ya + Matt v4]
+  A[Matt v1] --&gt; B[Ya v2]
+  B --&gt; C[Matt v3]
+  B --&gt; D[Ya v1]
+  D --&gt; E[Ya+Matt v4]
   C --&gt; E
 </pre>
 </div>
@@ -626,7 +615,7 @@ Matt Secrest
 <li>git itself is command line tool for version control</li>
 <li><strong>git platforms add UI for collaboration</strong><sup>1</sup>
 <ul>
-<li><a href="https://github.com">GitHub.com</a> de facto standard in R (alternative: <a href="https://gitlab.com/">GitLab.com</a>, <a href="https://gitee.com/">Gitee.com</a>)</li>
+<li><a href="https://github.com">GitHub.com</a> de facto standard in R (alternative: <a href="https://gitlab.com/">GitLab.com</a>, <a href="https://bitbucket.org/">BitBucket.org</a>, <a href="https://gitee.com/">Gitee.com</a>)</li>
 </ul></li>
 <li>git + GitHub
 <ul>

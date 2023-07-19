@@ -832,6 +832,29 @@ Are we building the right product?</p>
 <p>Error: mean(1:4) (actual) not equal to 2 (expected).</p>
 </div>
 </section>
+<section id="possible-workflow---write-the-unit-tests-first" class="slide level2">
+<h2>Possible workflow - write the unit tests first</h2>
+<p><strong>First</strong>, write a placeholder function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>getMean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb18-2"><a href="#cb18-2"></a>   </span>
+<span id="cb18-3"><a href="#cb18-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Then</strong>, write your unit tests, which should fail:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">expect_error</span>(<span class="fu">getMean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="red-small">
+<p>Error: <code>getMean(c("a", "b", "c"))</code> did not throw the expected error.</p>
+</div>
+<p><strong>Finally</strong>, go back and edit the function so that the unit tests will pass:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>getMean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb20-2"><a href="#cb20-2"></a>   checkmate<span class="sc">::</span><span class="fu">expect_numeric</span>(x)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="testthat-comparisons-functions-12" class="slide level2">
 <h2>testthat Comparisons Functions (1/2)</h2>
 <div class="small">
@@ -994,9 +1017,9 @@ Are we building the right product?</p>
 <h2>How to improve the test coverage?</h2>
 <p><a href="https://cran.r-project.org/package=covr">covr</a>: Track and report code coverage for your package</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(covr)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>x <span class="ot">&lt;-</span> <span class="fu">package_coverage</span>()</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">report</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">library</span>(covr)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>x <span class="ot">&lt;-</span> <span class="fu">package_coverage</span>()</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">report</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><img data-src="resources/covr_full.png"></p>
@@ -1006,19 +1029,19 @@ Are we building the right product?</p>
 <h2>Example on test coverage</h2>
 <p>Let’s assume we have added a generic function to cat a simulation result:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#' </span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#' @export</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co">#'</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>cat.SimulationResult <span class="ot">&lt;-</span> <span class="cf">function</span>(... , <span class="at">file =</span> <span class="st">""</span>, <span class="at">sep =</span> <span class="st">" "</span>, </span>
-<span id="cb19-5"><a href="#cb19-5"></a>        <span class="at">fill =</span> <span class="cn">FALSE</span>, <span class="at">labels =</span> <span class="cn">NULL</span>, <span class="at">append =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb19-6"><a href="#cb19-6"></a>    args <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb19-7"><a href="#cb19-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#' </span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="co">#' @export</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#'</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>cat.SimulationResult <span class="ot">&lt;-</span> <span class="cf">function</span>(... , <span class="at">file =</span> <span class="st">""</span>, <span class="at">sep =</span> <span class="st">" "</span>, </span>
+<span id="cb22-5"><a href="#cb22-5"></a>        <span class="at">fill =</span> <span class="cn">FALSE</span>, <span class="at">labels =</span> <span class="cn">NULL</span>, <span class="at">append =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb22-6"><a href="#cb22-6"></a>    args <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb22-7"><a href="#cb22-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>But we forgot to finalize the implementation and didn’t create unit tests.</p>
 <p>Re-execution of</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(<span class="fu">package_coverage</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(<span class="fu">package_coverage</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>then results in…</p>
 </div>
@@ -1100,8 +1123,8 @@ Are we building the right product?</p>
 <img data-src="thumbnails/exercise.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="copyright">Photo CC0 by Pixabay on pexels.com</span></p></section>
 <section id="please-install-the-following-packages-before-we-move-on" class="slide level2">
 <h2>Please install the following packages before we move on</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"DT"</span>, <span class="st">"htmltools"</span>,</span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="st">"testthat"</span>, <span class="st">"rlang"</span>, <span class="st">"checkmate"</span>, <span class="st">"covr"</span>, <span class="st">"styler"</span>, <span class="st">"devtools"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"DT"</span>, <span class="st">"htmltools"</span>,</span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="st">"testthat"</span>, <span class="st">"rlang"</span>, <span class="st">"checkmate"</span>, <span class="st">"covr"</span>, <span class="st">"styler"</span>, <span class="st">"devtools"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="tasks" class="slide level2">
 <h2>Tasks</h2>
